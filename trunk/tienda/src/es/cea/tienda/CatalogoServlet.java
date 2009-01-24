@@ -20,10 +20,11 @@ public class CatalogoServlet extends HttpServlet {
 		
 		pw.println(html.head);
 		pw.println(html.cuerpo);
+		pw.println("<h4>Producto</h4><p>");
 		for(int i=0;i<lista.size();i++){
 			pw.println("<a href='./detalle?id="+lista.get(i).id+"'>"+lista.get(i).nombre+"</a><br>");
 		}
-		pw.println("<a href='./nuevoproducto'>Producto nuevo</a><br>");
+		pw.println("</p><a href='./nuevoproducto'>Producto nuevo</a><br><br>");
 		pw.println("<a href='./cerrar'>Cerrar sesion</a>");
 		pw.println(html.fin);
 		pw.close();

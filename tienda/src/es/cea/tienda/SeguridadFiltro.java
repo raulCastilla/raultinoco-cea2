@@ -10,10 +10,6 @@ import javax.servlet.ServletResponse;
 
 public class SeguridadFiltro implements Filter {
 
-    public SeguridadFiltro() {
-        // TODO Auto-generated constructor stub
-    }
-
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}

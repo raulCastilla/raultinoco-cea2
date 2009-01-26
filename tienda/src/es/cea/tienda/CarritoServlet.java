@@ -18,7 +18,7 @@ public class CarritoServlet extends HttpServlet {
 		pw.println(html.head);
 		pw.println(html.cuerpo);
 		List<Producto> carrito=(List<Producto>)request.getSession().getAttribute(AtributosConstantes.carrito.toString());
-		pw.println("<table border='1'>");
+		pw.println("<table border='1' bordercolor='orange'>");
 		pw.println("<tr><td>NOMBRE</td><td>PRECIO</td></tr>");
 		for(Producto p:carrito) pw.println("<tr><td>"+p.nombre+"</td><td>"+p.precio+"</td></tr>");
 		pw.println("</table>");

@@ -1,15 +1,11 @@
 package es.cea.tienda;
 
-import java.io.Serializable;
-
-public class Producto implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	static Integer id=-1;
+public class Producto {
+	Integer id;
 	Double precio;
 	String nombre;
-	public Producto(String nombre,Double precio) {
-		this.id++;
+	public Producto(Integer id, Double precio, String nombre) {
+		this.id = id;
 		this.precio = precio;
 		this.nombre = nombre;
 	}

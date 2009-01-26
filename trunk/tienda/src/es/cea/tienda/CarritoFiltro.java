@@ -38,7 +38,8 @@ public class CarritoFiltro implements Filter {
              }
 
 		}
-		chain.doFilter(request, response);
+		else chain.doFilter(request, response);
+		
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

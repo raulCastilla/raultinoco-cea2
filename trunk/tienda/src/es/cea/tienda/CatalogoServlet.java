@@ -21,10 +21,13 @@ public class CatalogoServlet extends HttpServlet {
 		
 		pw.println(html.head);
 		pw.println(html.cuerpo);
+		pw.println("<table>");
 		for(Producto p:lista){
-			pw.println("<a href='./detalle?id="+p.id+"'>"+p.nombre+"</a><br>");
+			pw.println("<tr><td><b>"+p.nombre+"</b></td><td><a href='./detalle?id="+p.id+"'>detalle</a></td><td><a href='./modificar?id="+p.id+"'>modificar</a></td><td><a href='./delete?id="+p.id+"&confirm=true'>eliminar</a></td></tr>");
 		}
+		pw.println("</table>");
 		pw.println("<a href='./carrito'>Ir a mi carrito</a><br>");
+		//pw.println("<a href='./carrito'>Nuevo producto</a><br>");
 		pw.println("<a href='./cerrar'>Cerrar sesion</a>");
 		pw.println(html.fin);
 		pw.close();

@@ -31,10 +31,10 @@ public class Registro extends HttpServlet {
 			pw.println("</form>");
 			
 		}
-		else{
+		/*else{
 			pw.println("YA ESTAS REGISTRADO: "+request.getSession().getAttribute(AtributosConstantes.usuario.toString())+"<br>");
 			pw.println("<a href='./catalogo'>I al catalogo</a>");
-		}
+		}*/
 		pw.println(html.fin);
 		pw.close();
 	}

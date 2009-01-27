@@ -20,15 +20,19 @@ public class CrearServlet extends HttpServlet {
 		pw.println(html.head);
 		pw.println(html.cuerpo);
 		if(request.getParameter("crear")!=null){
-			Producto nuevo= new Producto(Integer.parseInt(request.getParameter("id"),Double.parseDouble(request.getParameter("precio"))));
+			Producto nuevo= new Producto(Integer.parseInt(request.getParameter("id")),Double.parseDouble(request.getParameter("precio")),request.getParameter("nombre"));
+			lista.add(nuevo);
+			pw.println("SU PRODUCTO HA SIDO AGREGADO<br>");
+			pw.println("<a href='./catalogo'>Volver al catalog</a>");
 		}
-		pw.println("<form action='./crear?crear=true' method='post'>");
-		pw.println("<b>ID:</b><input type='text' name='id' />");
-        pw.println("<b>NOMBRE:</b> <input type='text' name='nombre' />");
-        pw.println("<b>PRECIO:</b> <input type='text' name='precio' />");
-        pw.println("<input type='submit' value='Crear' />");
-        pw.println("</form>");
-        
+		else{
+			pw.println("<form action='./crear?crear=true' method='post'>");
+			pw.println("<b>ID:</b><input type='text' name='id' />");
+			pw.println("<b>NOMBRE:</b> <input type='text' name='nombre' />");
+			pw.println("<b>PRECIO:</b> <input type='text' name='precio' />");
+			pw.println("<input type='submit' value='Crear' />");
+			pw.println("</form>");
+		}
 		pw.println(html.fin);
 		pw.close();
 	}

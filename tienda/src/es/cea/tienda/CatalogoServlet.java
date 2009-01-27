@@ -27,7 +27,7 @@ public class CatalogoServlet extends HttpServlet {
 		}
 		pw.println("</table>");
 		pw.println("<a href='./carrito'>Ir a mi carrito</a><br>");
-		//pw.println("<a href='./carrito'>Nuevo producto</a><br>");
+		pw.println("<a href='./crear?crear=true'>Nuevo producto</a><br>");
 		pw.println("<a href='./cerrar'>Cerrar sesion</a>");
 		pw.println(html.fin);
 		pw.close();

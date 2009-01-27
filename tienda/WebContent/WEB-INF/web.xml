@@ -9,6 +9,11 @@
     <servlet-name>catalogo</servlet-name>
     <servlet-class>es.cea.tienda.CatalogoServlet</servlet-class>
   </servlet>
+    <servlet>
+    <display-name>crear</display-name>
+    <servlet-name>crear</servlet-name>
+    <servlet-class>es.cea.tienda.CrearServlet</servlet-class>
+  </servlet>
   <servlet>
     <description></description>
     <display-name>carrito</display-name>
@@ -79,6 +84,10 @@
     <servlet-mapping>
     <servlet-name>modificar</servlet-name>
     <url-pattern>/modificar</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>crear</servlet-name>
+    <url-pattern>/crear</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

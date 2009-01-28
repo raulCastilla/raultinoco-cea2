@@ -16,21 +16,17 @@ public class BibliotecaServlet extends HttpServlet {
 		List<Libro> libros = (List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		HtmlUtilities html = new HtmlUtilities("Biblioteca");
 		String prest="";
+		pw.println(html.head);
+		pw.println(html.cuerpo);
 		pw.println("<table>");
 		pw.println("<tr><td>TITULO</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
 		for(Libro tmp : libros){
 			prest = (tmp.prestado)?"SI":"NO";
 			pw.println("<tr><td>"+tmp.titulo+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");
-			pw.println("");
-			pw.println("");
-			pw.println("");
-			pw.println("");
-			pw.println("");
-			pw.println("");
-			pw.println("");
-			pw.println("");
 		}
+		pw.println(html.fin);
 		pw.close();
 	}
 

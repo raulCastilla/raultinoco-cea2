@@ -9,4 +9,5 @@ public enum AtributosConstantes {
 	prestamos,
 	usuarioRegistrado,
 	prestamosUsuario,
+	administrador,
 }

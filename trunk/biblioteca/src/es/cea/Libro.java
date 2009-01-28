@@ -16,6 +16,7 @@ public class Libro implements Serializable{
 		this.titulo = titulo;
 		this.genero = genero;
 		this.autor = autor;
+		this.prestado = false;
 	}
 
 	@Override

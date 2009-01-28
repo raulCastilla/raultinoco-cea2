@@ -13,7 +13,7 @@ public class CrearPrestamo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Prestamo> prestamos = (List<Prestamo>)request.getSession().getServletContext().getAttribute(AtributosConstantes.prestamos.toString());
-		List<Prestamo> prestamoUsuario = (List<Prestamo>)request.getSession().getAttribute(AtributosConstantes.prestamosUsuario.toString());
+		Prestamo[] prestamoUsuario = (Prestamo[])request.getSession().getAttribute(AtributosConstantes.prestamosUsuario.toString());
 		List<Libro> libro = (List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 		
 		Libro lib=null;
@@ -21,7 +21,13 @@ public class CrearPrestamo extends HttpServlet {
 		Usuario user=(Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
 		Prestamo pres = new Prestamo(lib,user);
 		prestamos.add(pres);
-		prestamoUsuario.add(pres);
+		for(int i=0;i<prestamoUsuario.length;i++){
+			if(prestamoUsuario[i]==null){
+				prestamoUsuario[i]=pres;
+				break;
+			} 
+			
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

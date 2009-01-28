@@ -20,7 +20,6 @@ public class Solicitud implements Serializable{
 	}
 	
 	public void denegar(){
-		Integer index=null;
 		for(int i=0;i<this.solicitud.size();i++) if(solicitud.get(i).equals(this.usuario)) solicitud.remove(i);
 	}
 	

@@ -9,12 +9,13 @@ import javax.servlet.http.HttpSessionListener;
 public class SesionListener implements HttpSessionListener {
 
     public void sessionDestroyed(HttpSessionEvent sesionEvent) {
-    	List<Prestamo> prestamos = new ArrayList<Prestamo>();
-    	sesionEvent.getSession().setAttribute(AtributosConstantes.prestamosUsuario.toString(), prestamos);
+    	System.out.println("FINALIZANDO SESION....");
     }
 
     public void sessionCreated(HttpSessionEvent sesionEvent) {
-        System.out.println("FINALIZANDO SESION....");
+       
+        Prestamo[] prestamos = new Prestamo[3];
+    	sesionEvent.getSession().setAttribute(AtributosConstantes.prestamosUsuario.toString(), prestamos);
     }
 	
 }

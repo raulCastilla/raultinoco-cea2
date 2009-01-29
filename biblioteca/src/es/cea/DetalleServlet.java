@@ -28,7 +28,7 @@ public class DetalleServlet extends HttpServlet {
 
     Libro l=null;
     for(Libro lib:libros){
-    	if( lib.referencia.equals(referencia)) {
+    	if( lib.referencia.equals(request.getParameter("ref"))) {
     		l=lib;
     	}
     }
@@ -51,7 +51,7 @@ public class DetalleServlet extends HttpServlet {
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		toGet(request,response);
+		doGet(request,response);
 	}
 
 }

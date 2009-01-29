@@ -2,6 +2,7 @@ package es.cea;
 
 import java.io.Serializable;
 
+
 public class Libro implements Serializable{
 	private static final long serialVersionUID = 1L;
 	String referencia;
@@ -9,14 +10,16 @@ public class Libro implements Serializable{
 	Genero genero;
 	Autor autor;
 	Boolean prestado;
+	String fechaPublicacion;
 	
-	public Libro(String referencia, String titulo, Genero genero, Autor autor) {
+	public Libro(String referencia, String titulo, Genero genero, Autor autor, String fecha) {
 		super();
 		this.referencia = referencia;
 		this.titulo = titulo;
 		this.genero = genero;
 		this.autor = autor;
 		this.prestado = false;
+		this.fechaPublicacion = fecha;
 	}
 
 	@Override

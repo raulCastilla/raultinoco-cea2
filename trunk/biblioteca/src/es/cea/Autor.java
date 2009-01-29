@@ -14,6 +14,12 @@ public class Autor implements Serializable{
 	}
 	
 	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.nombre;
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

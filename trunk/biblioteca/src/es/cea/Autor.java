@@ -1,6 +1,7 @@
 package es.cea;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Autor implements Serializable{
@@ -11,6 +12,7 @@ public class Autor implements Serializable{
 	public Autor(String nombre) {
 		super();
 		this.nombre = nombre;
+		this.libros=new ArrayList<Libro>();
 	}
 	
 	@Override

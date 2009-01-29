@@ -7,12 +7,14 @@ public class Solicitud implements Serializable{
 	private static final long serialVersionUID = 1L;
 	Usuario usuario;
 	List<Solicitud> solicitud;
+	List<Usuario> listaUsuarios;
 	
 	
-	public Solicitud(Usuario usuario, List<Solicitud> solicitud) {
+	public Solicitud(Usuario usuario, List<Solicitud> solicitud, List<Usuario> listaUsuarios) {
 		super();
 		this.usuario = usuario;
 		this.solicitud = solicitud;
+		this.listaUsuarios = listaUsuarios;
 	}
 
 	public void aceptar(){
@@ -20,7 +22,14 @@ public class Solicitud implements Serializable{
 	}
 	
 	public void denegar(){
-		for(int i=0;i<this.solicitud.size();i++) if(solicitud.get(i).equals(this.usuario)) solicitud.remove(i);
+		//Borrar la esta solicitud de la lsta
+		for(int i=0;i<this.solicitud.size();i++){ 
+			if(solicitud.get(i).equals(this)) solicitud.remove(i);
+		}
+		//Borrar el usuario de la lista de usuarios
+		for(int j=0;j<this.listaUsuarios.size();j++){
+			if(this.listaUsuarios.get(j).equals(this.usuario)) listaUsuarios.remove(j);
+		}
 	}
 	
 	@Override

@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 		writer.println(html.head);
 		writer.println(html.cuerpo);
 
-        writer.println("<form action='./Login'method='post'>" +
+        writer.println("<form action='./login' method='post'>" +
                 "Mail:<input type='text' name='mail' /><br>" +
                 "Clave: <input type='password' name='clave' /><br>" +
                 "<input type='submit' value='Log In'/></form>");

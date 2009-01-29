@@ -12,6 +12,11 @@ public class Genero implements Serializable{
 		super();
 		this.nombre = nombre;
 	}
+	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 
 	@Override
 	public int hashCode() {

@@ -15,7 +15,9 @@ public class SesionListener implements HttpSessionListener {
     public void sessionCreated(HttpSessionEvent sesionEvent) {
        
         Prestamo[] prestamos = new Prestamo[3];
+        Integer numPrestamos = 0;
     	sesionEvent.getSession().setAttribute(AtributosConstantes.prestamosUsuario.toString(), prestamos);
+    	sesionEvent.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamos);
     }
 	
 }

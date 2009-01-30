@@ -27,6 +27,9 @@ public class BibliotecaServlet extends HttpServlet {
 			pw.println("<tr><td>"+tmp.titulo+"</td><td>"+tmp.genero+"</td><td>"+tmp.autor+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");
 		}
 		pw.println("</table>");
+		pw.println("<a href='./consultaprestamo'>Consultar mis prestamos</a><br>");
+		pw.println("<a href='./login'>Log in</a><br>");
+		pw.println("<a href='./registro'>Enviar sollicitud de registro</a><br>");
 		pw.println(html.fin);
 		pw.close();
 	}

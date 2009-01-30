@@ -31,15 +31,17 @@ public class DetalleServlet extends HttpServlet {
     pw.println("<h4>Detalle del libro: " + l.titulo + "</h4>");
     pw.println("Referencia: "+ l.referencia+"<br>");
     pw.println("Autor: " + l.autor + "<br>");
-    pw.println("G&eacute;nero: " + l.genero + "br>");
+    pw.println("Género: " + l.genero + "br>");
+    pw.println("Fecha de publicación: " + l.fechaPublicacion + "<br>");
     pw.println("Prestado: " + l.prestado + "<br>");
     
-    
+  //pagina principal else pw.println("<a href='./...'>Ir a la página principal</a><br>");
     if(l.prestado == false){
     	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar pr&eacute;stamo</a><br>");
     }
     pw.println(html.fin);
-    //pagina principal else pw.println("<a href='./...'>Ir a la página principal</a><br>");
+    pw.close();
+    
    
     
 	

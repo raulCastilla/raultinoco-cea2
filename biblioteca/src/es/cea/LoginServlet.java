@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
                 "<tr><td><input type='submit' value='Log In'/></td><td></td></tr></table></form>");
 		}
 		writer.println(html.fin);
+		writer.close();
 
 		
 	}

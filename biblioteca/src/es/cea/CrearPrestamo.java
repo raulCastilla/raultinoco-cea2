@@ -29,22 +29,26 @@ public class CrearPrestamo extends HttpServlet {
 		for(Libro tmp:libro) if(tmp.referencia.equals(request.getParameter("referencia"))) lib=tmp;
 		Usuario user=(Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
 		//Comprobamos primero que el libro no este prestado
-		if(!lib.prestado){
-			if(numPrestamo.equals(3)){
-				pw.println("YA NO PUEDE REALIZAR M&Aacute;S PR&Eacute;STAMOS<br>");
-			}
+		if(user.permitido){
+			if(!lib.prestado){
+				if(numPrestamo.equals(3)){
+					pw.println("YA NO PUEDE REALIZAR M&Aacute;S PR&Eacute;STAMOS<br>");
+				}
 		
-			if(numPrestamo<3){
-				Prestamo pres = new Prestamo(lib,user);
-				prestamos.add(pres);
-				prestamoUsuario[numPrestamo]=pres;
-				numPrestamo++;
-				request.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamo);
-				pw.println("PR&Eacute;STAMO REALIZADO<br>");
-				pw.println("<a href='./biblioteca'>Lista de libros</a><br>");
+				if(numPrestamo<3){
+					Prestamo pres = new Prestamo(lib,user);
+					prestamos.add(pres);
+					prestamoUsuario[numPrestamo]=pres;
+					numPrestamo++;
+					request.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamo);
+					pw.println("PR&Eacute;STAMO REALIZADO<br>");
+					pw.println("<a href='./biblioteca'>Lista de libros</a><br>");
+				}
 			}
 		}
-		
+		else{
+			pw.println("NO SE LE PERMITE REALIZAR PRESTAMOS");
+		}
 		pw.println("<table border='1px'>");
 		pw.println("<tr><td><b>TITULO</b></td><td><b>FECHA DE PRESTAMO</b></td><td><b>FECHA DE DEVOLUCION</b></td></tr>");
 		for(Prestamo p:prestamoUsuario){
@@ -53,6 +57,7 @@ public class CrearPrestamo extends HttpServlet {
 			}
 		}
 		pw.println("</table>");
+		pw.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
 		pw.println(html.fin);
 	}
 

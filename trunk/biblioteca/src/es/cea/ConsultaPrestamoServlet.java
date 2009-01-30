@@ -38,10 +38,11 @@ public class ConsultaPrestamoServlet extends HttpServlet {
                 }
                 
                 writer.println("</table>");
+                writer.println("<a href='./biblioteca'>Volver a Biblioteca</a>");
                 writer.println(html.fin);
                 writer.close();
                 
-                //Requiere enlace de salida
+                
         
         }
 

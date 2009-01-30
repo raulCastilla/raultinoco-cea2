@@ -21,11 +21,12 @@ public class BibliotecaServlet extends HttpServlet {
 		pw.println(html.head);
 		pw.println(html.cuerpo);
 		pw.println("<table>");
-		pw.println("<tr><td>TITULO</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
+		pw.println("<tr><td>T&Iacute;TULO</td><td>G&Eacute;NERO</td><td>AUTOR</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
 		for(Libro tmp : libros){
 			prest = (tmp.prestado)?"SI":"NO";
-			pw.println("<tr><td>"+tmp.titulo+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");
+			pw.println("<tr><td>"+tmp.titulo+"</td><td>"+tmp.genero+"</td><td>"+tmp.autor+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");
 		}
+		pw.println("</table>");
 		pw.println(html.fin);
 		pw.close();
 	}

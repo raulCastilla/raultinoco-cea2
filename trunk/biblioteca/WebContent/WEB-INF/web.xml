@@ -4,15 +4,11 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
  <display-name>biblioteca</display-name>
  <filter>
- 	<description>
- 	</description>
- 	<display-name>
- 	PrestamoFiltro</display-name>
- 	<filter-name>PrestamoFiltro</filter-name>
+ 	<filter-name>prestamofiltro</filter-name>
  	<filter-class>es.cea.PrestamoFiltro</filter-class>
  </filter>
  <filter-mapping>
- 	<filter-name>PrestamoFiltro</filter-name>
+ 	<filter-name>prestamofiltro</filter-name>
  	<servlet-name>prestamo</servlet-name>
  </filter-mapping>
  <listener>
@@ -22,32 +18,26 @@
   <listener-class>es.cea.SesionListener</listener-class>
  </listener>
  <servlet>
-  <display-name>crear</display-name>
   <servlet-name>crear</servlet-name>
   <servlet-class>es.cea.CrearLibroServlet</servlet-class>
  </servlet>
  <servlet>
-  <display-name>CrearPrestamo</display-name>
   <servlet-name>prestamo</servlet-name>
   <servlet-class>es.cea.CrearPrestamo</servlet-class>
  </servlet>
  <servlet>
-  <display-name>solicitud</display-name>
   <servlet-name>solicitud</servlet-name>
   <servlet-class>es.cea.CrearSolicitudServlet</servlet-class>
  </servlet>
  <servlet>
-  <display-name>login</display-name>
   <servlet-name>login</servlet-name>
   <servlet-class>es.cea.LoginServlet</servlet-class>
  </servlet>
  <servlet>
-  <display-name>biblioteca</display-name>
   <servlet-name>biblioteca</servlet-name>
   <servlet-class>es.cea.BibliotecaServlet</servlet-class>
  </servlet>
  <servlet>
-  <display-name>detalle</display-name>
   <servlet-name>detalle</servlet-name>
   <servlet-class>es.cea.DetalleServlet</servlet-class>
  </servlet>

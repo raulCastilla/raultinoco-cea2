@@ -25,10 +25,11 @@ public class RegistroServlet extends HttpServlet {
 			writer.println(html.cuerpo);
 	
 	        writer.println("<form action='./solicitud' method='post'>" +
-	        		"Nombre:<input type='text' name='nombre' /><br>" +
-	                "Mail:<input type='text' name='mail' /><br>" +
-	                "Clave: <input type='password' name='clave' /><br>" +
-	                "<input type='submit' value='Log In'/></form>");
+	        		"<table>"+
+	        		"<tr><td>Nombre:</td><td><input type='text' name='nombre' /></td></tr>" +
+	                "<tr><td>Mail:</td><td><input type='text' name='mail' /></td></tr>" +
+	                "<tr><td>Clave:</td><td><input type='password' name='clave' /></td></tr>" +
+	                "<tr><td><input type='submit' value='Solicitar'/></td><td></td></tr></table></form>");
 
 	        
 	        

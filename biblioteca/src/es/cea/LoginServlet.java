@@ -15,6 +15,9 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		
 		List<Usuario> usuarios = (List<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.usuarios.toString());
 		
 		response.setContentType("text/html");
@@ -28,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		if(request.getParameter("mail")!=null&&request.getParameter("clave")!=null){
 			for(Usuario tmp:usuarios){
 				//Comprobamos que existe un usuario con esas credenciales
-				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))){
+				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))&&tmp.registrado){
 					//Guardamos en una variable de sesion el usuario que se loguea
 					request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
 					//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
@@ -36,11 +39,15 @@ public class LoginServlet extends HttpServlet {
 					if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
 				}
 				else{
-					writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE. INTENTELO DE NUEVO</h4><br>");
+					writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE O NO HA SIDO ADMITIDO AUN. INTENTELO DE NUEVO</h4><br>");
 					writer.println("<a href='./login'>Intentelo de nuevo</a>");
 				}
 			}
 		}
+			else{
+				pw.println("NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE. INTENTELO DE NUEVO");
+			}
+
 		if(request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString())==null){
 			writer.println("<form action='./login' method='post'>" +
         		"<table>"+
@@ -52,6 +59,7 @@ public class LoginServlet extends HttpServlet {
 		writer.close();
 
 		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

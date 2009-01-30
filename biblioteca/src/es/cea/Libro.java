@@ -12,7 +12,7 @@ public class Libro implements Serializable{
 	Boolean prestado;
 	String fechaPublicacion;
 	
-	public Libro(String referencia, String titulo, Genero genero, Autor autor, String fecha) {
+	public Libro(String referencia, String titulo, Genero genero, Autor autor, Boolean prestado, String fecha) {
 		super();
 		this.referencia = referencia;
 		this.titulo = titulo;
@@ -21,6 +21,8 @@ public class Libro implements Serializable{
 		this.prestado = false;
 		this.fechaPublicacion = fecha;
 	}
+
+	
 
 	@Override
 	public int hashCode() {

@@ -36,7 +36,7 @@ public class DetalleServlet extends HttpServlet {
     
     
     if(l.prestado == false){
-    	pw.println("<a href='./prestamo'>Realizar pr&eacute;stamo</a><br>");
+    	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar pr&eacute;stamo</a><br>");
     }
     pw.println(html.fin);
     //pagina principal else pw.println("<a href='./...'>Ir a la página principal</a><br>");

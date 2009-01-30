@@ -28,24 +28,28 @@ public class CrearPrestamo extends HttpServlet {
 		
 		for(Libro tmp:libro) if(tmp.referencia.equals(request.getParameter("referencia"))) lib=tmp;
 		Usuario user=(Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
+		//Comprobamos primero que el libro no este prestado
+		if(!lib.prestado){
+			if(numPrestamo.equals(3)){
+				pw.println("YA NO PUEDE REALIZAR M&Aacute;S PR&Eacute;STAMOS<br>");
+			}
 		
-		if(numPrestamo.equals(4)){
-			pw.println("YA NO PUEDE REALIZAR M&Aacute;S PR&Eacute;STAMOS<br>");
+			if(numPrestamo<3){
+				Prestamo pres = new Prestamo(lib,user);
+				prestamos.add(pres);
+				prestamoUsuario[numPrestamo]=pres;
+				numPrestamo++;
+				request.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamo);
+				pw.println("PR&Eacute;STAMO REALIZADO<br>");
+				pw.println("<a href='./biblioteca'>Lista de libros</a><br>");
+			}
 		}
 		
-		if(numPrestamo<=3){
-			Prestamo pres = new Prestamo(lib,user);
-			prestamos.add(pres);
-			numPrestamo++;
-			prestamoUsuario[numPrestamo-1]=pres;
-			request.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamo);
-			pw.println("PR&Eacute;STAMO REALIZADO<br>");
-			pw.println("<a href='./biblioteca'>Lista de libros</a><br>");
-		}
-		pw.println("<table>");
+		pw.println("<table border='1px'>");
+		pw.println("<tr><td><b>TITULO</b></td><td><b>FECHA DE PRESTAMO</b></td><td><b>FECHA DE DEVOLUCION</b></td></tr>");
 		for(Prestamo p:prestamoUsuario){
 			if(p!=null){
-				pw.println("<tr><td>"+p.libro.titulo+"</td><td>"+p.fechaInicio.get(Calendar.DAY_OF_YEAR)+"</td><td>"+p.fechaFin.get(Calendar.DAY_OF_YEAR)+"</td></tr>");
+				pw.println("<tr><td>"+p.libro.titulo+"</td><td>"+p.fechaInicio.get(Calendar.DATE)+"/"+(p.fechaInicio.get(Calendar.MONTH)+1)+"/"+p.fechaInicio.get(Calendar.YEAR)+"</td><td>"+p.fechaFin.get(Calendar.DATE)+"/"+(p.fechaFin.get(Calendar.MONTH)+1)+"/"+p.fechaFin.get(Calendar.YEAR)+"</td></tr>");
 			}
 		}
 		pw.println("</table>");

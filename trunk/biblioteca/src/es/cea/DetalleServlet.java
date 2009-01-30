@@ -35,10 +35,12 @@ public class DetalleServlet extends HttpServlet {
     pw.println("Fecha de publicación: " + l.fechaPublicacion + "<br>");
     pw.println("Prestado: " + l.prestado + "<br>");
     
-  //pagina principal else pw.println("<a href='./...'>Ir a la página principal</a><br>");
+
     if(l.prestado == false){
     	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar pr&eacute;stamo</a><br>");
     }
+    else pw.println("<a href='./biblioteca'>Ir a la página principal</a>");
+    	
     pw.println(html.fin);
     pw.close();
     

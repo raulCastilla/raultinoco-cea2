@@ -9,6 +9,7 @@ public class Usuario implements Serializable{
 	String clave;
 	Prestamo[] prestamos;
 	Boolean registrado;
+	Boolean permitido;
 	
 	public Usuario(String nombre, String mail,String clave) {
 		super();
@@ -17,6 +18,7 @@ public class Usuario implements Serializable{
 		this.clave = clave;
 		this.registrado=false;
 		this.prestamos=new Prestamo[3];
+		this.permitido=true;
 	}
 	
 	public Usuario() {

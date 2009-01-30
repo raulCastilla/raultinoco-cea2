@@ -10,12 +10,17 @@ public class BibliotecaListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent contextEvent) {
         List<Usuario> usuarios = new ArrayList<Usuario>();
-        contextEvent.getServletContext().setAttribute(AtributosConstantes.usuarios.toString(), usuarios);
+    	contextEvent.getServletContext().setAttribute(AtributosConstantes.usuarios.toString(), usuarios);
         List<Autor> autores = new ArrayList<Autor>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.autores.toString(), autores);
         List<Prestamo> prestamos = new ArrayList<Prestamo>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.prestamos.toString(), prestamos);
         List<Libro> libros = new ArrayList<Libro>();
+     
+        
+        //libros.add(new Libro("Ref 1","Yo puta","Best Seller","Isabel Pisano",false,"Marzo 2001"));
+         
+        
         contextEvent.getServletContext().setAttribute(AtributosConstantes.libros.toString(), libros);
         List<Solicitud> solicitudes = new ArrayList<Solicitud>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.solicitudes.toString(), solicitudes);

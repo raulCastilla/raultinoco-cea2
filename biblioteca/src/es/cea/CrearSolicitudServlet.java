@@ -15,9 +15,10 @@ public class CrearSolicitudServlet extends HttpServlet {
 		List<Solicitud> solicitud=(List<Solicitud>)request.getSession().getServletContext().getAttribute(AtributosConstantes.solicitudes.toString());
 		List<Usuario> usuario=(List<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.usuarios.toString());
 		Usuario nuevo=new Usuario(request.getParameter("nombre"),request.getParameter("mail"),request.getParameter("clave"));
-		Solicitud sol=new Solicitud(nuevo,solicitud);
+		Solicitud sol=new Solicitud(nuevo,solicitud,usuario);
 		usuario.add(nuevo);
 		solicitud.add(sol);
+		System.out.println("Solicitud enviada");
 		
 	}
 

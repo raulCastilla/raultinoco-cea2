@@ -16,11 +16,13 @@ public class Prestamo implements Serializable{
 		this.usuario = usuario;
 		this.fechaInicio = Calendar.getInstance();
 		this.fechaFin = Calendar.getInstance();
-		this.fechaFin.set(Calendar.DAY_OF_YEAR, 5);
+		this.fechaFin.add(Calendar.DAY_OF_MONTH, +5);
 	}
 	
 	public Integer diasRestantes(){
-		return this.fechaFin.DAY_OF_YEAR-Calendar.getInstance().DAY_OF_YEAR;
+		Integer fin=this.fechaFin.get(this.fechaFin.DAY_OF_YEAR);
+		Integer act=Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+		return fin-act;
 	}
 	
 	@Override

@@ -38,23 +38,19 @@ public class LoginServlet extends HttpServlet {
 					String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
 					if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
 				}
-				else{
-					writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE O NO HA SIDO ADMITIDO AUN. INTENTELO DE NUEVO</h4><br>");
-					writer.println("<a href='./login'>Intentelo de nuevo</a>");
-				}
 			}
+			writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE O NO HA SIDO ADMITIDO AUN.</h4><br>");
+			writer.println("<a href='./login'>Intentelo de nuevo</a>");
+		
 		}
-			else{
-				pw.println("NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE. INTENTELO DE NUEVO");
-			}
-
-		if(request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString())==null){
-			writer.println("<form action='./login' method='post'>" +
+		else{
+			writer.println("<form action='./login'>" +
         		"<table>"+
                 "<tr><td>Mail:</td><td><input type='text' name='mail' /></td></tr>" +
                 "<tr><td>Clave:</td><td><input type='password' name='clave' /></td></tr>" +
                 "<tr><td><input type='submit' value='Log In'/></td><td></td></tr></table></form>");
 		}
+		writer.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
 		writer.println(html.fin);
 		writer.close();
 

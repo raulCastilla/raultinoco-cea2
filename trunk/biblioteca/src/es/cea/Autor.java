@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Autor implements Serializable{
+public class Autor implements Serializable,Comparable{
 	private static final long serialVersionUID = 1L;
 	String nombre;
 	List<Libro> libros;
@@ -44,6 +44,11 @@ public class Autor implements Serializable{
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	public int compareTo(Object o) {
+		Autor aut = (Autor)o;
+		return this.nombre.compareToIgnoreCase(aut.nombre);
 	}
 	
 }

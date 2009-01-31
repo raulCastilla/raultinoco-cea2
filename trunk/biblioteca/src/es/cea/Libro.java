@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 
 
-public class Libro implements Serializable{
+public class Libro implements Serializable,Comparable{
 	private static final long serialVersionUID = 1L;
 	String referencia;
 	String titulo;
@@ -55,15 +55,12 @@ public class Libro implements Serializable{
 
 
 	//Para utilizar este metodo hay que implementar la interfaz Comparable
-	/*public int compareTo(Object o) {
+	public int compareTo(Object o) {
 		Libro libro = (Libro)o;
-		if(this.genero.toString().compareToIgnoreCase(libro.genero.toString())==0){
-			return this.titulo.compareToIgnoreCase(libro.titulo); 
-		}
-		else{
-			return this.genero.toString().compareToIgnoreCase(libro.genero.toString());
-		}
-	}*/
+		return this.titulo.compareToIgnoreCase(libro.titulo); 
+	}
+
+	
 	
 	
 }

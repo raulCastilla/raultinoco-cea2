@@ -1,6 +1,8 @@
 package es.cea;
 
 import java.io.Serializable;
+import java.util.Calendar;
+
 
 
 public class Libro implements Serializable{
@@ -10,16 +12,17 @@ public class Libro implements Serializable{
 	Genero genero;
 	Autor autor;
 	Boolean prestado;
-	String fechaPublicacion;
+	Calendar fechaPublicacion;
 	
-	public Libro(String referencia, String titulo, Genero genero, Autor autor, Boolean prestado, String fecha) {
+	public Libro(String referencia, String titulo, Genero genero, Autor autor, Integer date, Integer month, Integer year) {
 		super();
 		this.referencia = referencia;
 		this.titulo = titulo;
 		this.genero = genero;
 		this.autor = autor;
 		this.prestado = false;
-		this.fechaPublicacion = fecha;
+		this.fechaPublicacion = Calendar.getInstance();
+		this.fechaPublicacion.set(year, month, date);
 	}
 
 	
@@ -49,6 +52,18 @@ public class Libro implements Serializable{
 			return false;
 		return true;
 	}
+
+
+	//Para utilizar este metodo hay que implementar la interfaz Comparable
+	/*public int compareTo(Object o) {
+		Libro libro = (Libro)o;
+		if(this.genero.toString().compareToIgnoreCase(libro.genero.toString())==0){
+			return this.titulo.compareToIgnoreCase(libro.titulo); 
+		}
+		else{
+			return this.genero.toString().compareToIgnoreCase(libro.genero.toString());
+		}
+	}*/
 	
 	
 }

@@ -17,7 +17,7 @@ public class CrearLibroServlet extends HttpServlet {
 		List<Libro> libro=(List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 		List<Autor> autor=(List<Autor>)request.getSession().getServletContext().getAttribute(AtributosConstantes.autores.toString());
 		
-		response.setContentType("text/html");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();
 		HtmlUtilities html = new HtmlUtilities("A–adir libro");
 		pw.println(html.head);

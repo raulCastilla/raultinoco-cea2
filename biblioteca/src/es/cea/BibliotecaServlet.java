@@ -2,6 +2,7 @@ package es.cea;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,13 +15,24 @@ public class BibliotecaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Libro> libros = (List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
+		if(request.getParameter("genero")!=null){
+			Collections.sort(libros,new ComparatorGenero());
+		}
+		else if(request.getParameter("autor")!=null){
+			Collections.sort(libros, new ComparatorAutor());
+		}
+		else{
+			Collections.sort(libros);
+		}
 		response.setContentType("text/html");
+		//response.setCharacterEncoding("UTF-8");
 		PrintWriter pw = response.getWriter();
 		HtmlUtilities html = new HtmlUtilities("Biblioteca");
 		String prest="";
 		pw.println(html.head);
 		pw.println(html.cuerpo);
-		pw.println("<table>");
+		pw.println("<a href='./biblioteca?genero=true'>Ordenar por genero</a>/<a href='./biblioteca?autor=true'>Ordenar por autor</a><br>");
+		pw.println("<table border='1'>");
 		pw.println("<tr><td>T&Iacute;TULO</td><td>G&Eacute;NERO</td><td>AUTOR</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
 		for(Libro tmp : libros){
 			prest = (tmp.prestado)?"SI":"NO";

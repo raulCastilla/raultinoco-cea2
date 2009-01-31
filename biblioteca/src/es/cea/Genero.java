@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Genero implements Serializable{
+public class Genero implements Serializable,Comparable{
 	private static final long serialVersionUID = 1L;
 	String nombre;
 	List<Libro> libros;
@@ -45,5 +45,9 @@ public class Genero implements Serializable{
 			return false;
 		return true;
 	}
-
+	public int compareTo(Object o) {
+		Genero gen = (Genero)o;
+		return this.nombre.compareToIgnoreCase(gen.nombre);
+	}
+	
 }

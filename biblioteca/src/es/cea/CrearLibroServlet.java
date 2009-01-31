@@ -26,7 +26,7 @@ public class CrearLibroServlet extends HttpServlet {
 		if(request.getParameter("crear")!=null){
 			Autor aut = new Autor(request.getParameter("autor"));
 			Genero gen = new Genero(request.getParameter("genero"));
-			Libro lib= new Libro(request.getParameter("referencia"),request.getParameter("titulo"),gen,aut,false,request.getParameter("fecha"));
+			Libro lib= new Libro(request.getParameter("referencia"),request.getParameter("titulo"),gen,aut,Integer.parseInt(request.getParameter("date")),Integer.parseInt(request.getParameter("month")),Integer.parseInt(request.getParameter("year")));
 			
 			/*genero.add(gen);
 			autor.add(aut);*/

@@ -19,7 +19,7 @@ public class RegistroServlet extends HttpServlet {
 		
 			List<Solicitud> solicitud=(List<Solicitud>)request.getSession().getServletContext().getAttribute(AtributosConstantes.solicitudes.toString());
 			List<Usuario> usuario=(List<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.usuarios.toString());
-			response.setContentType("text/html");
+			response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter writer = response.getWriter();
 	        
 	        HtmlUtilities html=new HtmlUtilities("Registro");

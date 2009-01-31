@@ -24,8 +24,7 @@ public class BibliotecaServlet extends HttpServlet {
 		else{
 			Collections.sort(libros);
 		}
-		response.setContentType("text/html");
-		//response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();
 		HtmlUtilities html = new HtmlUtilities("Biblioteca");
 		String prest="";
@@ -41,7 +40,7 @@ public class BibliotecaServlet extends HttpServlet {
 		pw.println("</table>");
 		pw.println("<a href='./consultaprestamo'>Consultar mis prestamos</a><br>");
 		pw.println("<a href='./login'>Log in</a><br>");
-		pw.println("<a href='./registro'>Enviar sollicitud de registro</a><br>");
+		pw.println("<a href='./registro'>Enviar solicitud de registro</a><br>");
 		pw.println(html.fin);
 		pw.close();
 	}

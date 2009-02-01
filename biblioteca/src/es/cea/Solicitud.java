@@ -6,6 +6,7 @@ import java.util.List;
 public class Solicitud implements Serializable{
 	private static final long serialVersionUID = 1L;
 	Usuario usuario;
+	Boolean aceptada;
 	List<Solicitud> solicitud;
 	List<Usuario> listaUsuarios;
 	
@@ -15,10 +16,12 @@ public class Solicitud implements Serializable{
 		this.usuario = usuario;
 		this.solicitud = solicitud;
 		this.listaUsuarios = listaUsuarios;
+		this.aceptada=false;
 	}
 
 	public void aceptar(){
 		this.usuario.registrado=true;
+		this.aceptada=true;
 	}
 	
 	public void denegar(){

@@ -14,12 +14,13 @@ public class CrearPrestamo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HtmlUtilities html = new HtmlUtilities("Prestamos");
-		response.setContentType("text/html");
+		//HtmlUtilities html = new HtmlUtilities("Prestamos");
+		//response.setContentType("text/html");
+		//response.setCharacterEncoding("UTF-8");
 		PrintWriter pw = response.getWriter();
-		pw.println(html.head);
-		pw.println(html.cuerpo);
-		
+		//pw.println(html.head);
+		//pw.println(html.cuerpo);
+		pw.println("<h3 style='color: #FF0000'>HACER PRESTAMO</h3>");
 		List<Prestamo> prestamos = (List<Prestamo>)request.getSession().getServletContext().getAttribute(AtributosConstantes.prestamos.toString());
 		Prestamo[] prestamoUsuario = (Prestamo[])request.getSession().getAttribute(AtributosConstantes.prestamosUsuario.toString());
 		List<Libro> libro = (List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
@@ -37,6 +38,7 @@ public class CrearPrestamo extends HttpServlet {
 		
 				if(numPrestamo<3){
 					Prestamo pres = new Prestamo(lib,user);
+					lib.prestado=true;
 					prestamos.add(pres);
 					prestamoUsuario[numPrestamo]=pres;
 					numPrestamo++;
@@ -45,11 +47,14 @@ public class CrearPrestamo extends HttpServlet {
 					pw.println("<a href='./biblioteca'>Lista de libros</a><br>");
 				}
 			}
+			else{
+				pw.println("ESE LIBRO YA ESTA PRESTADO");
+			}
 		}
 		else{
 			pw.println("NO SE LE PERMITE REALIZAR PRESTAMOS");
 		}
-		pw.println("<table border='1px'>");
+		pw.println("<table border='1'>");
 		pw.println("<tr><td><b>TITULO</b></td><td><b>FECHA DE PRESTAMO</b></td><td><b>FECHA DE DEVOLUCION</b></td></tr>");
 		for(Prestamo p:prestamoUsuario){
 			if(p!=null){
@@ -58,7 +63,7 @@ public class CrearPrestamo extends HttpServlet {
 		}
 		pw.println("</table>");
 		pw.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
-		pw.println(html.fin);
+		//pw.println(html.fin);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

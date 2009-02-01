@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSessionListener;
 public class SesionListener implements HttpSessionListener {
 
     public void sessionDestroyed(HttpSessionEvent sesionEvent) {
+    	sesionEvent.getSession().removeAttribute(AtributosConstantes.prestamosUsuario.toString());
+    	sesionEvent.getSession().removeAttribute(AtributosConstantes.numeroPrestamos.toString());
     	System.out.println("FINALIZANDO SESION....");
     }
 
@@ -18,6 +20,7 @@ public class SesionListener implements HttpSessionListener {
         Integer numPrestamos = 0;
     	sesionEvent.getSession().setAttribute(AtributosConstantes.prestamosUsuario.toString(), prestamos);
     	sesionEvent.getSession().setAttribute(AtributosConstantes.numeroPrestamos.toString(), numPrestamos);
+    	System.out.println("INICIANDO SESION......");
     }
 	
 }

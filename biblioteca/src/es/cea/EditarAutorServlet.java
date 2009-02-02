@@ -40,7 +40,7 @@ public class EditarAutorServlet extends HttpServlet {
 		}
 		if(request.getParameter("eliminar")!=null){
 			for(int i=0;i<autor.size();i++){
-				if(autor.get(i).nombre.equals(request.getParameter("nombre"))){
+				if(autor.get(i).nombre.equals(request.getParameter("name"))){
 					String consoleOut=autor.get(i).nombre;
 					autor.remove(i);
 					System.out.println("Se ha eliminado el autor: "+consoleOut);
@@ -64,7 +64,7 @@ public class EditarAutorServlet extends HttpServlet {
 		pw.println("<tr><td>NOMBRE</td><td>ACCION</td></tr>");
 		for(Autor a:autor){
 		pw.println("<tr><td>"+a.nombre+"</td><td><a href='./editarautor?nombre="+a.nombre+
-						"'>Editar</a>/<a href='./editarautor?nombre="+a.nombre+"&eliminar=true'>Eliminar</a></td></tr>");
+						"'>Editar</a>/<a href='./editarautor?name="+a.nombre+"&eliminar=true'>Eliminar</a></td></tr>");
 		}
 		pw.println("</table>");
 		pw.println("<a href='./crearautor'>Crear Autor</a>");

@@ -54,7 +54,7 @@ public class EditarLibrosServlet extends HttpServlet {
 					pw.println("Se ha editado el libro: "+consoleOut+"<br>");
 					pw.println("<a href='./editarlibro'>Volver</a>");
 					//request.getRequestDispatcher("/editarlibro").forward(request, response);
-				} 
+				}
 			}
 			
 			//request.getRequestDispatcher("/editarlibro").forward(request, response);

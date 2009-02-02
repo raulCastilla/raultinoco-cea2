@@ -19,14 +19,15 @@ public class CrearLibroServlet extends HttpServlet {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();
-		HtmlUtilities html = new HtmlUtilities("A–adir libro");
-		pw.println(html.head);
-		pw.println(html.cuerpo);
 		
+		pw.println(HtmlUtilities.head);
+		pw.println(HtmlUtilities.cuerpo);
+		pw.println(HtmlUtilities.menuAdmin);
+		pw.println("<h3 style='color: #FF0000'>AGREGAR NUEVO LIBRO</h3>");
 		if(request.getParameter("crear")!=null){
 			Autor aut = new Autor(request.getParameter("autor"));
 			Genero gen = new Genero(request.getParameter("genero"));
-			Libro lib= new Libro(request.getParameter("referencia"),request.getParameter("titulo"),gen,aut,Integer.parseInt(request.getParameter("date")),Integer.parseInt(request.getParameter("month")),Integer.parseInt(request.getParameter("year")));
+			Libro lib= new Libro(request.getParameter("referencia"),request.getParameter("titulo"),gen,aut,Integer.parseInt(request.getParameter("date")),Integer.parseInt(request.getParameter("month"))-1,Integer.parseInt(request.getParameter("year")));
 			
 			/*genero.add(gen);
 			autor.add(aut);*/
@@ -50,8 +51,7 @@ public class CrearLibroServlet extends HttpServlet {
 				a.libros.add(lib);
 			}
 			pw.println("LIBRO CREADO<br>");
-			pw.println("<a href='./crear'>Crear otro</a><br>");
-			pw.println("<a href='./menuadmin'>Volver a menu de Administrador</a>");
+			pw.println("<a href='./crear'>Crear otro</a>");
 		}
 		else{
 			pw.println("<form action='./crear?crear=true' method='post'>"+
@@ -60,12 +60,13 @@ public class CrearLibroServlet extends HttpServlet {
 					"<tr><td>TITULO:</td><td><input type='text' name='titulo' /></td></tr>"+
 					"<tr><td>AUTOR:</td><td><input type='text' name='autor' /></td></tr>"+
 					"<tr><td>GENERO</td><td><input type='text' name='genero' /></td></tr>"+
-					"<tr><td>FECHA</td><td><input type='text' name='fecha' /></td></tr>"+
+					"<tr><td>DIA</td><td><input type='text' name='date' /></td></tr>"+
+					"<tr><td>MES</td><td><input type='text' name='month' /></td></tr>"+
+					"<tr><td>A„O</td><td><input type='text' name='year' /></td></tr>"+
 					"<tr><td><input type='submit' value='Crear' /></td><td></td></tr>"+
 					"</table></form>");
-			pw.println("<hr><a href='./menuadmin'>Volver a menu de Administrador</a>");
 		}
-		pw.println(html.fin);
+		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}
 

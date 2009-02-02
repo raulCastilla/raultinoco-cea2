@@ -53,6 +53,10 @@
   <servlet-name>eliminar</servlet-name>
   <servlet-class>es.cea.EliminarLibroServlet</servlet-class>
  </servlet>
+ <servlet>
+  <servlet-name>menuadmin</servlet-name>
+  <servlet-class>es.cea.MenuAdminServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>crear</servlet-name>
   <url-pattern>/crear</url-pattern>
@@ -88,6 +92,10 @@
  <servlet-mapping>
   <servlet-name>eliminar</servlet-name>
   <url-pattern>/eliminar</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>menuadmin</servlet-name>
+  <url-pattern>/menuadmin</url-pattern>
  </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>

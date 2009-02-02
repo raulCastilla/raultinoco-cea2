@@ -1,6 +1,8 @@
 package es.cea;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -20,10 +22,16 @@ public class PrestamoFiltro implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	
+		//response.setContentType("text/html");
 		if(request.getParameter("referencia")!=null){
 			//System.out.println("INTENTANDO HACER ALGO AL CARRITO");
+			//response.setContentType("text/html");
+			//PrintWriter pw=response.getWriter();
+			//HtmlUtilities html=new HtmlUtilities("Filtro prestamo");
+			//pw.println(html.head);
+			//pw.println(html.cuerpo);
             HttpServletRequest httpRequest=(HttpServletRequest)request;
+            //httpRequest.setCharacterEncoding("UTF-8");
             String peticionActualUsuario=Utilidades.obtenerURLActual(httpRequest);
             System.out.println("petition actual con parametros:"+peticionActualUsuario);
 
@@ -36,9 +44,12 @@ public class PrestamoFiltro implements Filter {
            	 repartidorSolicitudes.forward(request, response);
                     
             }
+            else{
+    			chain.doFilter(request, response);
+    		}
 
 		}
-		else chain.doFilter(request, response);
+		
 	}
 
 

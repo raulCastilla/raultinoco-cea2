@@ -2,6 +2,8 @@ package es.cea;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +18,13 @@ public class ConsultaPrestamoServlet extends HttpServlet {
         
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter writer = response.getWriter();
+                writer.println(HtmlUtilities.head);
+                writer.println(HtmlUtilities.cuerpo);
+                writer.println(HtmlUtilities.menuUser);
                 
-                HtmlUtilities html = new HtmlUtilities("Prestamos");
-                writer.println(html.head);
-                writer.println(html.cuerpo);
-                
-                Prestamo[] prestamos = (Prestamo[]) request.getSession().getAttribute(AtributosConstantes.prestamosUsuario.toString());
-        
+                Usuario user = (Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
+               
+                writer.println("<h3 style='color: #FF0000'>MIS PRESTAMOS</h3>");
                 writer.println("<table width='100%' border='3'>");
                 writer.println("<tr><td><b>REFERENCIA</b></td>" +
                                "<td><b>TITULO</b></td>" +
@@ -30,16 +32,17 @@ public class ConsultaPrestamoServlet extends HttpServlet {
                                "<td><b>FIN DEL PRESTAMO</b></td>" +
                                "</tr>");
                 
-                for (Prestamo prest : prestamos) {
+                for (Prestamo prest : user.prestamos) {
+                	if(prest!=null){
                         writer.println("<tr><td>"+prest.libro.referencia+"</td>" +
                                        "<td>"+prest.libro.titulo+"</td>" +
-                                       "<td>"+prest.fechaInicio+"</td>" +
-                                       "<td>"+prest.fechaFin+"</td></tr>");       
+                                       "<td>"+prest.fechaInicio.get(Calendar.DATE)+"/"+(prest.fechaInicio.get(Calendar.MONTH)+1)+"/"+prest.fechaInicio.get(Calendar.YEAR)+"</td>" +
+                                       "<td>"+prest.fechaFin.get(Calendar.DATE)+"/"+(prest.fechaFin.get(Calendar.MONTH)+1)+"/"+prest.fechaFin.get(Calendar.YEAR)+"</td></tr>");
+                	}
                 }
                 
                 writer.println("</table>");
-                writer.println("<a href='./biblioteca'>Volver a Biblioteca</a>");
-                writer.println(html.fin);
+                writer.println(HtmlUtilities.fin);
                 writer.close();
                 
                 
@@ -50,3 +53,5 @@ public class ConsultaPrestamoServlet extends HttpServlet {
                 doGet(request, response);
         }
 }
+
+

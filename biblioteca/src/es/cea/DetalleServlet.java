@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -13,12 +14,16 @@ public class DetalleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	response.setContentType("text/html;charset=UTF-8");
+	
+	List<Libro> libros=(List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
+	
+	response.setContentType("text/html");
 	PrintWriter pw = response.getWriter();
 	pw.println(HtmlUtilities.head);
     pw.println(HtmlUtilities.cuerpo);
+	pw.println(HtmlUtilities.menuUser);
+	pw.println("<h3 style='color: #FF0000'>DETALLES</h3>");
     
-    List<Libro> libros=(List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 
     Libro l=null;
     for(Libro lib:libros){
@@ -26,19 +31,19 @@ public class DetalleServlet extends HttpServlet {
     		l=lib;
     	}
     }
-    
+    String prest = (l.prestado)?"SI":"NO";
     pw.println("<h4>Detalle del libro: " + l.titulo + "</h4>");
     pw.println("Referencia: "+ l.referencia+"<br>");
     pw.println("Autor: " + l.autor + "<br>");
-    pw.println("Género: " + l.genero + "br>");
-    pw.println("Fecha de publicación: " + l.fechaPublicacion + "<br>");
-    pw.println("Prestado: " + l.prestado + "<br>");
+    pw.println("GŽnero: " + l.genero + "<br>");
+    pw.println("Fecha de publicaci—n: " + l.fechaPublicacion.get(Calendar.DATE)+"/"+(l.fechaPublicacion.get(Calendar.MONTH)+1)+"/"+l.fechaPublicacion.get(Calendar.YEAR) + "<br>");
+    pw.println("Prestado: " + prest + "<br>");
     
 
     if(l.prestado == false){
-    	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar prestamo</a><br>");
+    	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar pr&eacute;stamo</a><br>");
     }
-    else pw.println("<a href='./biblioteca'>Ir a la página principal</a>");
+    
     	
     pw.println(HtmlUtilities.fin);
     pw.close();

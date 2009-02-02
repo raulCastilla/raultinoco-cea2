@@ -21,11 +21,14 @@ public class RegistroServlet extends HttpServlet {
 			List<Usuario> usuario=(List<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.usuarios.toString());
 			response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter writer = response.getWriter();
+	        writer.println(HtmlUtilities.head);
+	        writer.println(HtmlUtilities.cuerpo);
+	        writer.println(HtmlUtilities.menuUser);
+	        writer.println("<h3 style='color: #FF0000'>SOLICITUD DE REGISTRO</h3>");
+	        //HtmlUtilities html=new HtmlUtilities("Registro");
 	        
-	        HtmlUtilities html=new HtmlUtilities("Registro");
-	        
-			writer.println(html.head);
-			writer.println(html.cuerpo);
+			//writer.println(html.head);
+			//writer.println(html.cuerpo);
 			if(request.getParameter("enviar")!=null){
 				Usuario nuevo=new Usuario(request.getParameter("nombre"),request.getParameter("mail"),request.getParameter("clave"));
 				Solicitud sol=new Solicitud(nuevo,solicitud,usuario);
@@ -42,10 +45,7 @@ public class RegistroServlet extends HttpServlet {
 	                "<tr><td><input type='submit' value='Solicitar'/></td><td></td></tr></table></form>");
 			}
 	        
-	        
-	        
-	        writer.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
-			writer.println(html.fin);
+			writer.println(HtmlUtilities.fin);
 			writer.close();
 		
 		

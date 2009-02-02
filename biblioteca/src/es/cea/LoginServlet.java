@@ -15,41 +15,58 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
 		List<Usuario> usuarios = (List<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.usuarios.toString());
 		
 		response.setContentType("text/html;charset=UTF-8");
-        PrintWriter writer = response.getWriter();
+		PrintWriter writer = response.getWriter();
+		writer.println(HtmlUtilities.head);
+		writer.println(HtmlUtilities.cuerpo);
+		writer.println(HtmlUtilities.menuUser);
+		writer.println("<h3 style='color: #FF0000'>LOG IN</h3>");
+		
+		
+		//response.setContentType("text/html");
         
-        HtmlUtilities html=new HtmlUtilities("Login");
         
-		writer.println(html.head);
-		writer.println(html.cuerpo);
+        //HtmlUtilities html=new HtmlUtilities("Login");
+        
+		//writer.println(html.head);
+		//writer.println(html.cuerpo);
 		//Comprobamos que se ha enviado un mail y clave
 		if(request.getParameter("mail")!=null&&request.getParameter("clave")!=null){
 			for(Usuario tmp:usuarios){
 				//Comprobamos que existe un usuario con esas credenciales
-				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))&&tmp.registrado){
+				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))){
 					//Guardamos en una variable de sesion el usuario que se loguea
-					request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
+					if(tmp.registrado){
+						request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
+						String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
+						if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
+					}
+					else{
+						writer.println("EL USUARIO AUN NO HA SIDO ADMITIDO");
+					}
+					
 					//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
-					String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
-					if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
+					
+				}
+				else{
+					writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE.</h4><br>");
+					writer.println("<a href='./login'>Intentelo de nuevo</a>");
 				}
 			}
-			writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE O NO HA SIDO ADMITIDO AUN.</h4><br>");
-			writer.println("<a href='./login'>Intentelo de nuevo</a>");
+			
 		
 		}
 		else{
-			writer.println("<form action='./login'>" +
+			writer.println("<form action='./login' method='post'>" +
         		"<table>"+
                 "<tr><td>Mail:</td><td><input type='text' name='mail' /></td></tr>" +
                 "<tr><td>Clave:</td><td><input type='password' name='clave' /></td></tr>" +
                 "<tr><td><input type='submit' value='Log In'/></td><td></td></tr></table></form>");
 		}
-		writer.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
-		writer.println(html.fin);
+		//writer.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
+		writer.println(HtmlUtilities.fin);
 		writer.close();
 
 		

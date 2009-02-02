@@ -50,7 +50,8 @@ public class CrearLibroServlet extends HttpServlet {
 				a.libros.add(lib);
 			}
 			pw.println("LIBRO CREADO<br>");
-			pw.println("<a href='./crear'>Crear otro</a>");
+			pw.println("<a href='./crear'>Crear otro</a><br>");
+			pw.println("<a href='./menuadmin'>Volver a menu de Administrador</a>");
 		}
 		else{
 			pw.println("<form action='./crear?crear=true' method='post'>"+
@@ -62,8 +63,10 @@ public class CrearLibroServlet extends HttpServlet {
 					"<tr><td>FECHA</td><td><input type='text' name='fecha' /></td></tr>"+
 					"<tr><td><input type='submit' value='Crear' /></td><td></td></tr>"+
 					"</table></form>");
+			pw.println("<hr><a href='./menuadmin'>Volver a menu de Administrador</a>");
 		}
 		pw.println(html.fin);
+		pw.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

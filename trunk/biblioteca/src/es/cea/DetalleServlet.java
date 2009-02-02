@@ -15,9 +15,8 @@ public class DetalleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	response.setContentType("text/html;charset=UTF-8");
 	PrintWriter pw = response.getWriter();
-	HtmlUtilities html=new HtmlUtilities("Detalles");
-	pw.println(html.head);
-    pw.println(html.cuerpo);
+	pw.println(HtmlUtilities.head);
+    pw.println(HtmlUtilities.cuerpo);
     
     List<Libro> libros=(List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 
@@ -37,11 +36,11 @@ public class DetalleServlet extends HttpServlet {
     
 
     if(l.prestado == false){
-    	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar pr&eacute;stamo</a><br>");
+    	pw.println("<a href='./prestamo?referencia="+l.referencia+"'>Realizar prestamo</a><br>");
     }
     else pw.println("<a href='./biblioteca'>Ir a la página principal</a>");
     	
-    pw.println(html.fin);
+    pw.println(HtmlUtilities.fin);
     pw.close();
     
    

@@ -57,6 +57,10 @@
   <servlet-name>menuadmin</servlet-name>
   <servlet-class>es.cea.MenuAdminServlet</servlet-class>
  </servlet>
+ <servlet>
+  <servlet-name>modificar</servlet-name>
+  <servlet-class>es.cea.ModificarLibroServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>crear</servlet-name>
   <url-pattern>/crear</url-pattern>
@@ -96,6 +100,10 @@
  <servlet-mapping>
   <servlet-name>menuadmin</servlet-name>
   <url-pattern>/menuadmin</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>modificar</servlet-name>
+  <url-pattern>/modificar</url-pattern>
  </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>

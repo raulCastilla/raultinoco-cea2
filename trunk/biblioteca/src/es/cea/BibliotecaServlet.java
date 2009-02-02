@@ -25,11 +25,13 @@ public class BibliotecaServlet extends HttpServlet {
 			Collections.sort(libros);
 		}
 		response.setContentType("text/html;charset=UTF-8");
+	
 		PrintWriter pw = response.getWriter();
-		HtmlUtilities html = new HtmlUtilities("Biblioteca");
+		pw.println(HtmlUtilities.head);
+		pw.println(HtmlUtilities.cuerpo);
+		pw.println(HtmlUtilities.menuUser);
 		String prest="";
-		pw.println(html.head);
-		pw.println(html.cuerpo);
+		pw.println("<h3 style='color: #FF0000'>CATALOGO DE LIBROS</h3>");
 		pw.println("<a href='./biblioteca?genero=true'>Ordenar por genero</a>/<a href='./biblioteca?autor=true'>Ordenar por autor</a><br>");
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>T&Iacute;TULO</td><td>G&Eacute;NERO</td><td>AUTOR</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
@@ -38,10 +40,7 @@ public class BibliotecaServlet extends HttpServlet {
 			pw.println("<tr><td>"+tmp.titulo+"</td><td>"+tmp.genero+"</td><td>"+tmp.autor+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");
 		}
 		pw.println("</table>");
-		pw.println("<a href='./consultaprestamo'>Consultar mis prestamos</a><br>");
-		pw.println("<a href='./login'>Log in</a><br>");
-		pw.println("<a href='./registro'>Enviar solicitud de registro</a><br>");
-		pw.println(html.fin);
+		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}
 

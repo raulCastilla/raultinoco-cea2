@@ -3,13 +3,25 @@
  xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
  <display-name>biblioteca</display-name>
+ <!--  
+ <filter>
+  <filter-name>plantillafiltro</filter-name>
+  <filter-class>es.cea.PlantillaFiltro</filter-class>
+ </filter>
+ -->
  <filter>
   <filter-name>prestamofiltro</filter-name>
   <filter-class>es.cea.PrestamoFiltro</filter-class>
  </filter>
+ <!-- 
+ <filter-mapping>
+  <filter-name>plantillafiltro</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ -->
  <filter-mapping>
   <filter-name>prestamofiltro</filter-name>
-  <servlet-name>prestamo</servlet-name>
+  <url-pattern>/prestamo</url-pattern>
  </filter-mapping>
  <listener>
   <listener-class>es.cea.BibliotecaListener</listener-class>
@@ -50,16 +62,40 @@
   <servlet-class>es.cea.ConsultaPrestamoServlet</servlet-class>
  </servlet>
  <servlet>
-  <servlet-name>eliminar</servlet-name>
-  <servlet-class>es.cea.EliminarLibroServlet</servlet-class>
+  <servlet-name>listasolicitudes</servlet-name>
+  <servlet-class>es.cea.ListaSolicitudesServlet</servlet-class>
  </servlet>
  <servlet>
-  <servlet-name>menuadmin</servlet-name>
-  <servlet-class>es.cea.MenuAdminServlet</servlet-class>
+  <servlet-name>editarlibro</servlet-name>
+  <servlet-class>es.cea.EditarLibrosServlet</servlet-class>
  </servlet>
  <servlet>
-  <servlet-name>modificar</servlet-name>
-  <servlet-class>es.cea.ModificarLibroServlet</servlet-class>
+  <servlet-name>editargenero</servlet-name>
+  <servlet-class>es.cea.EditarGeneroServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>editarautor</servlet-name>
+  <servlet-class>es.cea.EditarAutorServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>listalibros</servlet-name>
+  <servlet-class>es.cea.ListaLibrosServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>gestionusuarios</servlet-name>
+  <servlet-class>es.cea.GestionUsuariosServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>listaprestamos</servlet-name>
+  <servlet-class>es.cea.ListaPrestamosServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>cerrar</servlet-name>
+  <servlet-class>es.cea.CerrarSesionServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<servlet-name>loginadmin</servlet-name>
+ 	<servlet-class>es.cea.LoginAdminServlet</servlet-class>
  </servlet>
  <servlet-mapping>
   <servlet-name>crear</servlet-name>
@@ -94,16 +130,40 @@
   <url-pattern>/consultaprestamo</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
-  <servlet-name>eliminar</servlet-name>
-  <url-pattern>/eliminar</url-pattern>
+  <servlet-name>listasolicitudes</servlet-name>
+  <url-pattern>/listasolicitudes</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
-  <servlet-name>menuadmin</servlet-name>
-  <url-pattern>/menuadmin</url-pattern>
+  <servlet-name>editarlibro</servlet-name>
+  <url-pattern>/editarlibro</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
-  <servlet-name>modificar</servlet-name>
-  <url-pattern>/modificar</url-pattern>
+  <servlet-name>editargenero</servlet-name>
+  <url-pattern>/editargenero</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>editarautor</servlet-name>
+  <url-pattern>/editarautor</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>listalibros</servlet-name>
+  <url-pattern>/listalibros</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>gestionusuarios</servlet-name>
+  <url-pattern>/gestionusuarios</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>listaprestamos</servlet-name>
+  <url-pattern>/listaprestamos</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>cerrar</servlet-name>
+  <url-pattern>/cerrar</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>loginadmin</servlet-name>
+ 	<url-pattern>/loginadmin</url-pattern>
  </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>

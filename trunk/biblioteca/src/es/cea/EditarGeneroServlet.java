@@ -19,7 +19,7 @@ public class EditarGeneroServlet extends HttpServlet {
 		pw.println(HtmlUtilities.head);
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuAdmin);
-		pw.println("<h3 style='color: #FF0000'>GESTIONAR GENEROS</h3>");
+		pw.println("<h3 style='color: #FF0000'>GESTIONAR GÉNEROS</h3>");
 		
 		
 		if(request.getParameter("editar")!=null){

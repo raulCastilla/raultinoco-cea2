@@ -12,16 +12,6 @@ public class BibliotecaListener implements ServletContextListener {
         List<Usuario> usuarios = new ArrayList<Usuario>();
     	contextEvent.getServletContext().setAttribute(AtributosConstantes.usuarios.toString(), usuarios);
         List<Autor> autores = new ArrayList<Autor>();
-        /*autores.add(new Autor("Julio Verne"));
-        autores.add(new Autor("H.G.Wells"));
-        autores.add(new Autor("Miguel de Cervantes"));
-        autores.add(new Autor("Charles Dickens"));
-        autores.add(new Autor("Friedrich Nietzsche"));
-        autores.add(new Autor("Homero"));
-        autores.add(new Autor("Lewis Carroll"));
-        autores.add(new Autor("Agatha Christie"));
-        autores.add(new Autor("Edgar Allan Poe"));
-        autores.add(new Autor("William Shakespeare"));*/
         contextEvent.getServletContext().setAttribute(AtributosConstantes.autores.toString(), autores);
         List<Prestamo> prestamos = new ArrayList<Prestamo>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.prestamos.toString(), prestamos);
@@ -42,16 +32,6 @@ public class BibliotecaListener implements ServletContextListener {
         List<Solicitud> solicitudes = new ArrayList<Solicitud>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.solicitudes.toString(), solicitudes);
         List<Genero> generos = new ArrayList<Genero>();
-        /*generos.add(new Genero("Aventuras"));
-        generos.add(new Genero("Ciencia-Ficcion"));
-        generos.add(new Genero("Clasicos"));
-        generos.add(new Genero("Cuentos y Leyendas"));
-        generos.add(new Genero("Ensayos"));
-        generos.add(new Genero("Griega y Romana"));
-        generos.add(new Genero("Infantil y Juvenil"));
-        generos.add(new Genero("Novela Policial"));
-        generos.add(new Genero("Terror"));
-        generos.add(new Genero("Teatro"));*/
         contextEvent.getServletContext().setAttribute(AtributosConstantes.generos.toString(), generos);
         
     }

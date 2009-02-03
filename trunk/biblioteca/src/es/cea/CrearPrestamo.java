@@ -22,7 +22,7 @@ public class CrearPrestamo extends HttpServlet {
 		pw.println(HtmlUtilities.head);
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuUser);
-		pw.println("<h3 style='color: #FF0000'>HACER PRESTAMO</h3>");
+		pw.println("<h3 style='color: #FF0000'>HACER PRÉSTAMO</h3>");
 		
 		List<Prestamo> prestamos = (List<Prestamo>)request.getSession().getServletContext().getAttribute(AtributosConstantes.prestamos.toString());
 		Prestamo[] prestamoUsuario = (Prestamo[])request.getSession().getAttribute(AtributosConstantes.prestamosUsuario.toString());
@@ -32,11 +32,11 @@ public class CrearPrestamo extends HttpServlet {
 		
 		for(Libro tmp:libro) if(tmp.referencia.equals(request.getParameter("referencia"))) lib=tmp;
 		Usuario user=(Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
-		//Comprobamos primero que el libro no este prestado
+		
 		if(user.permitido){
 			if(!lib.prestado){
 				if(user.numPrestamo.equals(3)){
-					pw.println("YA NO PUEDE REALIZAR M&Aacute;S PR&Eacute;STAMOS<br>");
+					pw.println("YA NO PUEDE REALIZAR MÁS PRÉSTAMOS<br>");
 				}
 		
 				if(user.numPrestamo<3){

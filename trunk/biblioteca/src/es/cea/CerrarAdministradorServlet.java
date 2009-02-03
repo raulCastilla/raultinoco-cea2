@@ -18,8 +18,8 @@ public class CerrarAdministradorServlet extends HttpServlet {
 		pw.println(HtmlUtilities.head);
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuAdmin);
-		pw.println("<h3 style='color: #FF0000'>CERRAR SESION ADMINISTRADOR</h3>");
-		pw.println("<a href='../'>Ir al catalogo</a>");
+		pw.println("<h3 style='color: #FF0000'>CERRAR SESIÓN ADMINISTRADOR</h3>");
+		pw.println("<a href='../'>Ir al catálogo</a>");
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

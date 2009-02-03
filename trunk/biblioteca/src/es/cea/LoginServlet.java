@@ -37,15 +37,15 @@ public class LoginServlet extends HttpServlet {
 						if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
 					}
 					else{
-						writer.println("EL USUARIO AUN NO HA SIDO ADMITIDO");
+						writer.println("EL USUARIO AÚN NO HA SIDO ADMITIDO");
 					}
 					
 					
 					
 				}
 				else{
-					writer.println("<h4>NO EXITE NINGUN USUARIO CON ESE MAIL Y CLAVE.</h4><br>");
-					writer.println("<a href='./login'>Intentelo de nuevo</a>");
+					writer.println("<h4>NO EXITE NINGÚN USUARIO CON ESE MAIL Y CLAVE.</h4><br>");
+					writer.println("<a href='./login'>Inténtelo de nuevo</a>");
 				}
 			}
 			

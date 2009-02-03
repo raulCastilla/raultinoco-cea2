@@ -31,10 +31,10 @@ public class BibliotecaServlet extends HttpServlet {
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuUser);
 		String prest="";
-		pw.println("<h3 style='color: #FF0000'>CATALOGO DE LIBROS</h3>");
-		pw.println("<a href='./biblioteca?genero=true'>Ordenar por genero</a>/<a href='./biblioteca?autor=true'>Ordenar por autor</a><br>");
+		pw.println("<h3 style='color: #FF0000'>CATÁLOGO DE LIBROS</h3>");
+		pw.println("<a href='./biblioteca?genero=true'>Ordenar por género</a>/<a href='./biblioteca?autor=true'>Ordenar por autor</a><br>");
 		pw.println("<table border='1'>");
-		pw.println("<tr><td>T&Iacute;TULO</td><td>G&Eacute;NERO</td><td>AUTOR</td><td>DETALLES</td><td>ALQUILADO</td></tr>");
+		pw.println("<tr><td>TÍTULO</td><td>GÉNERO</td><td>AUTOR</td><td>DETALLES</td><td>PRESTADO</td></tr>");
 		for(Libro tmp : libros){
 			prest = (tmp.prestado)?"SI":"NO";
 			pw.println("<tr><td>"+tmp.titulo+"</td><td>"+tmp.genero+"</td><td>"+tmp.autor+"</td><td><a href='./detalle?ref="+tmp.referencia+"'>Ver</a></td><td>"+prest+"</td></tr>");

@@ -24,7 +24,7 @@ public class LoginAdminServlet extends HttpServlet {
 				response.sendRedirect("/biblioteca/admin/editarlibro");
 			}
 			else{
-				pw.println("EL USUARIO O LA CONTRASE„A NO SON CORRECTOS");
+				pw.println("EL USUARIO O LA CONTRASEÑA NO SON CORRECTOS");
 			}
 		}
 		else{

@@ -24,10 +24,10 @@ public class LoginServlet extends HttpServlet {
 		writer.println(HtmlUtilities.menuUser);
 		writer.println("<h3 style='color: #FF0000'>LOG IN</h3>");
 	
-		//Comprobamos que se ha enviado un mail y clave
+		
 		if(request.getParameter("mail")!=null&&request.getParameter("clave")!=null){
 			for(Usuario tmp:usuarios){
-				//Comprobamos que existe un usuario con esas credenciales
+				
 				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))){
 					//Guardamos en una variable de sesion el usuario que se loguea
 					if(tmp.registrado){

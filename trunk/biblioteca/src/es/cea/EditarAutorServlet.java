@@ -31,24 +31,26 @@ public class EditarAutorServlet extends HttpServlet {
 					aut.nombre=request.getParameter("nombre");
 					System.out.println("Se ha modificado");
 					//request.getRequestDispatcher("/editarautor").forward(request, response);
+					response.sendRedirect("/biblioteca/admin/editarautor");
 					
 				}
 				else{
-					System.out.println("No se ha editado");;
+					System.out.println("No se ha editado");
 				}
 			}
 		}
-		if(request.getParameter("eliminar")!=null){
+		else if(request.getParameter("eliminar")!=null){
 			for(int i=0;i<autor.size();i++){
 				if(autor.get(i).nombre.equals(request.getParameter("name"))){
 					String consoleOut=autor.get(i).nombre;
 					autor.remove(i);
 					System.out.println("Se ha eliminado el autor: "+consoleOut);
 					//request.getRequestDispatcher("/editarautor").forward(request, response);
+					response.sendRedirect("/biblioteca/admin/editarautor");
 				}
 			}
 		}
-		if(request.getParameter("nombre")!=null){
+		else if(request.getParameter("nombre")!=null){
 			Autor aut=null;
 			for(Autor a:autor){
 				if(a.nombre.equals(request.getParameter("nombre"))) aut=a;
@@ -59,6 +61,7 @@ public class EditarAutorServlet extends HttpServlet {
 					"<tr><td><input type='submit' value='Editar'></td><td></td></tr>"+
 					"</table></form>");
 		}
+		else{
 		pw.println("<a href='./crearautor'>Crear Autor</a>");
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>ACCION</td></tr>");
@@ -68,7 +71,7 @@ public class EditarAutorServlet extends HttpServlet {
 		}
 		pw.println("</table>");
 		pw.println("<a href='./crearautor'>Crear Autor</a>");
-		
+		}
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

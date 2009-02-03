@@ -24,18 +24,22 @@ public class GestionUsuariosServlet extends HttpServlet {
 		if(request.getParameter("permitir")!=null){
 			for(Usuario us:usuarios){
 				if(us.mail.equals(request.getParameter("usuario"))) us.permitido=true;
+				response.sendRedirect("/biblioteca/admin/gestionusuarios");
 			}
 		}
 		else if(request.getParameter("denegar")!=null){
 			for(Usuario us:usuarios){
 				if(us.mail.equals(request.getParameter("usuario"))) us.permitido=false;
+				response.sendRedirect("/biblioteca/admin/gestionusuarios");
 			}
 		}
 		else if(request.getParameter("eliminar")!=null){
 			for(int i=0;i<usuarios.size();i++){
 				if(usuarios.get(i).mail.equals(request.getParameter("usuario"))) usuarios.remove(i);
+				response.sendRedirect("/biblioteca/admin/gestionusuarios");
 			}
 		}
+		else{
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>MAIL</td><td>PRESTAMOS</td><td>PERMITIR</td><td>REGISTRADO</td><td>ACCIONES</td></tr>");
 		for(Usuario user:usuarios){
@@ -45,6 +49,7 @@ public class GestionUsuariosServlet extends HttpServlet {
 					user.mail+"'>Denegar</a></td><td>"+user.registrado+"</td><td><a href='./gestionusuarios?eliminar=true&usuario="+user.mail+"'>Eliminar</a></td></tr>");
 		}
 		pw.println("</table");
+		}
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

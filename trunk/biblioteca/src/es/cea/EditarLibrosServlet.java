@@ -51,8 +51,9 @@ public class EditarLibrosServlet extends HttpServlet {
 					lib.fechaPublicacion.set(Calendar.MONTH, (Integer.parseInt(request.getParameter("month"))-1));
 					lib.fechaPublicacion.set(Calendar.YEAR, Integer.parseInt(request.getParameter("year")));
 					System.out.println("Se ha editado el titulo: "+consoleOut);
-					pw.println("Se ha editado el libro: "+consoleOut+"<br>");
-					pw.println("<a href='./editarlibro'>Volver</a>");
+					//pw.println("Se ha editado el libro: "+consoleOut+"<br>");
+					//pw.println("<a href='./editarlibro'>Volver</a>");
+					response.sendRedirect("/biblioteca/admin/editarlibro");
 					//request.getRequestDispatcher("/editarlibro").forward(request, response);
 				}
 			}
@@ -68,8 +69,9 @@ public class EditarLibrosServlet extends HttpServlet {
 					libros.remove(i);
 					System.out.println("Se ha eliminado el titulo: "+consoleOut);
 					//request.getRequestDispatcher("/editarlibro").forward(request, response);
-					pw.println("Se ha eliminado el libro: "+consoleOut+"<br>");
-					pw.println("<a href='./editarlibro'>Volver</a>");
+					//pw.println("Se ha eliminado el libro: "+consoleOut+"<br>");
+					//pw.println("<a href='./editarlibro'>Volver</a>");
+					response.sendRedirect("/biblioteca/admin/editarlibro");
 				}
 			}
 			//

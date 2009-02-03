@@ -29,19 +29,20 @@ public class EditarGeneroServlet extends HttpServlet {
 				if(g.nombre.equals(request.getParameter("gen"))) gen=g;
 			}
 			gen.nombre=request.getParameter("genero");
+			response.sendRedirect("/biblioteca/admin/editargenero");
 			//request.getRequestDispatcher("/editargenero").forward(request, response);
 			//pw.println("GENERO MODIFICADO");
 			
 		}
-		if(request.getParameter("eliminar")!=null){
+		else if(request.getParameter("eliminar")!=null){
 			for(int i=0;i<genero.size();i++){
 				if(genero.get(i).nombre.equals(request.getParameter("name"))){
 					genero.remove(i);
-					request.getRequestDispatcher("/editargenero").forward(request, response);
+					response.sendRedirect("/biblioteca/admin/editargenero");
 				}
 			}
 		}
-		if(request.getParameter("nombre")!=null){
+		else if(request.getParameter("nombre")!=null){
 			Genero gen=null;
 			for(Genero g:genero){
 				if(g.nombre.equals(request.getParameter("nombre"))) gen=g;
@@ -52,6 +53,7 @@ public class EditarGeneroServlet extends HttpServlet {
 					"<tr><td><input type='submit' value='Editar' /></td><td></td></tr>"+
 					"</table></form>");
 		}
+		else{
 		pw.println("<a href='./creargenero'>Crear genero</a>");
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>ACCION</td></tr>");
@@ -61,7 +63,7 @@ public class EditarGeneroServlet extends HttpServlet {
 		}
 		pw.println("</table>");
 		pw.println("<a href='./creargenero'>Crear genero</a>");
-		
+		}
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

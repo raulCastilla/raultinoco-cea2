@@ -23,25 +23,26 @@ public class ListaSolicitudesServlet extends HttpServlet {
 		
 		
 		if(request.getParameter("aceptar")!=null){
-			//pw.println("entramos en el primer if");
-			for(Solicitud s:solicitudes){
-				//pw.println("entramos en el for");
-				//pw.println(s.usuario.mail.toString()+"==");
-				//pw.println(request.getParameter("mail"));
-				if(s.usuario.mail.equals(request.getParameter("mail"))){
-					//pw.println("el if que deberia");
-					s.aceptar();
+			
+			for(int i=0;i<solicitudes.size();i++){
+				
+				if(solicitudes.get(i).usuario.mail.equals(request.getParameter("mail"))){
+					
+					solicitudes.get(i).aceptar();
+					solicitudes.remove(i);
+					response.sendRedirect("/biblioteca/admin/listasolicitudes");
 				}
 			}
 		}
-		if(request.getParameter("denegar")!=null){
+		else if(request.getParameter("denegar")!=null){
 			for(Solicitud s:solicitudes){
 				if(s.usuario.mail.equals(request.getParameter("mail"))){ 
 					s.denegar();
+					response.sendRedirect("/biblioteca/admin/listasolicitudes");
 				}
 			}
 		}
-		
+		else{
 			String acept="";
 			pw.println("<table border='1'>"+
 					"<tr><td>NOMBRE</td><td>MAIL</td><td>ACEPTADA</td><td>ACCION</td></tr>");
@@ -55,7 +56,7 @@ public class ListaSolicitudesServlet extends HttpServlet {
 			}
 			pw.println("</table>");
 		
-		
+		}
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

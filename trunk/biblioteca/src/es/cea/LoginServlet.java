@@ -34,7 +34,12 @@ public class LoginServlet extends HttpServlet {
 						request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
 						String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
 						//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
-						if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
+						if(peticionActual!=null){ 
+							request.getRequestDispatcher(peticionActual).forward(request, response);
+						}
+						else{
+							writer.println("BIENVENIDO :"+tmp.mail);
+						}
 					}
 					else{
 						writer.println("EL USUARIO AÚN NO HA SIDO ADMITIDO");

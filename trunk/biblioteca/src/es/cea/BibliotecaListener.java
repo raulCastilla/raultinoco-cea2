@@ -9,6 +9,7 @@ import javax.servlet.ServletContextListener;
 public class BibliotecaListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent contextEvent) {
+    	System.out.println("INICIA BIBLIOTECA");
         List<Usuario> usuarios = new ArrayList<Usuario>();
     	contextEvent.getServletContext().setAttribute(AtributosConstantes.usuarios.toString(), usuarios);
         List<Autor> autores = new ArrayList<Autor>();

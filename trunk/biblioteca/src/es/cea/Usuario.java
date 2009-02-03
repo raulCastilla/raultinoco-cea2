@@ -51,5 +51,11 @@ public class Usuario implements Serializable{
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Usuario: "+mail;
+	}
 	
 }

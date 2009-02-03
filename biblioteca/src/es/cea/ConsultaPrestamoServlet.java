@@ -31,13 +31,14 @@ public class ConsultaPrestamoServlet extends HttpServlet {
                                "<td><b>INICIO DEL PRESTAMO</b></td>" + 
                                "<td><b>FIN DEL PRESTAMO</b></td>" +
                                "</tr>");
-                
-                for (Prestamo prest : user.prestamos) {
-                	if(prest!=null){
-                        writer.println("<tr><td>"+prest.libro.referencia+"</td>" +
+                if(user!=null){
+                	for (Prestamo prest : user.prestamos) {
+                		if(prest!=null){
+                			writer.println("<tr><td>"+prest.libro.referencia+"</td>" +
                                        "<td>"+prest.libro.titulo+"</td>" +
                                        "<td>"+prest.fechaInicio.get(Calendar.DATE)+"/"+(prest.fechaInicio.get(Calendar.MONTH)+1)+"/"+prest.fechaInicio.get(Calendar.YEAR)+"</td>" +
                                        "<td>"+prest.fechaFin.get(Calendar.DATE)+"/"+(prest.fechaFin.get(Calendar.MONTH)+1)+"/"+prest.fechaFin.get(Calendar.YEAR)+"</td></tr>");
+                		}
                 	}
                 }
                 

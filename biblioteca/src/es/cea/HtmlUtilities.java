@@ -11,10 +11,10 @@ public class HtmlUtilities {
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./gestionusuarios'>USUARIOS</a></li>"+
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./listaprestamos'>PRESTAMOS</a></li>"+
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./listasolicitudes'>SOLICITUDES</a></li>"+
-	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./cerrar'>CERRAR SESION</a></li>"+
+	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./cerraradmin'>CERRAR SESION</a></li>"+
 	"</ul>";
 	static String menuUser="<ul style='padding: 2px; margin-left: 0px'>"+
-	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./biblioteca'>CATALOGO</a></li>"+
+	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./'>CATALOGO</a></li>"+
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./consultaprestamo'>PRESTAMOS</a></li>"+
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./registro'>SOLICITAR REGISTRO</a></li>"+
 	"<li style='display: inline; padding: 2px 7px; margin: 3px; background-color: #FF6347'><a href='./login'>LOG IN</a></li>"+

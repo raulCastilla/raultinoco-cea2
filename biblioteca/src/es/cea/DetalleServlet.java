@@ -35,8 +35,8 @@ public class DetalleServlet extends HttpServlet {
     pw.println("<h4>Detalle del libro: " + l.titulo + "</h4>");
     pw.println("Referencia: "+ l.referencia+"<br>");
     pw.println("Autor: " + l.autor + "<br>");
-    pw.println("Género: " + l.genero + "<br>");
-    pw.println("Fecha de publicación: " + l.fechaPublicacion.get(Calendar.DATE)+"/"+(l.fechaPublicacion.get(Calendar.MONTH)+1)+"/"+l.fechaPublicacion.get(Calendar.YEAR) + "<br>");
+    pw.println("G&eacute;nero: " + l.genero + "<br>");
+    pw.println("Fecha de publicaci&oacute;n: " + l.fechaPublicacion.get(Calendar.DATE)+"/"+(l.fechaPublicacion.get(Calendar.MONTH)+1)+"/"+l.fechaPublicacion.get(Calendar.YEAR) + "<br>");
     pw.println("Prestado: " + prest + "<br>");
     
 

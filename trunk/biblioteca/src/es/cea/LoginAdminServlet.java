@@ -19,8 +19,9 @@ public class LoginAdminServlet extends HttpServlet {
 		pw.println("<h3 style='color: #FF0000'>LOGIN ADMINISTRADOR</h3>");
 		if(request.getParameter("nombre")!=null&&request.getParameter("clave")!=null){
 			if(Administrador.clave.equals(request.getParameter("clave"))&&Administrador.nombre.equals(request.getParameter("nombre"))){
-				request.getSession().setAttribute(AtributosConstantes.administrador.toString(), true);
-				request.getRequestDispatcher("/editarlibro").forward(request, response);
+				request.getSession().getServletContext().setAttribute(AtributosConstantes.administrador.toString(), true);
+				//request.getRequestDispatcher("/admin/editarlibro").forward(request, response);
+				response.sendRedirect("/biblioteca/admin/editarlibro");
 			}
 			else{
 				pw.println("EL USUARIO O LA CONTRASE„A NO SON CORRECTOS");

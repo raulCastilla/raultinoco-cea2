@@ -42,11 +42,18 @@ public class GestionUsuariosServlet extends HttpServlet {
 		else{
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>MAIL</td><td>PRESTAMOS</td><td>PERMITIR</td><td>REGISTRADO</td><td>ACCIONES</td></tr>");
+		String per="";
+		String reg="";
 		for(Usuario user:usuarios){
-			pw.println("<tr><td>"+user.nombre+"</td><td>"+user.mail+"</td><td>"+user.permitido+
+			
+			if(user!=null){
+				reg=(user.registrado)?"SI":"NO";
+				per=(user.permitido)?"SI":"NO";
+				pw.println("<tr><td>"+user.nombre+"</td><td>"+user.mail+"</td><td>"+per+
 					"</td><td><a href='./gestionusuarios?permitir=true&usuario="+
 					user.mail+"'>Permitir</a>/<a href='./gestionusuarios?denegar=true&usuario="+
-					user.mail+"'>Denegar</a></td><td>"+user.registrado+"</td><td><a href='./gestionusuarios?eliminar=true&usuario="+user.mail+"'>Eliminar</a></td></tr>");
+					user.mail+"'>Denegar</a></td><td>"+reg+"</td><td><a href='./gestionusuarios?eliminar=true&usuario="+user.mail+"'>Eliminar</a></td></tr>");
+			}	
 		}
 		pw.println("</table");
 		}

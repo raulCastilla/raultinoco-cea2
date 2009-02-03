@@ -13,6 +13,10 @@
   <filter-name>prestamofiltro</filter-name>
   <filter-class>es.cea.PrestamoFiltro</filter-class>
  </filter>
+ <filter>
+ <filter-name>filtroAdministrador</filter-name>
+ <filter-class>es.cea.FiltroAdministrador</filter-class>
+ </filter>
  <!-- 
  <filter-mapping>
   <filter-name>plantillafiltro</filter-name>
@@ -22,6 +26,10 @@
  <filter-mapping>
   <filter-name>prestamofiltro</filter-name>
   <url-pattern>/prestamo</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+ <filter-name>filtroAdministrador</filter-name>
+ <url-pattern>/admin/*</url-pattern>
  </filter-mapping>
  <listener>
   <listener-class>es.cea.BibliotecaListener</listener-class>
@@ -97,9 +105,13 @@
  	<servlet-name>loginadmin</servlet-name>
  	<servlet-class>es.cea.LoginAdminServlet</servlet-class>
  </servlet>
+ <servlet>
+ 	<servlet-name>cerraradmin</servlet-name>
+ 	<servlet-class>es.cea.CerrarAdministradorServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>crear</servlet-name>
-  <url-pattern>/crear</url-pattern>
+  <url-pattern>/admin/crear</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>prestamo</servlet-name>
@@ -115,7 +127,7 @@
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>biblioteca</servlet-name>
-  <url-pattern>/biblioteca</url-pattern>
+  <url-pattern>/</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>detalle</servlet-name>
@@ -131,19 +143,19 @@
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>listasolicitudes</servlet-name>
-  <url-pattern>/listasolicitudes</url-pattern>
+  <url-pattern>/admin/listasolicitudes</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>editarlibro</servlet-name>
-  <url-pattern>/editarlibro</url-pattern>
+  <url-pattern>/admin/editarlibro</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>editargenero</servlet-name>
-  <url-pattern>/editargenero</url-pattern>
+  <url-pattern>/admin/editargenero</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>editarautor</servlet-name>
-  <url-pattern>/editarautor</url-pattern>
+  <url-pattern>/admin/editarautor</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>listalibros</servlet-name>
@@ -151,11 +163,11 @@
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>gestionusuarios</servlet-name>
-  <url-pattern>/gestionusuarios</url-pattern>
+  <url-pattern>/admin/gestionusuarios</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>listaprestamos</servlet-name>
-  <url-pattern>/listaprestamos</url-pattern>
+  <url-pattern>/admin/listaprestamos</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>cerrar</servlet-name>
@@ -164,6 +176,10 @@
  <servlet-mapping>
  	<servlet-name>loginadmin</servlet-name>
  	<url-pattern>/loginadmin</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>cerraradmin</servlet-name>
+ 	<url-pattern>/admin/cerraradmin</url-pattern>
  </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>

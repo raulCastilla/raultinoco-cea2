@@ -66,8 +66,11 @@ public class EditarAutorServlet extends HttpServlet {
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>ACCION</td></tr>");
 		for(Autor a:autor){
-		pw.println("<tr><td>"+a.nombre+"</td><td><a href='./editarautor?nombre="+a.nombre+
+			if(a!=null){
+				pw.println("<tr><td>"+a.nombre+"</td><td><a href='./editarautor?nombre="+a.nombre+
 						"'>Editar</a>/<a href='./editarautor?name="+a.nombre+"&eliminar=true'>Eliminar</a></td></tr>");
+		
+			}
 		}
 		pw.println("</table>");
 		pw.println("<a href='./crearautor'>Crear Autor</a>");

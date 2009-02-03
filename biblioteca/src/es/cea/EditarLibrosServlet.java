@@ -98,6 +98,7 @@ public class EditarLibrosServlet extends HttpServlet {
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>REFERENCIA</td><td>T&Iacute;TULO</td><td>G&Eacute;NERO</td><td>AUTOR</td><td>FECHA PUBLICACI&Oacute;N</td><td>ACCIONES</td></tr>");
 		for(Libro tmp : libros){
+			if(tmp!=null){
 				
 			pw.println("<tr><td>"+tmp.referencia+"</td><td>"+tmp.titulo+"</td><td>"+tmp.genero+"</td><td>"
 						+tmp.autor+"</td><td>"+tmp.fechaPublicacion.get(Calendar.DATE)
@@ -106,6 +107,7 @@ public class EditarLibrosServlet extends HttpServlet {
 						"</td><td><a href='./editarlibro?referencia="+
 						tmp.referencia+"'>Editar</a>/<a href='./editarlibro?eliminar=true&referencia="+
 						tmp.referencia+"'>Eliminar</a></td></tr>");
+			}
 		}
 		pw.println("</table>");
 		pw.println("<a href='./crear'>Crear libro</a>");

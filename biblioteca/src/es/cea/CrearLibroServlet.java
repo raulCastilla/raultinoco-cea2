@@ -66,7 +66,6 @@ public class CrearLibroServlet extends HttpServlet {
 					"<tr><td><input type='submit' value='Crear' /></td><td></td></tr>"+
 					"</table></form>");
 		}
-		pw.println("<br><a href='./crear'>Crear otro</a>");
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

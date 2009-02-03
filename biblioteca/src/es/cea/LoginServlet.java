@@ -23,15 +23,7 @@ public class LoginServlet extends HttpServlet {
 		writer.println(HtmlUtilities.cuerpo);
 		writer.println(HtmlUtilities.menuUser);
 		writer.println("<h3 style='color: #FF0000'>LOG IN</h3>");
-		
-		
-		//response.setContentType("text/html");
-        
-        
-        //HtmlUtilities html=new HtmlUtilities("Login");
-        
-		//writer.println(html.head);
-		//writer.println(html.cuerpo);
+	
 		//Comprobamos que se ha enviado un mail y clave
 		if(request.getParameter("mail")!=null&&request.getParameter("clave")!=null){
 			for(Usuario tmp:usuarios){
@@ -41,13 +33,14 @@ public class LoginServlet extends HttpServlet {
 					if(tmp.registrado){
 						request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
 						String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
+						//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
 						if(peticionActual!=null) request.getRequestDispatcher(peticionActual).forward(request, response);
 					}
 					else{
 						writer.println("EL USUARIO AUN NO HA SIDO ADMITIDO");
 					}
 					
-					//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
+					
 					
 				}
 				else{
@@ -65,7 +58,7 @@ public class LoginServlet extends HttpServlet {
                 "<tr><td>Clave:</td><td><input type='password' name='clave' /></td></tr>" +
                 "<tr><td><input type='submit' value='Log In'/></td><td></td></tr></table></form>");
 		}
-		//writer.println("<a href='./biblioteca'>Ir a la lista de libros</a>");
+		
 		writer.println(HtmlUtilities.fin);
 		writer.close();
 

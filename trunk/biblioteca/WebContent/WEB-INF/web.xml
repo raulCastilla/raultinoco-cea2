@@ -41,6 +41,16 @@
   <servlet-name>crear</servlet-name>
   <servlet-class>es.cea.CrearLibroServlet</servlet-class>
  </servlet>
+  <servlet>
+  <servlet-name>crearautor</servlet-name>
+  <servlet-class>es.cea.CrearAutorServlet</servlet-class>
+ </servlet>
+ 
+   <servlet>
+  <servlet-name>creargenero</servlet-name>
+  <servlet-class>es.cea.CrearGeneroServlet</servlet-class>
+ </servlet>
+ 
  <servlet>
   <servlet-name>prestamo</servlet-name>
   <servlet-class>es.cea.CrearPrestamo</servlet-class>
@@ -113,6 +123,18 @@
   <servlet-name>crear</servlet-name>
   <url-pattern>/admin/crear</url-pattern>
  </servlet-mapping>
+ 
+  <servlet-mapping>
+  <servlet-name>crearautor</servlet-name>
+  <url-pattern>/admin/crearautor</url-pattern>
+ </servlet-mapping>
+ 
+   <servlet-mapping>
+  <servlet-name>creargenero</servlet-name>
+  <url-pattern>/admin/creargenero</url-pattern>
+ </servlet-mapping>
+ 
+ 
  <servlet-mapping>
   <servlet-name>prestamo</servlet-name>
   <url-pattern>/prestamo</url-pattern>

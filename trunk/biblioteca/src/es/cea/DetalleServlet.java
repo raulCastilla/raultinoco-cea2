@@ -17,7 +17,7 @@ public class DetalleServlet extends HttpServlet {
 	
 	List<Libro> libros=(List<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.libros.toString());
 	
-	response.setContentType("text/html");
+	response.setContentType("text/html;charset=UTF-8");
 	PrintWriter pw = response.getWriter();
 	pw.println(HtmlUtilities.head);
     pw.println(HtmlUtilities.cuerpo);

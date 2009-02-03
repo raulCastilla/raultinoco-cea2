@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class RegistroServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,10 +27,7 @@ public class RegistroServlet extends HttpServlet {
 	        writer.println(HtmlUtilities.cuerpo);
 	        writer.println(HtmlUtilities.menuUser);
 	        writer.println("<h3 style='color: #FF0000'>SOLICITUD DE REGISTRO</h3>");
-	        //HtmlUtilities html=new HtmlUtilities("Registro");
 	        
-			//writer.println(html.head);
-			//writer.println(html.cuerpo);
 			if(request.getParameter("enviar")!=null){
 				Usuario nuevo=new Usuario(request.getParameter("nombre"),request.getParameter("mail"),request.getParameter("clave"));
 				Solicitud sol=new Solicitud(nuevo,solicitud,usuario);

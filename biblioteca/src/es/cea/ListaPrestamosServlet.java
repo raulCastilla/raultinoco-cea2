@@ -21,9 +21,9 @@ public class ListaPrestamosServlet extends HttpServlet {
 		pw.println(HtmlUtilities.head);
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuAdmin);
-		pw.println("<h3 style='color: #FF0000'>LISTA DE PRESTAMOS</h3>");
+		pw.println("<h3 style='color: #FF0000'>LISTA DE PRÉSTAMOS</h3>");
 		pw.println("<table border='1'");
-		pw.println("<tr><td>LIBRO</td><td>USUARIO</td><td>FECHA DE INICIO</td><td>FECHA DE FIN</td></tr>");
+		pw.println("<tr><td>LIBRO</td><td>USUARIO</td><td>FECHA DE INICIO</td><td>FECHA DE FÍN</td></tr>");
 		
 		for(Prestamo p:prestamos){
 			pw.println("<tr><td>"+p.libro.titulo+"</td><td>"+p.usuario.nombre+"</td><td>"+

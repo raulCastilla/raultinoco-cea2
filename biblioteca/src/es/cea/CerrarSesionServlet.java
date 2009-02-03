@@ -18,7 +18,7 @@ public class CerrarSesionServlet extends HttpServlet {
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuUser);
 		request.getSession().invalidate();
-		pw.println("<p>SESION CERRADA</p>");
+		pw.println("<p>SESIÓN CERRADA</p>");
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

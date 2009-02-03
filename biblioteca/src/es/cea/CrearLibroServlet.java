@@ -29,8 +29,7 @@ public class CrearLibroServlet extends HttpServlet {
 			Genero gen = new Genero(request.getParameter("genero"));
 			Libro lib= new Libro(request.getParameter("referencia"),request.getParameter("titulo"),gen,aut,Integer.parseInt(request.getParameter("date")),Integer.parseInt(request.getParameter("month"))-1,Integer.parseInt(request.getParameter("year")));
 			
-			/*genero.add(gen);
-			autor.add(aut);*/
+			
 			libro.add(lib);
 			if(!genero.contains(gen)){ 
 				gen.libros.add(lib);
@@ -57,12 +56,12 @@ public class CrearLibroServlet extends HttpServlet {
 			pw.println("<form action='./crear?crear=true' method='post'>"+
 					"<table>"+
 					"<tr><td>REFERENCIA:</td><td><input type='text' name='referencia' /></td></tr>"+
-					"<tr><td>TITULO:</td><td><input type='text' name='titulo' /></td></tr>"+
+					"<tr><td>TÍTULO:</td><td><input type='text' name='titulo' /></td></tr>"+
 					"<tr><td>AUTOR:</td><td><input type='text' name='autor' /></td></tr>"+
-					"<tr><td>GENERO</td><td><input type='text' name='genero' /></td></tr>"+
-					"<tr><td>DIA</td><td><input type='text' name='date' /></td></tr>"+
+					"<tr><td>GÉNERO</td><td><input type='text' name='genero' /></td></tr>"+
+					"<tr><td>DÍA</td><td><input type='text' name='date' /></td></tr>"+
 					"<tr><td>MES</td><td><input type='text' name='month' /></td></tr>"+
-					"<tr><td>A„O</td><td><input type='text' name='year' /></td></tr>"+
+					"<tr><td>AÑO</td><td><input type='text' name='year' /></td></tr>"+
 					"<tr><td><input type='submit' value='Crear' /></td><td></td></tr>"+
 					"</table></form>");
 		}

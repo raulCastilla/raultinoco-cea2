@@ -84,12 +84,12 @@ public class EditarLibrosServlet extends HttpServlet {
 			pw.println("<form action='./editarlibro?editar=true&ref="+lib.referencia+"' method='post'>"+
 					"<table>"+
 				"<tr><td>REFERENCIA:</td><td><input type='text' name='referencia' value='"+lib.referencia+"' /></td></tr>"+
-				"<tr><td>TITULO:</td><td><input type='text' name='titulo' value='"+lib.titulo+"' /></td></tr>"+
+				"<tr><td>TÍTULO:</td><td><input type='text' name='titulo' value='"+lib.titulo+"' /></td></tr>"+
 				"<tr><td>AUTOR:</td><td><input type='text' name='autor' value='"+lib.autor.nombre+"' /></td></tr>"+
-				"<tr><td>GENERO</td><td><input type='text' name='genero' value='"+lib.genero.nombre+"'/></td></tr>"+
-				"<tr><td>DIA</td><td><input type='text' name='date' value='"+lib.fechaPublicacion.get(Calendar.DATE)+"' /></td></tr>"+
+				"<tr><td>GÉNERO</td><td><input type='text' name='genero' value='"+lib.genero.nombre+"'/></td></tr>"+
+				"<tr><td>DÍA</td><td><input type='text' name='date' value='"+lib.fechaPublicacion.get(Calendar.DATE)+"' /></td></tr>"+
 				"<tr><td>MES</td><td><input type='text' name='month' value='"+(lib.fechaPublicacion.get(Calendar.MONTH)+1)+"' /></td></tr>"+
-				"<tr><td>A„O</td><td><input type='text' name='year' value='"+lib.fechaPublicacion.get(Calendar.YEAR)+"' /></td></tr>"+
+				"<tr><td>AÑO</td><td><input type='text' name='year' value='"+lib.fechaPublicacion.get(Calendar.YEAR)+"' /></td></tr>"+
 				"<tr><td><input type='submit' value='Editar' /></td><td></td></tr>"+
 				"</table></form>");
 		}

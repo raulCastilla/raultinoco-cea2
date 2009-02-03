@@ -24,12 +24,12 @@ public class ConsultaPrestamoServlet extends HttpServlet {
                 
                 Usuario user = (Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
                
-                writer.println("<h3 style='color: #FF0000'>MIS PRESTAMOS</h3>");
+                writer.println("<h3 style='color: #FF0000'>MIS PRÉSTAMOS</h3>");
                 writer.println("<table width='100%' border='3'>");
                 writer.println("<tr><td><b>REFERENCIA</b></td>" +
-                               "<td><b>TITULO</b></td>" +
-                               "<td><b>INICIO DEL PRESTAMO</b></td>" + 
-                               "<td><b>FIN DEL PRESTAMO</b></td>" +
+                               "<td><b>TÍTULO</b></td>" +
+                               "<td><b>INICIO DEL PRÉSTAMO</b></td>" + 
+                               "<td><b>FÍN DEL PRÉSTAMO</b></td>" +
                                "</tr>");
                 if(user!=null){
                 	for (Prestamo prest : user.prestamos) {

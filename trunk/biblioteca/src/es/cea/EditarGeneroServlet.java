@@ -58,8 +58,10 @@ public class EditarGeneroServlet extends HttpServlet {
 		pw.println("<table border='1'>");
 		pw.println("<tr><td>NOMBRE</td><td>ACCION</td></tr>");
 		for(Genero g:genero){
+			if(g!=null){
 			pw.println("<tr><td>"+g.nombre+"</td><td><a href='./editargenero?nombre="+g.nombre+
 						"'>Editar</a>/<a href='./editargenero?eliminar=true&name="+g.nombre+"'>Eliminar</a></td></tr>");
+			}
 		}
 		pw.println("</table>");
 		pw.println("<a href='./creargenero'>Crear genero</a>");

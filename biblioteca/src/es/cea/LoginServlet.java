@@ -24,37 +24,30 @@ public class LoginServlet extends HttpServlet {
 		writer.println(HtmlUtilities.menuUser);
 		writer.println("<h3 style='color: #FF0000'>LOG IN</h3>");
 	
-		
+		//Comprobamos que se ha enviado un mail y clave
 		if(request.getParameter("mail")!=null&&request.getParameter("clave")!=null){
-			for(Usuario tmp:usuarios){
-				
-				if(tmp.mail.equals(request.getParameter("mail"))&&tmp.clave.equals(request.getParameter("clave"))){
-					//Guardamos en una variable de sesion el usuario que se loguea
-					if(tmp.registrado){
-						request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), tmp);
-						String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
-						//Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
-						if(peticionActual!=null){ 
-							request.getRequestDispatcher(peticionActual).forward(request, response);
-						}
-						else{
-							writer.println("BIENVENIDO :"+tmp.mail);
-						}
-					}
-					else{
-						writer.println("EL USUARIO AÚN NO HA SIDO ADMITIDO");
-					}
-					
-					
-					
+			Usuario us = new Usuario("nombre",request.getParameter("mail"),request.getParameter("clave"));
+			if(usuarios.contains(us)){
+				us=usuarios.get(usuarios.indexOf(us));
+				if(us.registrado){
+					request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), us);
+                    String peticionActual=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
+                    //Si existe una peticion de prestamo me reenvia al servlet de prestamos en caso contrario unicamente se loguea
+                    if(peticionActual!=null){ 
+                            request.getRequestDispatcher(peticionActual).forward(request, response);
+                    }
+                    else{
+                            writer.println("BIENVENIDO :"+us.mail);
+                    }
+
 				}
 				else{
-					writer.println("<h4>NO EXITE NINGÚN USUARIO CON ESE MAIL Y CLAVE.</h4><br>");
-					writer.println("<a href='./login'>Inténtelo de nuevo</a>");
+					writer.println("EL USUARIO AÚN NO HA SIDO ADMITIDO");
 				}
 			}
-			
-		
+			else{
+				writer.println("NO EXISTE NINGÚN USUARIO CON ESAS CREDENCIALES");
+			}
 		}
 		else{
 			writer.println("<form action='./login' method='post'>" +

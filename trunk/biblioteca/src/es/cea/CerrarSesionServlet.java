@@ -17,8 +17,13 @@ public class CerrarSesionServlet extends HttpServlet {
 		pw.println(HtmlUtilities.head);
 		pw.println(HtmlUtilities.cuerpo);
 		pw.println(HtmlUtilities.menuUser);
-		request.getSession().invalidate();
-		pw.println("<p>SESIÓN CERRADA</p>");
+		if(request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString())!=null){
+			request.getSession().invalidate();
+			pw.println("<p>SESIÓN CERRADA</p>");
+		}
+		else{
+			pw.println("<p>NO HAY NINGUNA SESIÓN INICIADA</p>");
+		}
 		pw.println(HtmlUtilities.fin);
 		pw.close();
 	}

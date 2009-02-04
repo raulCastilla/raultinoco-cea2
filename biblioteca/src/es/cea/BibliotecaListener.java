@@ -12,8 +12,7 @@ public class BibliotecaListener implements ServletContextListener {
     	System.out.println("INICIA BIBLIOTECA");
         List<Usuario> usuarios = new ArrayList<Usuario>();
     	contextEvent.getServletContext().setAttribute(AtributosConstantes.usuarios.toString(), usuarios);
-        List<Autor> autores = new ArrayList<Autor>();
-        contextEvent.getServletContext().setAttribute(AtributosConstantes.autores.toString(), autores);
+        
         List<Prestamo> prestamos = new ArrayList<Prestamo>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.prestamos.toString(), prestamos);
         List<Libro> libros = new ArrayList<Libro>();
@@ -33,7 +32,17 @@ public class BibliotecaListener implements ServletContextListener {
         List<Solicitud> solicitudes = new ArrayList<Solicitud>();
         contextEvent.getServletContext().setAttribute(AtributosConstantes.solicitudes.toString(), solicitudes);
         List<Genero> generos = new ArrayList<Genero>();
+        for(int i=0;i<libros.size();i++){
+        	generos.add(libros.get(i).genero);
+        	generos.get(i).libros.add(libros.get(i));
+        }
         contextEvent.getServletContext().setAttribute(AtributosConstantes.generos.toString(), generos);
+        List<Autor> autores = new ArrayList<Autor>();
+        for(int i=0;i<libros.size();i++){
+        	autores.add(libros.get(i).autor);
+        	autores.get(i).libros.add(libros.get(i));
+        }
+        contextEvent.getServletContext().setAttribute(AtributosConstantes.autores.toString(), autores);
         
     }
 

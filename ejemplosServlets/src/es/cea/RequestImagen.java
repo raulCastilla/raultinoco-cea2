@@ -16,8 +16,10 @@ public class RequestImagen extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType( "text/html" ); 
-        PrintWriter out = response.getWriter(); 
+		PrintWriter out = response.getWriter();
+		
         out.println("<p>Inicio del dispatcher</p>"); 
         out.println( "<p><img border='2' src='" + request.getContextPath() +"/img/web.gif'></p>"); 
         out.println("<p>Fin de dispatcher. Esta imagen ha sido mostrada por el dispatcher</p>"); 

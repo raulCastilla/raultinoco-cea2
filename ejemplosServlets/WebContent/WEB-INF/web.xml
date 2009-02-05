@@ -6,14 +6,17 @@
 		<servlet-name>pruebadispatcher</servlet-name>
 		<servlet-class>es.cea.PruebaDispatcher</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>requestimagen</servlet-name>
 		<servlet-class>es.cea.RequestImagen</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>pruebadispatcher</servlet-name>
 		<url-pattern>/pruebadispatcher</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>requestimagen</servlet-name>
 		<url-pattern>/requestimagen</url-pattern>

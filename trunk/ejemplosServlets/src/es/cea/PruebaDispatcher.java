@@ -49,8 +49,6 @@ public class PruebaDispatcher extends HttpServlet {
         
         out.println("<p>Final del primer servlet</p>"); 
         out.println("</font></body></html>"); 
-
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

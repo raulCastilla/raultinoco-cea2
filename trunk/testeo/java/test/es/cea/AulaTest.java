@@ -13,8 +13,11 @@ public class AulaTest {
 		Aula aula2 = new Aula(local2,"aula2");
 		Aula aula1Bis = new Aula(local1,"aula1Bis");
 		
-		assert(!aula1.equals(aula2)):"Aula 1 debe ser distinta a 2";
-		assert(aula1.equals(aula1Bis)):"Aula 1 debe ser igual a aula1bis";
+		boolean equals1=aula1.equals(aula2);
+		assert(!equals1):"Aula 1 debe ser distinta a 2";
+		
+		boolean equals2=aula1.equals(aula1Bis);
+		assert(equals2):"Aula 1 debe ser igual a aula1bis";
 		
 	}
 }

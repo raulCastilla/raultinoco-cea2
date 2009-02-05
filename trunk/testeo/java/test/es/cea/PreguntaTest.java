@@ -14,10 +14,19 @@ public class PreguntaTest {
 		Pregunta pregunta3=new Pregunta(examen1,2);
 		Pregunta pregunta1Bis=new Pregunta(examen1,1);
 		
-		assert(!examen1.equals(examen2)):"examen 1 debe ser distinto a 2";
-		assert(examen1.equals(examen1Bis)):"examen 1 debe ser igual a examen1bis";
-		assert(!pregunta1.equals(pregunta2)):"pregunta 1 debe ser distinta a la 2";
-		assert(!pregunta1.equals(pregunta3)):"pregunta 1 debe ser distinta a 3 ya que el numero de preguntas es distinto";
-		assert(pregunta1.equals(pregunta1Bis)):"pregunta 1 debe ser igual a pregunta1bis";
+		boolean equals1=examen1.equals(examen2);
+		assert(!equals1):"examen 1 debe ser distinto a 2";
+		
+		boolean equals2=examen1.equals(examen1Bis);
+		assert(equals2):"examen 1 debe ser igual a examen1bis";
+		
+		boolean equals3=pregunta1.equals(pregunta2);
+		assert(!equals3):"pregunta 1 debe ser distinta a la 2";
+		
+		boolean equals4=pregunta1.equals(pregunta3);
+		assert(!equals4):"pregunta 1 debe ser distinta a 3 ya que el numero de preguntas es distinto";
+		
+		boolean equals5=pregunta1.equals(pregunta1Bis);
+		assert(equals5):"pregunta 1 debe ser igual a pregunta1bis";
 	}
 }

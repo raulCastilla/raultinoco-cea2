@@ -30,12 +30,12 @@ public class ServicioCalendarioTest {
 	@Test
 	public void stringToCalendario(){
 		Calendar cal = Calendar.getInstance();
-		String fecha="1/12/2009";
+		String fecha1="01/12/2009";
 		ServicioCalendario servicio = new ServicioCalendario();
 		Pattern p = Pattern.compile("[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
 		
 		try{
-		cal=servicio.stringToCalendario(fecha);
+		cal=servicio.stringToCalendario(fecha1);
 		assert(cal!=null):"deberia devolver un calendario";
 		}
 		catch (FechaNoValidaException e) {
@@ -46,9 +46,8 @@ public class ServicioCalendarioTest {
 		assert(m.matches()):"deberia cumplir el formato";
 		
 		try{
-			cal=servicio.stringToCalendario(fecha);
-			System.out.println("La fecha devuelta es: "+servicio.calendarioToString(cal));
-//			assert(servicio.calendarioToString(cal).equals(fecha)):"debe ser igual a fecha";
+			cal=servicio.stringToCalendario(fecha1);
+			assert(servicio.calendarioToString(cal).equals(fecha1)):"debe ser igual a fecha";
 		}
 		catch (FechaNoValidaException e){
 			System.out.println(e.getMessage());

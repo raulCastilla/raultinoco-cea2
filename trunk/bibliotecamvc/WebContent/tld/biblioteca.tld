@@ -5,10 +5,9 @@
  <tlib-version>1.1</tlib-version>
  <short-name>fml</short-name>
  <uri>/form</uri>
- 
  <tag>
  <name>frm</name>
- <tag-class>es.cea.Etiquetas.EtiquetaFormulario</tag-class>
+ <tag-class>es.cea.Tags.EtiquetaFormulario</tag-class>
  <body-content>JSP</body-content>
  <attribute>
  	<name>url</name>
@@ -21,10 +20,9 @@
  	<rtexprvalue>false</rtexprvalue>
  </attribute>
  </tag>
- 
   <tag>
  <name>pwd</name>
- <tag-class>es.cea.Etiquetas.EtiquetaPassword</tag-class>
+ <tag-class>es.cea.Tags.EtiquetaPassword</tag-class>
  <body-content>empty</body-content>
  <attribute>
  	<name>nombre</name>
@@ -37,10 +35,9 @@
  	<rtexprvalue>false</rtexprvalue>
  </attribute>
  </tag>
- 
  <tag>
  <name>ft</name>
- <tag-class>es.cea.Etiquetas.EtiquetaTexto</tag-class>
+ <tag-class>es.cea.Tags.EtiquetaTexto</tag-class>
  <body-content>empty</body-content>
  <attribute>
  	<name>nombre</name>
@@ -53,10 +50,9 @@
  	<rtexprvalue>false</rtexprvalue>
  </attribute>
  </tag>
- 
   <tag>
- <name>rb</name>
- <tag-class>es.cea.Etiquetas.EtiquetaRadioButton</tag-class>
+ <name>mu</name>
+ <tag-class>es.cea.Tags.EtiquetaMenuUsuario</tag-class>
  <body-content>empty</body-content>
  <attribute>
  	<name>nombre</name>
@@ -68,10 +64,20 @@
  	<required>true</required>
  	<rtexprvalue>false</rtexprvalue>
  </attribute>
-  <attribute>
- 	<name>opciones</name>
+ </tag>
+ <tag>
+ <name>ma</name>
+ <tag-class>es.cea.Tags.EtiquetaMenuAdministrador</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>nombre</name>
  	<required>true</required>
- 	<rtexprvalue>true</rtexprvalue>
+ 	<rtexprvalue>false</rtexprvalue>
+ </attribute>
+ <attribute>
+ 	<name>label</name>
+ 	<required>true</required>
+ 	<rtexprvalue>false</rtexprvalue>
  </attribute>
  </tag>
 </taglib>

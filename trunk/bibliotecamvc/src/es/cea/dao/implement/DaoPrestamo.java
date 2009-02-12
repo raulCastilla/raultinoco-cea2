@@ -1,7 +1,6 @@
 package es.cea.dao.implement;
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import es.cea.dao.Dao;
 import es.cea.dao.modelo.Prestamo;

@@ -7,8 +7,12 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
 public class EtiquetaFormulario extends TagSupport{
+	
+	private static final long serialVersionUID = 8396547786807458880L;
+	
 	protected String url;
 	protected String method;
+	
 	@Override
 	public int doStartTag() throws JspException {
 		JspWriter pw = pageContext.getOut();

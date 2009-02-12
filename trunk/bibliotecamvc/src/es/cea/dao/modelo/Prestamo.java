@@ -1,6 +1,12 @@
 package es.cea.dao.modelo;
 
-public class Prestamo {
+import java.io.Serializable;
+
+public class Prestamo implements Serializable, Comparable<Prestamo>{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5990508126962427334L;
 	private Usuario usuario;
 	private Libro libro;
 	private String fechaInicio;
@@ -72,6 +78,10 @@ public class Prestamo {
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Prestamo o) {
+		return this.compareTo(o);
 	}
 	
 }

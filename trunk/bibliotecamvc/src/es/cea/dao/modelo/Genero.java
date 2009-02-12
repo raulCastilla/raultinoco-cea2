@@ -1,8 +1,13 @@
 package es.cea.dao.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Genero {
+public class Genero implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2890651779362626988L;
 	private String nombre;
 	private List<Libro> listaLibros;
 	public Genero(String nombre, List<Libro> listaLibros) {

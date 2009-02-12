@@ -1,6 +1,11 @@
 package es.cea.dao.modelo;
 
-public class Solicitud {
+import java.io.Serializable;
+
+public class Solicitud implements Serializable, Comparable<Solicitud>{
+	
+	private static final long serialVersionUID = -6141826165723953565L;
+	
 	private Usuario usuario;
 	private Boolean aceptada;
 	public Solicitud(Usuario usuario, Boolean aceptada) {
@@ -42,6 +47,10 @@ public class Solicitud {
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Solicitud o) {
+		return this.compareTo(o);
 	}
 	
 	

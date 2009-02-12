@@ -7,6 +7,10 @@ import javax.servlet.jsp.JspWriter;
 
 public class EtiquetaPassword extends EtiquetaGeneral{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7497055265208609063L;
 	@Override
 	public int doEndTag() throws JspException {
 		// TODO Auto-generated method stub

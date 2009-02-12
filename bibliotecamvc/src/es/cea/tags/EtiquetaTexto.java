@@ -7,6 +7,10 @@ import javax.servlet.jsp.JspWriter;
 
 public class EtiquetaTexto extends EtiquetaGeneral {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3228555332993251758L;
 	@Override
 	public int doEndTag() throws JspException {
 		

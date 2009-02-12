@@ -1,7 +1,13 @@
 package es.cea.dao.modelo;
 
+import java.io.Serializable;
 
-public class Libro {
+
+public class Libro implements Serializable, Comparable<Libro>{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 314884217771198939L;
 	private String titulo;
 	private String referencia;
 	private String fechaPublicacion;
@@ -77,6 +83,10 @@ public class Libro {
 		} else if (!referencia.equals(other.referencia))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Libro o) {
+		return this.compareTo(o);
 	}
 	
 }

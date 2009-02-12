@@ -7,6 +7,11 @@ import javax.servlet.jsp.JspWriter;
 
 public class EtiquetaMenuUsuario extends EtiquetaGeneral {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3603947711523020518L;
+
 	@Override
 	public int doEndTag() throws JspException {
 		// TODO Auto-generated method stub

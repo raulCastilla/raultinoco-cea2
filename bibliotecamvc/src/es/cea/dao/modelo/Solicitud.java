@@ -3,9 +3,10 @@ package es.cea.dao.modelo;
 import java.io.Serializable;
 
 public class Solicitud implements Serializable, Comparable<Solicitud>{
-	
-	private static final long serialVersionUID = -6141826165723953565L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
 	private Boolean aceptada;
 	public Solicitud(Usuario usuario, Boolean aceptada) {

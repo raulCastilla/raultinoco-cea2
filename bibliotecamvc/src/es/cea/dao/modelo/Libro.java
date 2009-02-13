@@ -7,7 +7,7 @@ public class Libro implements Serializable, Comparable<Libro>{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 314884217771198939L;
+	private static final long serialVersionUID = 1L;
 	private String titulo;
 	private String referencia;
 	private String fechaPublicacion;

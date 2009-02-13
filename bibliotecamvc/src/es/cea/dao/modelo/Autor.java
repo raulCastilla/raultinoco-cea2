@@ -1,20 +1,22 @@
 package es.cea.dao.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Autor implements Serializable, Comparable<Autor>{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4941754482201539535L;
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private List<Libro> listaLibros;
-	public Autor(String nombre, List<Libro> listaLibros) {
+	public Autor(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.listaLibros = listaLibros;
+		this.listaLibros = new ArrayList<Libro>();
 	}
 	public String getNombre() {
 		return nombre;
@@ -55,4 +57,5 @@ public class Autor implements Serializable, Comparable<Autor>{
 	public int compareTo(Autor o) {
 		return this.compareTo(o);
 	}
+	
 }

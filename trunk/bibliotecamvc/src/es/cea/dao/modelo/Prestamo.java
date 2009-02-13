@@ -6,7 +6,7 @@ public class Prestamo implements Serializable, Comparable<Prestamo>{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5990508126962427334L;
+	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
 	private Libro libro;
 	private String fechaInicio;

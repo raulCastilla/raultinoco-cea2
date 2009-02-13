@@ -3,9 +3,10 @@ package es.cea.dao.modelo;
 import java.io.Serializable;
 
 public class Usuario implements Serializable, Comparable<Usuario>{
-
-	private static final long serialVersionUID = -292586441758474669L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String correo;
 	private String clave;

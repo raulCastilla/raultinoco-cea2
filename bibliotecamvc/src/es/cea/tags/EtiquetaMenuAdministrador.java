@@ -6,11 +6,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 
 public class EtiquetaMenuAdministrador extends EtiquetaGeneral {
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -106702292721192090L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public int doEndTag() throws JspException {

@@ -5,8 +5,11 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 public class EtiquetaGeneral extends TagSupport{
 
-	private static final long serialVersionUID = 2720833936383567822L;
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String label;
 	protected String nombre;
 	public String getLabel() {

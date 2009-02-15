@@ -1,6 +1,7 @@
 package es.cea.dao.modelo;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 
 public class Libro implements Serializable, Comparable<Libro>{
@@ -10,11 +11,11 @@ public class Libro implements Serializable, Comparable<Libro>{
 	private static final long serialVersionUID = 1L;
 	private String titulo;
 	private String referencia;
-	private String fechaPublicacion;
+	private Calendar fechaPublicacion;
 	private Autor autor;
 	private Genero genero;
 	private Boolean prestado;
-	public Libro(String titulo, String referencia, String fechaPublicacion,
+	public Libro(String titulo, String referencia, Calendar fechaPublicacion,
 			Autor autor, Genero genero) {
 		super();
 		this.titulo = titulo;
@@ -36,10 +37,10 @@ public class Libro implements Serializable, Comparable<Libro>{
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
 	}
-	public String getFechaPublicacion() {
+	public Calendar getFechaPublicacion() {
 		return fechaPublicacion;
 	}
-	public void setFechaPublicacion(String fechaPublicacion) {
+	public void setFechaPublicacion(Calendar fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
 	}
 	public Autor getAutor() {

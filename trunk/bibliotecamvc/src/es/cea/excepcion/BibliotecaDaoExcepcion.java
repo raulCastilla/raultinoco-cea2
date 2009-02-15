@@ -2,6 +2,11 @@ package es.cea.excepcion;
 
 public class BibliotecaDaoExcepcion extends Exception{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public BibliotecaDaoExcepcion() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,10 +26,4 @@ public class BibliotecaDaoExcepcion extends Exception{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public String getMessage() {
-		return "La operacion solicaitada no se ha podido realizar con exito";
-	}
-	
 }

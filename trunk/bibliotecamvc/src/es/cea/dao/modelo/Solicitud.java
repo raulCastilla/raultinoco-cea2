@@ -9,10 +9,10 @@ public class Solicitud implements Serializable, Comparable<Solicitud>{
 	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
 	private Boolean aceptada;
-	public Solicitud(Usuario usuario, Boolean aceptada) {
+	public Solicitud(Usuario usuario) {
 		super();
 		this.usuario = usuario;
-		this.aceptada = aceptada;
+		this.aceptada = false;
 	}
 	public Usuario getUsuario() {
 		return usuario;

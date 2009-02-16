@@ -42,7 +42,7 @@ body {
 	clear: both;	
 	margin: 0 auto; 
 	padding: 0;
-	background: #FF6600 url(../img/menu.jpg?z=74963) repeat-x;
+	background: #AA5600 url(../img/menu2.jpg?z=74963) repeat-x;
 	font: bold 16px/40px "Trebuchet MS", Arial, Tahoma, Sans-serif;
 	height: 40px;
 	width: 780px;
@@ -72,7 +72,7 @@ body {
 }
 
 #nav1 ul li a:hover {
-	background: #FF6600 url(../img/selectedMenu.jpg?z=74963 ) repeat-x;
+	background: #FF0000 url(../img/selectedMenu.jpg?z=74963 ) repeat-x;
 	color: #202020;	
 }
 

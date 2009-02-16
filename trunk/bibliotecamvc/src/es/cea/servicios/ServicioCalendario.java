@@ -22,16 +22,12 @@ public class ServicioCalendario {
 	}
 	
 	public Calendar stringToCalendario(String fecha) throws FechaNoValidaException{
+		comprobarFormatoFecha(fecha);
 		Calendar cal=Calendar.getInstance();
-		
-		if(!comprobarFormatoFecha(fecha)) 
-			throw new FechaNoValidaException();
-		else{
-			String[] campos=fecha.split("/");
-			cal.set(Calendar.DATE, Integer.parseInt(campos[0]));
-			cal.set(Calendar.MONTH, Integer.parseInt(campos[1])-1);
-			cal.set(Calendar.YEAR, Integer.parseInt(campos[2]));
-		}
+		String[] campos=fecha.split("/");
+		cal.set(Calendar.DATE, Integer.parseInt(campos[0]));
+		cal.set(Calendar.MONTH, Integer.parseInt(campos[1])-1);
+		cal.set(Calendar.YEAR, Integer.parseInt(campos[2]));
 		return cal;
 	}
 	
@@ -39,12 +35,15 @@ public class ServicioCalendario {
 		return fin.get(Calendar.DAY_OF_YEAR)-ini.get(Calendar.DAY_OF_YEAR);
 	}
 	
-	private Boolean comprobarFormatoFecha(String fecha){
+	private Boolean comprobarFormatoFecha(String fecha) throws FechaNoValidaException{
 		Boolean valida=false;
-		Pattern p = Pattern.compile("[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]");
+		Pattern p = Pattern.compile("[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
 		String[] fields = fecha.split("/");
 		Matcher m = p.matcher(fecha);
-		if(m.matches()&&Integer.parseInt(fields[0])<32&&Integer.parseInt(fields[1])<13) valida=true;
+		if(m.matches()&&Integer.parseInt(fields[0])<32&&Integer.parseInt(fields[1])<13) 
+			valida=true;
+		else
+			throw new FechaNoValidaException();
 		return valida;
 	}
 }

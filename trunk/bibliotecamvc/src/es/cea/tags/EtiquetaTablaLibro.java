@@ -26,13 +26,13 @@ public class EtiquetaTablaLibro extends TagSupport{
 	public int doStartTag() throws JspException {
 		JspWriter pw = pageContext.getOut();
 		try{
-			pw.println("<table border='1'>");
-			pw.println("<tr><th>TÍTULO</th><th>GÉNERO</th><th>AUTOR</th><th>VER</th></tr>");
+			pw.println("<table>");
+			pw.println("<tr><th width='45%'>TÍTULO</th><th width='20%'>GÉNERO</th><th width='20%'>AUTOR</th><th width='15%'>VER</th></tr>");
 			for(Libro lib:getList()){
-				pw.println("<tr><th>"+lib.getTitulo()+
-						"</th><th>"+lib.getGenero().getNombre()+
-						"</th><th>"+lib.getAutor().getNombre()+"</th><th>"+
-						"<a href='./detalle?ref="+lib.getReferencia()+"'>Ver</a></th></tr>");
+				pw.println("<tr><td>"+lib.getTitulo()+
+						"</td><td>"+lib.getGenero().getNombre()+
+						"</td><td>"+lib.getAutor().getNombre()+"</td><td>"+
+						"<a href='./detalle?ref="+lib.getReferencia()+"'>Ver</a></td></tr>");
 			}
 			pw.println("</table>");
 			

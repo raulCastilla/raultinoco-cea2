@@ -75,4 +75,7 @@
     <servlet-name>ControladorAdministrador</servlet-name>
     <url-pattern>/ControladorAdministrador</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>es.cea.listeners.AplicacionListener</listener-class>
+  </listener>
 </web-app>

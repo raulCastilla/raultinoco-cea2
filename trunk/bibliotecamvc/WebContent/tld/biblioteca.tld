@@ -80,4 +80,14 @@
  	<rtexprvalue>false</rtexprvalue>
  </attribute>
  </tag>
+ <tag>
+ <name>libtable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaLibro</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>lista</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
 </taglib>

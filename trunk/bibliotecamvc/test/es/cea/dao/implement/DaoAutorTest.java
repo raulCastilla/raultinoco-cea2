@@ -8,7 +8,7 @@ import es.cea.excepcion.BibliotecaDaoExcepcion;
 
 public class DaoAutorTest {
 	@Test
-	public void agregarAutorLista(){
+	public void agregarAutorLista() throws BibliotecaDaoExcepcion{
 		Dao dao = new DaoAutor();
 		Autor autor1 = new Autor("autor1");
 		Autor autor2 = new Autor("autor2");

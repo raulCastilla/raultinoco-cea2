@@ -7,4 +7,5 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <jsp:include page="../include/menuser.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
+<bb:libtable list="${requestScope.lista}" />
 <jsp:include page="../include/footer.jsp"></jsp:include>

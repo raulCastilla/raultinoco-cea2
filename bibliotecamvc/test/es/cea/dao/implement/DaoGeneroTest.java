@@ -9,7 +9,7 @@ import es.cea.excepcion.BibliotecaDaoExcepcion;
 public class DaoGeneroTest {
 	
 	@Test
-	public void agregarGeneroLista(){
+	public void agregarGeneroLista()throws BibliotecaDaoExcepcion{
 		
 		Dao dao = new DaoGenero();
 		Genero gen2 = new Genero("gen2");

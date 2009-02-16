@@ -5,4 +5,10 @@ public enum AtributosConstantes {
 	prestamosUsuario,
 	administrador,
 	peticionActual,
+	daoLibro,
+	daoAutor,
+	daoGenero,
+	daoUsuario,
+	daoPrestamo,
+	daoSolicitud,
 }

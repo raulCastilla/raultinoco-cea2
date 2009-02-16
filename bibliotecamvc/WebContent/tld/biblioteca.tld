@@ -85,7 +85,7 @@
  <tag-class>es.cea.tags.EtiquetaTablaLibro</tag-class>
  <body-content>empty</body-content>
  <attribute>
- 	<name>lista</name>
+ 	<name>list</name>
  	<required>true</required>
  	<rtexprvalue>true</rtexprvalue>
  </attribute>

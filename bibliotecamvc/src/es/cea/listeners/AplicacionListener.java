@@ -10,16 +10,27 @@ import es.cea.dao.Dao;
 import es.cea.dao.implement.DaoAutor;
 import es.cea.dao.implement.DaoGenero;
 import es.cea.dao.implement.DaoLibro;
+import es.cea.dao.implement.DaoPrestamo;
+import es.cea.dao.implement.DaoSolicitud;
+import es.cea.dao.implement.DaoUsuario;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 import es.cea.excepcion.FechaNoValidaException;
+import es.cea.recursos.AtributosConstantes;
 import es.cea.servicios.ServicioCalendario;
 
 public class AplicacionListener implements ServletContextListener {
 
-    public void contextInitialized(ServletContextEvent arg0) {
+    public void contextInitialized(ServletContextEvent contextEvent) {
         System.out.println("Aplicacion iniciada...");
         
-        Dao dao = new DaoGenero();
+        Dao daoAutor = new DaoAutor();
+        Dao daoGenero = new DaoGenero();
+        Dao daoLibro = new DaoLibro();
+        Dao daoPrestamo = new DaoPrestamo();
+        Dao daoSolicitud = new DaoSolicitud();
+        Dao daoUsuario = new DaoUsuario();
+        
+        
         ServicioCalendario serv = new ServicioCalendario();
         
         Genero gen1=new Genero("Aventuras");
@@ -34,16 +45,16 @@ public class AplicacionListener implements ServletContextListener {
         Genero gen10=new Genero("Teatro");
         
         try{
-        	dao.agregar(gen1);
-        	dao.agregar(gen2);
-        	dao.agregar(gen3);
-        	dao.agregar(gen4);
-        	dao.agregar(gen5);
-        	dao.agregar(gen6);
-        	dao.agregar(gen7);
-        	dao.agregar(gen8);
-        	dao.agregar(gen9);
-        	dao.agregar(gen10);
+        	daoGenero.agregar(gen1);
+        	daoGenero.agregar(gen2);
+        	daoGenero.agregar(gen3);
+        	daoGenero.agregar(gen4);
+        	daoGenero.agregar(gen5);
+        	daoGenero.agregar(gen6);
+        	daoGenero.agregar(gen7);
+        	daoGenero.agregar(gen8);
+        	daoGenero.agregar(gen9);
+        	daoGenero.agregar(gen10);
         }
         catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Se han producido errores al agregar los generos");
@@ -60,26 +71,25 @@ public class AplicacionListener implements ServletContextListener {
         Autor aut9 = new Autor("Edgar Allan Poe");
         Autor aut10 = new Autor("William Shakespeare");
         
-        dao = new DaoAutor();
         
         try{
-        	dao.agregar(aut1);
-        	dao.agregar(aut2);
-        	dao.agregar(aut3);
-        	dao.agregar(aut4);
-        	dao.agregar(aut5);
-        	dao.agregar(aut6);
-        	dao.agregar(aut7);
-        	dao.agregar(aut8);
-        	dao.agregar(aut9);
-        	dao.agregar(aut10);
+        	daoAutor.agregar(aut1);
+        	daoAutor.agregar(aut2);
+        	daoAutor.agregar(aut3);
+        	daoAutor.agregar(aut4);
+        	daoAutor.agregar(aut5);
+        	daoAutor.agregar(aut6);
+        	daoAutor.agregar(aut7);
+        	daoAutor.agregar(aut8);
+        	daoAutor.agregar(aut9);
+        	daoAutor.agregar(aut10);
         }
         catch(BibliotecaDaoExcepcion e){
         	System.out.println("Error al agregar autores");
         }
         
         
-        dao = new DaoLibro();
+       
         
         try {
 			Libro lib1 = new Libro("La Vuelta al Mundo en 80 Dias","Ref001",serv.stringToCalendario("12/04/1873"),aut1,gen1);
@@ -93,16 +103,16 @@ public class AplicacionListener implements ServletContextListener {
 			Libro lib9 = new Libro("El Cuervo","Ref009",serv.stringToCalendario("23/01/1845"),aut9,gen9);
 			Libro lib10 = new Libro("El Rey Lear","Ref0010",serv.stringToCalendario("17/07/1608"),aut10,gen10);
 			
-			dao.agregar(lib1);
-			dao.agregar(lib2);
-			dao.agregar(lib3);
-			dao.agregar(lib4);
-			dao.agregar(lib5);
-			dao.agregar(lib6);
-			dao.agregar(lib7);
-			dao.agregar(lib8);
-			dao.agregar(lib9);
-			dao.agregar(lib10);
+			daoLibro.agregar(lib1);
+			daoLibro.agregar(lib2);
+			daoLibro.agregar(lib3);
+			daoLibro.agregar(lib4);
+			daoLibro.agregar(lib5);
+			daoLibro.agregar(lib6);
+			daoLibro.agregar(lib7);
+			daoLibro.agregar(lib8);
+			daoLibro.agregar(lib9);
+			daoLibro.agregar(lib10);
 		} 
         catch (FechaNoValidaException e) {
 			// TODO Auto-generated catch block
@@ -111,11 +121,16 @@ public class AplicacionListener implements ServletContextListener {
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir libros");
 		}
-		
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoAutor.toString(), daoAutor);
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoGenero.toString(), daoGenero);
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoLibro.toString(), daoLibro);
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoSolicitud.toString(), daoSolicitud);
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoPrestamo.toString(), daoPrestamo);
+		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoUsuario.toString(), daoUsuario);
 		
     }
 
-    public void contextDestroyed(ServletContextEvent arg0) {
+    public void contextDestroyed(ServletContextEvent contextEvent) {
     	System.out.println("Aplicacion finalizada...");
     }
 	

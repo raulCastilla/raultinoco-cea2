@@ -1,6 +1,7 @@
 package es.cea.controladores;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,17 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ControladorCatalogo
- */
+import es.cea.dao.Dao;
+import es.cea.dao.implement.DaoLibro;
+import es.cea.dao.modelo.Libro;
+import es.cea.excepcion.BibliotecaDaoExcepcion;
+
+
 public class ControladorCatalogo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
-    public ControladorCatalogo() {
-        super();
-        
-    }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Dao dao = new DaoLibro();
+		try{
+			List<Libro> libros = dao.obtenerLista();
+			request.setAttribute("lista", libros);
+		}
+		catch (BibliotecaDaoExcepcion e) {
+			System.out.println("No se ha podido obtener la lista de libros");
+			request.setAttribute("error", "No se ha podido obtener la lista de libros");
+		}
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/catalogo.jsp");
 		requestDispatcher.forward(request, response);
 		

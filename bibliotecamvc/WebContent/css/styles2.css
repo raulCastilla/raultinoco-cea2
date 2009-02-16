@@ -29,9 +29,9 @@ body {
 #header {
 	position: relative;
     height:151px;
-	background: #caced1 url(../img/header.jpg?z=74963) no-repeat center top;
+	background: #caced1 url(../img/header2.jpg?z=74963) no-repeat center top;
 	padding: 0;	
-	color: #fff;
+	color: #9900CC;
 	margin-left:auto;
     margin-right:auto;
 	width:820px;
@@ -42,7 +42,7 @@ body {
 	clear: both;	
 	margin: 0 auto; 
 	padding: 0;
-	background: #AA5600 url(../img/menu2.jpg?z=74963) repeat-x;
+	background: #9900CC url(../img/menu2.jpg?z=74963) repeat-x;
 	font: bold 16px/40px "Trebuchet MS", Arial, Tahoma, Sans-serif;
 	height: 40px;
 	width: 780px;
@@ -72,7 +72,7 @@ body {
 }
 
 #nav1 ul li a:hover {
-	background: #FF0000 url(../img/selectedMenu.jpg?z=74963 ) repeat-x;
+	background: #CC99FF url(../img/selectedMenu2.jpg?z=74963 ) repeat-x;
 	color: #202020;	
 }
 

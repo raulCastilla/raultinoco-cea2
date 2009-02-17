@@ -12,7 +12,7 @@
 <jsp:include page="../include/content.jsp"></jsp:include>
 <c:if test="${requestScope.error}">
 ${requestScope.error}
-</c:if request.getAtributte("error")>
+</c:if>
 <jsp:include page="../include/footer.jsp"></jsp:include>
 </body>
 </html>

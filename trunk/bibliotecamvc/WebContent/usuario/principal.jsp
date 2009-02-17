@@ -7,7 +7,9 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <jsp:include page="../include/menuser.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
-
+<c:if test="${requestScope.error}">
+${requestScope.error}
+</c:if>
 
 
 

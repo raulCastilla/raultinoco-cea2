@@ -25,17 +25,7 @@ public class ControladorSolicitudEnviada extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoSolicitud dao = (DaoSolicitud)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoSolicitud.toString());
-		DaoUsuario daou = (DaoUsuario)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
-		
-		List<Solicitud> solicitud=dao.agregar()
-		
-		
-		
-		
-		
-		
-	
+
 	}
 
 	

@@ -3,15 +3,16 @@ package es.cea.controladores;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.cea.dao.Dao;
-import es.cea.dao.implement.DaoUsuario;
+
 import es.cea.dao.modelo.Usuario;
+import es.cea.excepcion.BibliotecaDaoExcepcion;
 import es.cea.excepcion.LoginException;
 import es.cea.recursos.AtributosConstantes;
 
@@ -19,45 +20,38 @@ public class ControladorLogInValido extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoUsuario dao = (DaoUsuario)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
-		List<Usuario> usuario = dao.getLista();
+		Dao<Usuario> dao = (Dao<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
+		
+		
+		
+		try {
+			String correoRequest = request.getParameter("correo");
+			if(correoRequest!=null){
+		    Usuario usuarioActual = dao.obtener(correoRequest);
+		    
+		    if(usuarioActual==null){
+		    	//el usuario no se en encuentra
+		    	request.setAttribute("error", new LoginException("No existe el usuario con el correo: "+correoRequest));
+		    	request.getRequestDispatcher("usuario/solicitarregistro.jsp").forward(request, response);
+		    }else if(usuarioActual.getCorreo().equals("admin") && usuarioActual.getClve().equals("admin")){
+		    	//el usuario es administrador
+		    	request.getSession().setAttribute("usuario", usuarioActual);
+		    	request.getRequestDispatcher("/administrador/catalogo.jsp").forward(request, response);
+		    }else{
+		    	//usaurio es registrado
+		    	request.getSession().setAttribute("usuario", usuarioActual);
+		    	request.getRequestDispatcher("usuario/catalogo.jsp").forward(request, response);
+		     }
+		    
+			}else{
+				//correo es nulo
+			 	request.setAttribute("error", new LoginException("el correo es nulo!"));
+			 	request.getRequestDispatcher("usuario/error.jsp").forward(request, response);
+			}
 
-		try{
-			if(request.getParameter("correo")!=null && request.getParameter("clave")!=null){
-					Usuario usu = new Usuario("nombre", request.getParameter("coreo"),request.getParameter("clave")); 
-						if(usuario.contains(usu)){
-							usu=usuario.get(usuario.indexOf(usu));
-								if(usu.getRegistrado()){
-									request.getSession().setAttribute(AtributosConstantes.usuarioRegistrado.toString(), usu);
-									 String peti=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
-									 //usuario administrador
-									 if(request.getParameter("correo")=="admin" && request.getParameter("clave")=="admin")
-									 {
-										 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");//????? 
-					                	 requestDispatcher.forward(request, response); 
-									 }
-									 else
-									    if(peti!=null){ 
-					                          request.getRequestDispatcher(peti).forward(request, response);
-					                    }
-					                    else 
-					                    {
-					                    	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/ControladorPrestamo");//duda extension
-					                		requestDispatcher.forward(request, response);
-					                    }
-					           else throw new LoginException("ERROR, aún no está usted admitido");//excepcion no admitido
-						}      
-					   else throw new LoginException("ERROR, compruebe que está registrado y que ha introducido los datos correctamente"); //excepcion no existe, equivocación 	   
-				}   
-				else
-				{
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/ControladorLogIn");//duda extension
-            		requestDispatcher.forward(request, response);
-				}
-		}		
-		catch(LoginException l){
-		//System.out.println("ERROR");
-	}
+		} catch (BibliotecaDaoExcepcion e) {
+			e.printStackTrace();
+		}
 	
 		
 	

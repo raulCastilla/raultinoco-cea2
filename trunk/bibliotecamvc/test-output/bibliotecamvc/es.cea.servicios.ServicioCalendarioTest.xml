@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.servicios.ServicioCalendarioTest" failures="0" tests="3" time="0.031" errors="0">
+  <properties/>
+  <testcase name="stringToCalendario" time="0.015" classname="es.cea.servicios.ServicioCalendarioTest"/>
+  <testcase name="comprobarIntervalo" time="0.0" classname="es.cea.servicios.ServicioCalendarioTest"/>
+  <testcase name="calendarioToString" time="0.0" classname="es.cea.servicios.ServicioCalendarioTest"/>
+</testsuite>

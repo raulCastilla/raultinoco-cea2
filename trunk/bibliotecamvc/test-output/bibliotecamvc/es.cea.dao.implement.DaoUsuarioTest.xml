@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoUsuarioTest" failures="0" tests="3" time="0.015" errors="0">
+  <properties/>
+  <testcase name="eliminarUsuarioLista" time="0.0" classname="es.cea.dao.implement.DaoUsuarioTest"/>
+  <testcase name="agregarUsuarioLista" time="0.0" classname="es.cea.dao.implement.DaoUsuarioTest"/>
+  <testcase name="obtenerUsuarioLista" time="0.0" classname="es.cea.dao.implement.DaoUsuarioTest"/>
+</testsuite>

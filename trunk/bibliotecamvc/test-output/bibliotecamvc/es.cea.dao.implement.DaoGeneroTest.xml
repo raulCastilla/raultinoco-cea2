@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoGeneroTest" failures="0" tests="3" time="0.015" errors="0">
+  <properties/>
+  <testcase name="agregarGeneroLista" time="0.0" classname="es.cea.dao.implement.DaoGeneroTest"/>
+  <testcase name="obtenerGeneroLista" time="0.0" classname="es.cea.dao.implement.DaoGeneroTest"/>
+  <testcase name="eliminarGeneroLista" time="0.0" classname="es.cea.dao.implement.DaoGeneroTest"/>
+</testsuite>

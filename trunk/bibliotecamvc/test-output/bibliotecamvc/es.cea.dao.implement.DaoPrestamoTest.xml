@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoPrestamoTest" failures="0" tests="3" time="0.031" errors="0">
+  <properties/>
+  <testcase name="eliminarPrestamoLista" time="0.016" classname="es.cea.dao.implement.DaoPrestamoTest"/>
+  <testcase name="agregarPrestamoLista" time="0.0" classname="es.cea.dao.implement.DaoPrestamoTest"/>
+  <testcase name="obtenerPrestamoLista" time="0.0" classname="es.cea.dao.implement.DaoPrestamoTest"/>
+</testsuite>

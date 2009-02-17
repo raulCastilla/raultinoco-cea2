@@ -32,7 +32,7 @@ public class ControladorLogInValido extends HttpServlet {
 									 String peti=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
 									 //usuario administrador
 									 if(request.getParameter("correo")=="admin" && request.getParameter("clave")=="admin")
-									 //if(usu.getCorreo().equals(""))
+									 //if(usu.getCorreo().equals())
 									 {
 										 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");//????? 
 					                	 requestDispatcher.forward(request, response); 

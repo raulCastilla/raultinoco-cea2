@@ -53,7 +53,7 @@ public class Genero implements Serializable, Comparable<Genero>{
 	}
 	@Override
 	public int compareTo(Genero o) {
-		return this.compareTo(o);
+		return this.nombre.compareTo(o.nombre);
 	}
 	
 }

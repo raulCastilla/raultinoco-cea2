@@ -32,7 +32,6 @@ public class ControladorLogInValido extends HttpServlet {
 									 String peti=(String)request.getSession().getAttribute(AtributosConstantes.peticionActual.toString());
 									 //usuario administrador
 									 if(request.getParameter("correo")=="admin" && request.getParameter("clave")=="admin")
-									 //if(usu.getCorreo().equals())
 									 {
 										 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");//????? 
 					                	 requestDispatcher.forward(request, response); 
@@ -43,7 +42,7 @@ public class ControladorLogInValido extends HttpServlet {
 					                    }
 					                    else 
 					                    {
-					                    	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/ControladorPrestamo.java");//duda extension
+					                    	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/ControladorPrestamo");//duda extension
 					                		requestDispatcher.forward(request, response);
 					                    }
 					           else throw new LoginException("ERROR, aún no está usted admitido");//excepcion no admitido

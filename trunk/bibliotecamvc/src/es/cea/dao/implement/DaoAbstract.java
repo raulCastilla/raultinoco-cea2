@@ -26,8 +26,11 @@ public abstract class DaoAbstract<E> implements Dao<E>{
 	}
 
 	@Override
-	public E obtener(E o) throws BibliotecaDaoExcepcion {
+	public E obtener(Object o) throws BibliotecaDaoExcepcion {
 		exceptionExistencia(o, true);
+		
+		
+		
 		return getLista().get(getLista().indexOf(o));
 	}
 
@@ -37,7 +40,7 @@ public abstract class DaoAbstract<E> implements Dao<E>{
 		return getLista();
 	}
 	
-	protected void exceptionExistencia(E o, boolean debeexistir)
+	protected void exceptionExistencia(Object o, boolean debeexistir)
 	throws BibliotecaDaoExcepcion {
 		if (getLista().contains(o) != debeexistir)
 			throw new BibliotecaDaoExcepcion();

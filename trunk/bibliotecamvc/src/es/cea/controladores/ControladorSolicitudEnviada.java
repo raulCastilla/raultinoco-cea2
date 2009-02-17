@@ -28,11 +28,13 @@ public class ControladorSolicitudEnviada extends HttpServlet {
 		DaoSolicitud dao = (DaoSolicitud)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoSolicitud.toString());
 		DaoUsuario daou = (DaoUsuario)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
 		
-		List<Solicitud> solicitud=dao.getLista();
-		List<Usuario> usuario= daou.getLista();
+		List<Solicitud> solicitud=dao.agregar()
 		
-		//dao.agregar(nuevo,solicitud,usuario);
-		//daou.agregar("nombre", request.getParameter("correo"), request.getParameter("clave"));
+		
+		
+		
+		
+		
 	
 	}
 

@@ -7,6 +7,6 @@ import es.cea.excepcion.BibliotecaDaoExcepcion;
 public interface Dao<E> {
 	public void agregar(E o) throws BibliotecaDaoExcepcion;
 	public void eliminar(E o) throws BibliotecaDaoExcepcion;
-	public E obtener(E o) throws BibliotecaDaoExcepcion;
+	public E obtener(Object o) throws BibliotecaDaoExcepcion;
 	public List<E> obtenerLista() throws BibliotecaDaoExcepcion;
 }

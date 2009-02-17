@@ -7,4 +7,5 @@
 <c:if test="${requestScope.error}">
 ${requestScope.error}
 </c:if>
+<a href="/crearGenero.jsp">Crear nuevo genero</a> 
 <jsp:include page="../include/footer.jsp"></jsp:include>

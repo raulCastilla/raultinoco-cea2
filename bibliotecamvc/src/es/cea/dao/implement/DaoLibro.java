@@ -12,21 +12,10 @@ public class DaoLibro extends DaoAbstract<Libro>{
 		
 		String referencia=(String) o;
 
-		List<Libro> libros=dao.getLista();
-		for(Libro l:libros){
-			//if(libros.contains(request.getParameter("")){
-			//RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/detalle.jsp?referencia="+ l.getReferencia());
-			//requestDispatcher.forward(request, response);
-		//}
-		//else
-			//excepcion
-		//end if;
-			
-		}
-
-		
-		
-		return super.obtener(o);
+		Libro lib=null;
+		for(Libro l:libros)
+			if(l.getReferencia().equals(referencia)) lib=l;
+		return lib;
 	}
 
 	@Override

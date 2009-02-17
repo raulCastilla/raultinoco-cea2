@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoLibroTest" failures="0" tests="3" time="0.031" errors="0">
+  <properties/>
+  <testcase name="obtenerLibroLista" time="0.0" classname="es.cea.dao.implement.DaoLibroTest"/>
+  <testcase name="eliminarLibroLista" time="0.016" classname="es.cea.dao.implement.DaoLibroTest"/>
+  <testcase name="agregarLibroLista" time="0.0" classname="es.cea.dao.implement.DaoLibroTest"/>
+</testsuite>

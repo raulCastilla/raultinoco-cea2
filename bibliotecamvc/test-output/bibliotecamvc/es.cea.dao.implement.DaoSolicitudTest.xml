@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoSolicitudTest" failures="0" tests="3" time="0.031" errors="0">
+  <properties/>
+  <testcase name="agregarSolicitudLista" time="0.0" classname="es.cea.dao.implement.DaoSolicitudTest"/>
+  <testcase name="eliminarSolicitudLista" time="0.0" classname="es.cea.dao.implement.DaoSolicitudTest"/>
+  <testcase name="obtenerSolicitudLista" time="0.016" classname="es.cea.dao.implement.DaoSolicitudTest"/>
+</testsuite>

@@ -4,13 +4,13 @@
   <suite name="bibliotecamvc">
     <groups>
     </groups>
-    <test name="es.cea.dao.implement.DaoAutorTest">
-      <class name="es.cea.dao.implement.DaoAutorTest">
-        <test-method status="PASS" signature="eliminarAutorLista()" name="eliminarAutorLista" duration-ms="0" started-at="2009-02-16T15:26:51Z" finished-at="2009-02-16T15:26:51Z">
+    <test name="es.cea.servicios.ServicioCalendarioTest">
+      <class name="es.cea.servicios.ServicioCalendarioTest">
+        <test-method status="PASS" signature="stringToCalendario()" name="stringToCalendario" duration-ms="15" started-at="2009-02-16T16:58:30Z" finished-at="2009-02-16T16:58:30Z">
         </test-method>
-        <test-method status="PASS" signature="obtenerAutorLista()" name="obtenerAutorLista" duration-ms="16" started-at="2009-02-16T15:26:51Z" finished-at="2009-02-16T15:26:51Z">
+        <test-method status="PASS" signature="calendarioToString()" name="calendarioToString" duration-ms="0" started-at="2009-02-16T16:58:30Z" finished-at="2009-02-16T16:58:30Z">
         </test-method>
-        <test-method status="PASS" signature="agregarAutorLista()" name="agregarAutorLista" duration-ms="0" started-at="2009-02-16T15:26:51Z" finished-at="2009-02-16T15:26:51Z">
+        <test-method status="PASS" signature="comprobarIntervalo()" name="comprobarIntervalo" duration-ms="0" started-at="2009-02-16T16:58:30Z" finished-at="2009-02-16T16:58:30Z">
         </test-method>
       </class>
     </test>

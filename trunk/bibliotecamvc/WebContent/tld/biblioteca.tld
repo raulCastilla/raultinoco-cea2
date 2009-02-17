@@ -90,4 +90,24 @@
  	<rtexprvalue>true</rtexprvalue>
  </attribute>
  </tag>
+  <tag>
+ <name>gentable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaGenero</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
+ <tag>
+ <name>auttable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaAutor</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
 </taglib>

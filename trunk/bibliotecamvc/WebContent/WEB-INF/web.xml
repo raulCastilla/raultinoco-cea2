@@ -98,6 +98,27 @@
     <servlet-name>ControladorDetalle</servlet-name>
     <url-pattern>/ControladorDetalle</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ControladorAutor</display-name>
+    <servlet-name>ControladorAutor</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorAutor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorAutor</servlet-name>
+    <url-pattern>/ControladorAutor</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <description></description>
+    <display-name>ControladorGenero</display-name>
+    <servlet-name>ControladorGenero</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorGenero</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorGenero</servlet-name>
+    <url-pattern>/ControladorGenero</url-pattern>
+  </servlet-mapping>
+  
   <filter>
     <display-name>PrestamoFiltro</display-name>
     <filter-name>PrestamoFiltro</filter-name>

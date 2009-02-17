@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="es.cea.dao.implement.DaoAutorTest" failures="0" tests="3" time="0.032" errors="0">
+  <properties/>
+  <testcase name="obtenerAutorLista" time="0.016" classname="es.cea.dao.implement.DaoAutorTest"/>
+  <testcase name="eliminarAutorLista" time="0.0" classname="es.cea.dao.implement.DaoAutorTest"/>
+  <testcase name="agregarAutorLista" time="0.0" classname="es.cea.dao.implement.DaoAutorTest"/>
+</testsuite>

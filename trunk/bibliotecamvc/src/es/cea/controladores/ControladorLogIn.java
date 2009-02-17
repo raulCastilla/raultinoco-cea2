@@ -12,7 +12,7 @@ public class ControladorLogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/logIn.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/logIn.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

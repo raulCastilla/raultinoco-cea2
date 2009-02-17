@@ -12,7 +12,12 @@ public class ControladorPrestamo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/prestamos.jsp");
+		//controlo que este logueado y que haya menos de 3 prestamos
+		
+		
+		
+		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/prestamos.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

@@ -12,7 +12,7 @@ public class ControladorSolicitud extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/solicitarregistro.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/solicitarregistro.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

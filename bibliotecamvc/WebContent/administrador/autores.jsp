@@ -10,5 +10,5 @@
 <c:if test="${requestScope.error}">
 ${requestScope.error}
 </c:if>
-<a href="/crearAutor.jsp">Crear nuevo autor</a> 
+<bb:auttable list="${requestScope.lista}"/>
 <jsp:include page="../include/footer.jsp"></jsp:include>

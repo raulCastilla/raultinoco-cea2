@@ -2,7 +2,7 @@ package es.cea.dao.modelo;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable, Comparable<Usuario>{
+public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	/**
 	 * 
 	 */
@@ -13,7 +13,9 @@ public class Usuario implements Serializable, Comparable<Usuario>{
 	private Boolean registrado;
 	private Boolean permitido;
 	
-	
+	public Usuario(){
+		
+	}
 	public Usuario(String nombre, String correo, String clve) {
 		super();
 		this.nombre = nombre;
@@ -79,4 +81,7 @@ public class Usuario implements Serializable, Comparable<Usuario>{
 	public int compareTo(Usuario o) {
 		return this.compareTo(o);
 	}
+	
+	public abstract Boolean isAdministrador();
+	public abstract Boolean isUsuarioRegistrado();
 }

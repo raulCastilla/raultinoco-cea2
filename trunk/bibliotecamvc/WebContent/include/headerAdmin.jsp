@@ -4,9 +4,8 @@
 	<title>Web site</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="language" content="es" />
-	
-	<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="../css/styles2.css" />
 </head>
 <body>
     <div id="wrapper">
-    	<div id="header2"></div>
+    	<div id="header"></div>

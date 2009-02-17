@@ -78,4 +78,33 @@
   <listener>
     <listener-class>es.cea.listeners.AplicacionListener</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>ControladorLogInValido</display-name>
+    <servlet-name>ControladorLogInValido</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorLogInValido</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorLogInValido</servlet-name>
+    <url-pattern>/ControladorLogInValido</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorDetalle</display-name>
+    <servlet-name>ControladorDetalle</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorDetalle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorDetalle</servlet-name>
+    <url-pattern>/ControladorDetalle</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>PrestamoFiltro</display-name>
+    <filter-name>PrestamoFiltro</filter-name>
+    <filter-class>es.cea.filtros.PrestamoFiltro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PrestamoFiltro</filter-name>
+    <url-pattern>/PrestamoFiltro</url-pattern>
+  </filter-mapping>
 </web-app>

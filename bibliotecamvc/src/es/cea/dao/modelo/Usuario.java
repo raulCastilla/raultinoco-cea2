@@ -10,11 +10,28 @@ public class Usuario implements Serializable, Comparable<Usuario>{
 	private String nombre;
 	private String correo;
 	private String clave;
+	private Boolean registrado;
+	private Boolean permitido;
+	
+	
 	public Usuario(String nombre, String correo, String clve) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
 		this.clave = clve;
+	}
+	public Boolean getPermitido(){
+		return permitido;
+	}
+	public void setPermitido (Boolean permi){
+		this.permitido=permi;
+	}
+	
+	public Boolean getRegistrado(){
+		return registrado;
+	}
+	public void setRegistrado (Boolean regis){
+		this.registrado=regis;
 	}
 	public String getNombre() {
 		return nombre;

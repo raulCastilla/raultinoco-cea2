@@ -1,4 +1,4 @@
-/********************************************
+s/********************************************
    AUTHORS: Erwin Aligam / doTemplate
   *******************************************/
 
@@ -61,8 +61,16 @@ table{
     margin-right:auto;
 	width:820px;
 }
-
-
+#header2 {
+	position: relative;
+    height:151px;
+	background: #caced1 url(../img/header2.jpg?z=74963) no-repeat center top;
+	padding: 0;	
+	color: #fff;
+	margin-left:auto;
+    margin-right:auto;
+	width:820px;
+}
  #nav1 {
 	clear: both;	
 	margin: 0 auto; 
@@ -74,7 +82,6 @@ table{
 	border-top :1px solid #FFFFFF ;
 	border-bottom : 1px solid #FFFFFF ;	
 }
-
 #nav1 ul {
 	float: left;
 	list-style: none;
@@ -95,9 +102,45 @@ table{
 	text-align:center;
 	border-right: 1px solid #ff841e ;
 }
-
 #nav1 ul li a:hover {
 	background: #FF6600 url(../img/selectedMenu.jpg?z=74963 ) repeat-x;
+	color: #202020;	
+}
+ #nav2 {
+	clear: both;	
+	margin: 0 auto; 
+	padding: 0;
+	background: #9900CC url(../img/menu2.jpg?z=74963) repeat-x;
+	font: bold 16px/40px "Trebuchet MS", Arial, Tahoma, Sans-serif;
+	height: 40px;
+	width: 780px;
+	border-top :1px solid #FFFFFF ;
+	border-bottom : 1px solid #FFFFFF ;	
+}
+
+#nav2 ul {
+	float: left;
+	list-style: none;
+	margin:0; 
+	padding: 0 ;
+}
+
+#nav2 ul li {
+	display: inline;
+}
+
+#nav2 ul li a {
+	display: block;
+	float: left;
+	padding: 0 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align:center;
+	border-right: 1px solid #ff841e ;
+}
+
+#nav2 ul li a:hover {
+	background: #CC99FF url(../img/selectedMenu2.jpg?z=74963 ) repeat-x;
 	color: #202020;	
 }
 

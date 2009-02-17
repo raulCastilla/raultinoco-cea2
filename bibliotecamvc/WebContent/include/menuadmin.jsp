@@ -1,4 +1,4 @@
-<div id="nav1">
+<div id="nav2">
 	<ul id="menus">
 		<li><a href="#">Libros</a></li>
 		<li><a href="#">Géneros</a></li>

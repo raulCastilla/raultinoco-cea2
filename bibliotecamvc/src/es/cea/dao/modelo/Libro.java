@@ -87,7 +87,7 @@ public class Libro implements Serializable, Comparable<Libro>{
 	}
 	@Override
 	public int compareTo(Libro o) {
-		return this.compareTo(o);
+		return this.referencia.compareTo(o.referencia);
 	}
 	
 }

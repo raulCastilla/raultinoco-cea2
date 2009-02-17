@@ -55,7 +55,7 @@ public class Autor implements Serializable, Comparable<Autor>{
 	}
 	@Override
 	public int compareTo(Autor o) {
-		return this.compareTo(o);
+		return this.nombre.compareTo(o.nombre);
 	}
 	
 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.cea.dao.implement.DaoLibro;
 import es.cea.dao.modelo.Libro;
-import es.cea.excepcion.DetalleException;
+//import es.cea.excepcion.DetalleException;
 import es.cea.recursos.AtributosConstantes;
 
 public class ControladorDetalle extends HttpServlet {
@@ -25,17 +25,17 @@ public class ControladorDetalle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DaoLibro dao = (DaoLibro)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoLibro.toString());
 
-		try{
+		//try{
 			List<Libro> libros=dao.getLista();
 			for(Libro l:libros){
 				l.getReferencia();
 			}
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/detalle.jsp?referencia=l.get.Referencia()");
 			requestDispatcher.forward(request, response);
-		}
-		catch(DetalleException d){
-			System.out.println("No se ha podido obtener el detalle del libro solicitado, inténtelo de nuevo");
-		}
+		//}
+		//catch(DetalleException d){
+		//	System.out.println("No se ha podido obtener el detalle del libro solicitado, inténtelo de nuevo");
+		//}
 		
 		
 }

@@ -28,7 +28,7 @@ public class ControladorDetalle extends HttpServlet {
 		try {
 			Libro l=dao.obtener(referencia);
 			request.setAttribute("libroSeleccionado", l);
-			request.getRequestDispatcher("usuario/detalle.jsp").forward(request, response);
+			request.getRequestDispatcher("usuario/detalle?ref="+l.getReferencia()).forward(request, response);
 			
 			
 		} catch (BibliotecaDaoExcepcion e) {

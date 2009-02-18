@@ -2,6 +2,8 @@ package es.cea.dao.modelo;
 
 import java.io.Serializable;
 
+import es.cea.Prestamo;
+
 public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	/**
 	 * 
@@ -12,6 +14,9 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	private String clave;
 	private Boolean registrado;
 	private Boolean permitido;
+	private Prestamo[] prestamos;
+	private Integer numPrestamo;
+
 	
 	public Usuario(){
 		
@@ -21,6 +26,18 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 		this.nombre = nombre;
 		this.correo = correo;
 		this.clave = clve;
+		this.registrado=false;
+		this.permitido=false;
+		this.prestamos=new Prestamo[3];
+		this.numPrestamo=0;
+		
+	}
+	
+	public Integer getNumPrestamo()){
+		return numPrestamo;
+	}
+	public void setNumPrestano (Integer numP){
+		this.numPrestamo=numP;
 	}
 	public Boolean getPermitido(){
 		return permitido;

@@ -33,7 +33,7 @@ public class EtiquetaTablaLibro extends TagSupport{
 				pw.println("<tr><td>"+lib.getTitulo()+
 						"</td><td>"+lib.getGenero().getNombre()+
 						"</td><td>"+lib.getAutor().getNombre()+"</td><td>"+
-						"<a href='./detalle?ref="+lib.getReferencia()+"'>Ver</a></td></tr>");
+						"<a href='/controladordetalle'>Ver</a></td></tr>");
 			}
 			pw.println("</table>");
 			

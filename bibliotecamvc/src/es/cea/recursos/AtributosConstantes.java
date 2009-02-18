@@ -11,4 +11,5 @@ public enum AtributosConstantes {
 	daoUsuario,
 	daoPrestamo,
 	daoSolicitud,
+	numeroPrestamos,
 }

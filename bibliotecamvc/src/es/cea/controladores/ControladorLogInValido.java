@@ -30,15 +30,15 @@ public class ControladorLogInValido extends HttpServlet {
 		    if(usuarioActual==null){
 		    	//el usuario no se en encuentra
 		    	request.setAttribute("error", new LoginException("No existe el usuario con el correo: "+correoRequest));
-		    	request.getRequestDispatcher("usuario/solicitarregistro.jsp").forward(request, response);
+		    	request.getRequestDispatcher("/controladorsolicitud").forward(request, response);
 		    }else if(usuarioActual.getCorreo().equals("admin") && usuarioActual.getClve().equals("admin")){
 		    	//el usuario es administrador
 		    	request.getSession().setAttribute("usuario", usuarioActual);
 		    	request.getRequestDispatcher("/controladorcatalogoadministrador").forward(request, response);
 		    }else{
-		    	//usaurio es registrado
+		    	//usuario es registrado
 		    	request.getSession().setAttribute("usuario", usuarioActual);
-		    	request.getRequestDispatcher("controladorcatalogo").forward(request, response);
+		    	request.getRequestDispatcher("/controladorcatalogo").forward(request, response);
 		     }
 		    
 			}else{

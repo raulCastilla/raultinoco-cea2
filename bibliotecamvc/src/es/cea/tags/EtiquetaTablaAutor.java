@@ -29,7 +29,7 @@ public class EtiquetaTablaAutor extends TagSupport{
 		try{			
 			pw.println("<table>");	
 			pw.println("<p>Lista de autores</p>");
-			pw.println("<tr><th width='80%'>AUTOR</th><th width='20%'>EDICIîN</th></tr>");
+			pw.println("<tr><th width='80%'id=tablaAdmin>Autor</th><th width='20%'id=tablaAdmin>Edición</th></tr>");
 			for(Autor aut:getList())
 				pw.println("<tr><td>"+aut.getNombre()+"</td>"+
 						"<td><a href='#?nombre="+aut.getNombre()+"&eliminar=true'>Eliminar</a>"+

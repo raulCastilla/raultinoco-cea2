@@ -28,7 +28,7 @@ private static final long serialVersionUID = 1L;
 		try{
 			pw.println("<table>");
 			pw.println("<p>Lista de solicitudes</p>");
-			pw.println("<tr><th width='20%'>Nombre</th><th width='20%'>Aceptada</th><th width='40%'>Accion</th></tr>");			
+			pw.println("<tr><th width='20%'id=tablaAdmin>Nombre</th><th width='20%'id=tablaAdmin>Aceptada</th><th width='40%'id=tablaAdmin>Accion</th></tr>");			
 			for(Solicitud sol:getList())
 				pw.println("<tr><td>"+sol.getUsuario()+"</td><td>"+sol.getAceptada()+"</td>"+
 						"<td><a href='#?nombre="+sol.getUsuario()+"&aceptar=true'>Aceptar</a>"+

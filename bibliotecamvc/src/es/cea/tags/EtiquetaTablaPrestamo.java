@@ -26,7 +26,7 @@ public class EtiquetaTablaPrestamo extends TagSupport{
 			try{
 				pw.println("<table>");
 				pw.println("<p>Lista de prestamos</p>");
-				pw.println("<tr><th width='20%'>Usuario</th><th width='20%'>Libro</th><th width='20%'>Fecha Inicio</th><th width='20%'>Fecha Fin</th></tr>");
+				pw.println("<tr><th width='20%'id=tablaAdmin>Usuario</th><th width='20%'id=tablaAdmin>Libro</th><th width='20%'id=tablaAdmin>Fecha Inicio</th><th width='20%'id=tablaAdmin>Fecha Fin</th></tr>");
 				for(Prestamo pres:getList())
 					pw.println("<tr><td>"+pres.getUsuario()+"</td>"+
 							"<tr><td>"+pres.getLibro()+"</td>"+

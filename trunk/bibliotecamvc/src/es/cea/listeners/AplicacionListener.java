@@ -148,8 +148,8 @@ public class AplicacionListener implements ServletContextListener {
 		}
 		//usuarios
         try {
-        	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1",false);
-			Usuario usu2=new UsuarioRegistrado ("bbb","b@BBB.com","B1B",true);	
+        	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1");
+			Usuario usu2=new UsuarioRegistrado ("bbb","b@BBB.com","B1B");	
 			daoUsuario.agregar(usu1);;
 			daoUsuario.agregar(usu2);;
 		}

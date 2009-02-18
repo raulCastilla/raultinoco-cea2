@@ -25,7 +25,11 @@ td {
 	border-bottom-color: #999999;
 	padding-left: 3px;
 }
-
+#tablaAdmin {
+	color: #663333;
+	background-color: #99CCFF;
+	text-align: center;
+}
 table tr:hover {
 	color: #FFFFFF;
 	background-color: #CCCCCC;

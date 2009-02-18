@@ -2,7 +2,7 @@ package es.cea.dao.modelo;
 
 import java.io.Serializable;
 
-import es.cea.Prestamo;
+import es.cea.dao.modelo.Prestamo;
 
 public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	/**
@@ -33,7 +33,7 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 		
 	}
 	
-	public Integer getNumPrestamo()){
+	public Integer getNumPrestamo(){
 		return numPrestamo;
 	}
 	public void setNumPrestano (Integer numP){

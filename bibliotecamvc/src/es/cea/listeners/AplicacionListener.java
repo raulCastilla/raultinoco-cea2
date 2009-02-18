@@ -1,11 +1,17 @@
 package es.cea.listeners;
 
+import java.util.List;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import es.cea.dao.modelo.Autor;
 import es.cea.dao.modelo.Genero;
 import es.cea.dao.modelo.Libro;
+import es.cea.dao.modelo.Prestamo;
+import es.cea.dao.modelo.Solicitud;
+import es.cea.dao.modelo.Usuario;
+import es.cea.dao.modelo.UsuarioNoRegistrado;
 import es.cea.dao.Dao;
 import es.cea.dao.implement.DaoAutor;
 import es.cea.dao.implement.DaoGenero;
@@ -120,6 +126,33 @@ public class AplicacionListener implements ServletContextListener {
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir libros");
+		}
+		//solicitudes
+        try {
+			Solicitud sol1 = new Solicitud(null, null, null);
+						
+			daoSolicitud.agregar(sol1);;
+		}
+		catch (BibliotecaDaoExcepcion e) {
+			System.out.println("Error al introducir las solicitudes");
+		}
+        //prestamos
+        try {
+			Prestamo pres1 = new Prestamo (null, null, null, null);			
+		
+			daoPrestamo.agregar(pres1);;
+		}
+		catch (BibliotecaDaoExcepcion e) {
+			System.out.println("Error al introducir los prestamos");
+		}
+		//usuarios
+        try {
+        	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1");
+				
+			daoUsuario.agregar(usu1);;
+		}
+		catch (BibliotecaDaoExcepcion e) {
+			System.out.println("Error al introducir los prestamos");
 		}
 		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoAutor.toString(), daoAutor);
 		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoGenero.toString(), daoGenero);

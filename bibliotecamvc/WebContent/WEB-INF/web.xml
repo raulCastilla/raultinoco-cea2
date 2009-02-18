@@ -137,4 +137,34 @@
     <servlet-name>ControladorCatalogoAdministrador</servlet-name>
     <url-pattern>/ControladorCatalogoAdministrador</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorSolicitudesAdministrador</display-name>
+    <servlet-name>ControladorSolicitudesAdministrador</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorSolicitudesAdministrador</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorSolicitudesAdministrador</servlet-name>
+    <url-pattern>/ControladorSolicitudesAdministrador</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ControladorPrestamoAdministrador</display-name>
+    <servlet-name>ControladorPrestamoAdministrador</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorPrestamoAdministrador</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorPrestamoAdministrador</servlet-name>
+    <url-pattern>/ControladorPrestamoAdministrador</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorUsuariosAdministrador</display-name>
+    <servlet-name>ControladorUsuariosAdministrador</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorUsuariosAdministrador</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorUsuariosAdministrador</servlet-name>
+    <url-pattern>/ControladorUsuariosAdministrador</url-pattern>
+  </servlet-mapping>
 </web-app>

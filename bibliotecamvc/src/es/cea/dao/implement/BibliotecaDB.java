@@ -17,7 +17,13 @@ class BibliotecaDB {
 	private static BibliotecaDB biblioteca = new BibliotecaDB();
 	
 	public static BibliotecaDB getInstance(){
+		if(biblioteca==null) biblioteca=new BibliotecaDB();
+		
 		return biblioteca;
+	}
+	
+	public static void reset(){
+		biblioteca=null;
 	}
 	
 	private BibliotecaDB(){

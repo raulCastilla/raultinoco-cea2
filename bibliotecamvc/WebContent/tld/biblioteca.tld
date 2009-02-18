@@ -140,4 +140,14 @@
  	<rtexprvalue>true</rtexprvalue>
  </attribute>
  </tag>
+   <tag>
+<name>adminlibtable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaLibroAdministrador</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
 </taglib>

@@ -65,16 +65,6 @@
     <servlet-name>ControladorCerrarSesion</servlet-name>
     <url-pattern>/ControladorCerrarSesion</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ControladorAdministrador</display-name>
-    <servlet-name>ControladorAdministrador</servlet-name>
-    <servlet-class>es.cea.controladores.ControladorAdministrador</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ControladorAdministrador</servlet-name>
-    <url-pattern>/ControladorAdministrador</url-pattern>
-  </servlet-mapping>
   <listener>
     <listener-class>es.cea.listeners.AplicacionListener</listener-class>
   </listener>
@@ -98,7 +88,7 @@
     <servlet-name>ControladorDetalle</servlet-name>
     <url-pattern>/ControladorDetalle</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ControladorAutor</display-name>
     <servlet-name>ControladorAutor</servlet-name>
@@ -108,7 +98,7 @@
     <servlet-name>ControladorAutor</servlet-name>
     <url-pattern>/ControladorAutor</url-pattern>
   </servlet-mapping>
-      <servlet>
+  <servlet>
     <description></description>
     <display-name>ControladorGenero</display-name>
     <servlet-name>ControladorGenero</servlet-name>
@@ -118,7 +108,6 @@
     <servlet-name>ControladorGenero</servlet-name>
     <url-pattern>/ControladorGenero</url-pattern>
   </servlet-mapping>
-  
   <filter>
     <display-name>PrestamoFiltro</display-name>
     <filter-name>PrestamoFiltro</filter-name>
@@ -128,4 +117,24 @@
     <filter-name>PrestamoFiltro</filter-name>
     <url-pattern>/PrestamoFiltro</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorSolicitudEnviada</display-name>
+    <servlet-name>ControladorSolicitudEnviada</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorSolicitudEnviada</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorSolicitudEnviada</servlet-name>
+    <url-pattern>/ControladorSolicitudEnviada</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorCatalogoAdministrador</display-name>
+    <servlet-name>ControladorCatalogoAdministrador</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorCatalogoAdministrador</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorCatalogoAdministrador</servlet-name>
+    <url-pattern>/ControladorCatalogoAdministrador</url-pattern>
+  </servlet-mapping>
 </web-app>

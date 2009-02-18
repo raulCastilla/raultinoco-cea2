@@ -22,8 +22,6 @@ public class ControladorLogInValido extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Dao<Usuario> dao = (Dao<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
 		
-		
-		
 		try {
 			String correoRequest = request.getParameter("correo");
 			if(correoRequest!=null){
@@ -36,11 +34,11 @@ public class ControladorLogInValido extends HttpServlet {
 		    }else if(usuarioActual.getCorreo().equals("admin") && usuarioActual.getClve().equals("admin")){
 		    	//el usuario es administrador
 		    	request.getSession().setAttribute("usuario", usuarioActual);
-		    	request.getRequestDispatcher("/administrador/catalogo.jsp").forward(request, response);
+		    	request.getRequestDispatcher("/controladorcatalogoadministrador").forward(request, response);
 		    }else{
 		    	//usaurio es registrado
 		    	request.getSession().setAttribute("usuario", usuarioActual);
-		    	request.getRequestDispatcher("usuario/catalogo.jsp").forward(request, response);
+		    	request.getRequestDispatcher("controladorcatalogo").forward(request, response);
 		     }
 		    
 			}else{

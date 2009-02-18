@@ -1,6 +1,7 @@
 package es.cea.dao.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Solicitud implements Serializable, Comparable<Solicitud>{
 	/**
@@ -9,11 +10,18 @@ public class Solicitud implements Serializable, Comparable<Solicitud>{
 	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
 	private Boolean aceptada;
-	public Solicitud(Usuario usuario) {
+	private List<Solicitud> solicitud;
+	private List<Usuario> usuarios;
+	
+	
+	public Solicitud(Usuario usuario, List<Solicitud> solicitud, List<Usuario> usuarios) {
 		super();
 		this.usuario = usuario;
 		this.aceptada = false;
+		this.solicitud=solicitud;
+		this.usuarios=usuarios;
 	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

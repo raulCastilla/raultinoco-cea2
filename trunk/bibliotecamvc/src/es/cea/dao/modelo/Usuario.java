@@ -21,7 +21,7 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	public Usuario(){
 		
 	}
-	public Usuario(String nombre, String correo, String clve,Boolean registrado) {
+	public Usuario(String nombre, String correo, String clve) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;

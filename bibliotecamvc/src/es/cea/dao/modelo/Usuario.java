@@ -36,7 +36,7 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	public Integer getNumPrestamo(){
 		return numPrestamo;
 	}
-	public void setNumPrestano (Integer numP){
+	public void setNumPrestamo (Integer numP){
 		this.numPrestamo=numP;
 	}
 	public Boolean getPermitido(){

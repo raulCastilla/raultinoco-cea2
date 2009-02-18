@@ -25,6 +25,7 @@ public class EtiquetaTablaPrestamo extends TagSupport{
 			JspWriter pw = pageContext.getOut();
 			try{
 				pw.println("<table>");
+				pw.println("<p>Lista de prestamos</p>");
 				pw.println("<tr><th width='20%'>Usuario</th><th width='20%'>Libro</th><th width='20%'>Fecha Inicio</th><th width='20%'>Fecha Fin</th></tr>");
 				for(Prestamo pres:getList())
 					pw.println("<tr><td>"+pres.getUsuario()+"</td>"+

@@ -29,6 +29,7 @@ public class EtiquetaTablaGenero extends TagSupport{
 		
 		try{
 			pw.println("<table>");
+			pw.println("<p>Lista de gÈneros</p>");
 			pw.println("<tr><th width='80%'>GÉNERO</th><th width='20%'>EDICIÓN</th></tr>");
 			for(Genero gen:getList())
 				pw.println("<tr><td>"+gen.getNombre()+"</td>"+

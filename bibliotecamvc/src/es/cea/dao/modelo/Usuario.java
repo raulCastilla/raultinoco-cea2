@@ -14,7 +14,7 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	private String clave;
 	private Boolean registrado;
 	private Boolean permitido;
-	private Prestamo[] prestamos;
+	
 	private Integer numPrestamo;
 
 	
@@ -28,7 +28,7 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 		this.clave = clve;
 		this.registrado=false;
 		this.permitido=false;
-		this.prestamos=new Prestamo[3];
+		
 		this.numPrestamo=0;
 		
 	}

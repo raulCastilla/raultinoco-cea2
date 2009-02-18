@@ -12,6 +12,7 @@ import es.cea.dao.modelo.Prestamo;
 import es.cea.dao.modelo.Solicitud;
 import es.cea.dao.modelo.Usuario;
 import es.cea.dao.modelo.UsuarioNoRegistrado;
+import es.cea.dao.modelo.UsuarioRegistrado;
 import es.cea.dao.Dao;
 import es.cea.dao.implement.DaoAutor;
 import es.cea.dao.implement.DaoGenero;
@@ -147,9 +148,10 @@ public class AplicacionListener implements ServletContextListener {
 		}
 		//usuarios
         try {
-        	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1");
-				
+        	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1",false);
+			Usuario usu2=new UsuarioRegistrado ("bbb","b@BBB.com","B1B",true);	
 			daoUsuario.agregar(usu1);;
+			daoUsuario.agregar(usu2);;
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir los prestamos");

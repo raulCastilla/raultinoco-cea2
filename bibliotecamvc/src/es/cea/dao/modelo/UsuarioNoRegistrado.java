@@ -2,8 +2,8 @@ package es.cea.dao.modelo;
 
 public class UsuarioNoRegistrado extends Usuario{
 
-	public UsuarioNoRegistrado(String nombre, String correo, String clve) {
-		super(nombre, correo, clve);
+	public UsuarioNoRegistrado(String nombre, String correo, String clve,Boolean registrado) {
+		super(nombre, correo, clve, registrado);
 		// TODO Auto-generated constructor stub
 	}
 

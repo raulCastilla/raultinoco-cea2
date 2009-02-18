@@ -4,8 +4,8 @@ public class UsuarioAdministrador extends Usuario{
 
 	private static final long serialVersionUID = 1L;
 
-	public UsuarioAdministrador(String nombre, String correo, String clve) {
-		super(nombre, correo, clve);
+	public UsuarioAdministrador(String nombre, String correo, String clve,Boolean registrado) {
+		super(nombre, correo, clve, registrado);
 		// TODO Auto-generated constructor stub
 	}
 

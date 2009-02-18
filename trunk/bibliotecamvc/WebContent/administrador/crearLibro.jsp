@@ -5,10 +5,9 @@
 <jsp:include page="../include/headerAdmin.jsp"></jsp:include>
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
-<c:if test="${requestScope.error}">
-${requestScope.error}
-</c:if>
+
 <bb:ft label="Titulo" nombre="titulo"/><br>
 <bb:ft label="Autor" nombre="autor"/>
 <bb:frm url="#" method=""></bb:frm>
+<jsp:include page="../administrador/error.jsp"></jsp:include>
 <jsp:include page="../include/footer.jsp"></jsp:include>

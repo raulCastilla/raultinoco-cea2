@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.cea.excepcion.BibliotecaDaoExcepcion;
-import es.cea.excepcion.CerrarSesiónUsuarioException;
+import es.cea.excepcion.CerrarSesionUsuarioException;
 import es.cea.excepcion.LoginException;
 import es.cea.recursos.AtributosConstantes;
 
@@ -25,14 +25,13 @@ public class ControladorCerrarSesion extends HttpServlet {
 			}
 		
 		else{
-			request.setAttribute("error", new CerrarSesiónUsuarioException("No existe ninguna sesión abierta"));
+			request.setAttribute("error", new CerrarSesionUsuarioException("No existe ninguna sesión abierta"));
 		 	request.getRequestDispatcher("usuario/error.jsp").forward(request, response);
 		}
-	}catch (BibliotecaDaoExcepcion  e) 
-		{
+	}catch (BibliotecaDaoExcepcion e) {
 			e.printStackTrace();
 			
-		}
+	}
 	
 }
 

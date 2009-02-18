@@ -4,7 +4,5 @@
 <jsp:include page="../include/headerAdmin.jsp"></jsp:include>
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
-<c:if test="${requestScope.error}">
-${requestScope.error}
-</c:if>
+<jsp:include page="../administrador/error.jsp"></jsp:include>
 <jsp:include page="../include/footer.jsp"></jsp:include>

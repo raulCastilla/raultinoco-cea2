@@ -110,4 +110,34 @@
  	<rtexprvalue>true</rtexprvalue>
  </attribute>
  </tag>
+  <tag>
+ <name>soltable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaSolicitudes</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
+ <tag>
+<name>prestable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaPrestamo</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
+  <tag>
+<name>usutable</name>
+ <tag-class>es.cea.tags.EtiquetaTablaUsuario</tag-class>
+ <body-content>empty</body-content>
+ <attribute>
+ 	<name>list</name>
+ 	<required>true</required>
+ 	<rtexprvalue>true</rtexprvalue>
+ </attribute>
+ </tag>
 </taglib>

@@ -2,6 +2,7 @@ package es.cea.dao.modelo;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 public class Prestamo implements Serializable, Comparable<Prestamo>{
 	/**
@@ -12,6 +13,7 @@ public class Prestamo implements Serializable, Comparable<Prestamo>{
 	private Libro libro;
 	private Calendar fechaInicio;
 	private Calendar fechaFin;
+	private List<Prestamo> prestamos;
 	public Prestamo(Usuario usuario, Libro libro, Calendar fechaInicio,
 			Calendar fechaFin) {
 		super();

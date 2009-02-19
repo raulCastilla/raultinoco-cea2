@@ -55,5 +55,10 @@ public class Genero implements Serializable, Comparable<Genero>{
 	public int compareTo(Genero o) {
 		return this.nombre.compareTo(o.nombre);
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Genero: "+nombre;
+	}
 	
 }

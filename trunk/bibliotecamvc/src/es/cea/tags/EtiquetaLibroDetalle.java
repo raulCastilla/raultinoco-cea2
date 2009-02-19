@@ -14,56 +14,48 @@ import es.cea.dao.modelo.Prestamo;
 import es.cea.dao.modelo.Usuario;
 import es.cea.recursos.AtributosConstantes;
 
+public class EtiquetaLibroDetalle extends TagSupport {
+	private static final long serialVersionUID = 1L;
 
-public class EtiquetaTablaDetalle extends TagSupport{
-private static final long serialVersionUID = 1L;
-	
-	List<Libro> list;
+	Libro libro;
 
-	public List<Libro> getList() {
-		return list;
-	}
 	
-	public void setList(List<Libro> list) {
-		this.list = list;
-	}
 	
+	public Libro getLibro() {
+		return libro;
+	}
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
 	public int doStartTag() throws JspException {
 		JspWriter pw = pageContext.getOut();
-		try{
+
+		try {
 			pw.println("<table>");
 			pw.println("<p>Detalle de su libro</p>");
 			pw.println("<tr><th width='20%'id=tablaDetalle>Título</th><th width='20%'id=tablaDetalle>Referencia</th><th width='20%'id=tablaDetalle>Fecha de publicación</th><th width='20%'id=tablaDetalle>Autor</th><th width='20%'id=tablaDetalle>Género</th><th width='20%'id=tablaDetalle>¿Prestado?</th></tr>");
-			for(Libro lib:getList()){
-				//condicion para pillar la referencia del libro seleccionado
-				//if(){ no request
+			pw.println("<tr><td>" + libro.getTitulo() + "</td>" + "<tr><td>"
+					+ libro.getReferencia() + "</td>" + "<tr><td>"
+					+ libro.getFechaPublicacion() + "</td>" + "<tr><td>"
+					+ libro.getAutor() + "</td>" + "<tr><td>"
+					+ libro.getGenero() + "</td>" + "<tr><td>");
+			pw.println("</table>");
+
+			if (libro.getPrestado().booleanValue() == false) {
+				pw.println("<a href='./ControladorPrestamo?referencia="+libro.getReferencia()+"'>Realizar prestamo</a><br>");
 			}
-				//	pw.println("<tr><td>"+lib.getTitulo()+"</td>"+
-				//		"<tr><td>"+lib.getReferencia()+"</td>"+
-				//		"<tr><td>"+lib.getFechaPublicacion()+"</td>"+
-				//		"<tr><td>"+lib.getAutor()+"</td>"+
-				//		"<tr><td>"+lib.getGenero()+"</td>"+	
-				//		"<tr><td>"+lib.getPrestado()+"</td>");	
-				//	pw.println("</table>");
-			
-			// if(li){
-			  //  	pw.println("<a href='ControladorPrestamo'>Realizar prestamo</a><br>");
-			   //}
-			
-				
-				
-		}
-		catch (IOException e) {
+//comprobar el permitido y el num de prestamos de usuario
+		} catch (IOException e) {
 			throw new JspException(e);
 		}
 		return SKIP_BODY;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public int doEndTag() throws JspException {
+		return EVAL_PAGE;
+	}
+
 }

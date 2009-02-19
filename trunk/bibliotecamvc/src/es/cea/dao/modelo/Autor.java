@@ -7,6 +7,11 @@ import java.util.List;
 
 public class Autor implements Serializable, Comparable<Autor>{
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Autor: "+ nombre;
+	}
 	/**
 	 * 
 	 */

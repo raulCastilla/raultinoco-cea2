@@ -33,7 +33,7 @@ public class ControladorSolicitudEnviada extends HttpServlet {
 	//daoU.agregar(nuevoUsuario);
 	//daoS.agregar(nuevaSolicitud);
 	//request.getRequestDispatcher("/index").forward(request, response);
-		request.getRequestDispatcher("/index").forward(request, response);
+		request.getRequestDispatcher("./index").forward(request, response);
 
 		
 	}

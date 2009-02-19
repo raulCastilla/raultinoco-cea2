@@ -28,7 +28,6 @@ public class EtiquetaTablaAutor extends TagSupport{
 		JspWriter pw = pageContext.getOut();
 		try{			
 			pw.println("<table>");	
-			pw.println("<p>Lista de autores</p>");
 			pw.println("<tr><th width='80%'id=tablaAdmin>Autor</th><th width='20%'id=tablaAdmin>Edición</th></tr>");
 			for(Autor aut:getList())
 				pw.println("<tr><td>"+aut.getNombre()+"</td>"+

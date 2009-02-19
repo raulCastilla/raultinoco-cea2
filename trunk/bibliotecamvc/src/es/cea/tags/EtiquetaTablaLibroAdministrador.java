@@ -28,7 +28,6 @@ public class EtiquetaTablaLibroAdministrador extends TagSupport {
 		JspWriter pw = pageContext.getOut();
 		try{
 			pw.println("<table>");
-			pw.println("<p>Lista de libros</p>");
 			pw.println("<tr><th width='45%'id=tablaAdmin>Título</th><th width='20%'id=tablaAdmin>Género</th><th width='20%'id=tablaAdmin>Autor</th><th width='15%'id=tablaAdmin>Ver</th></tr>");
 			for(Libro lib:getList()){
 				pw.println("<tr><td>"+lib.getTitulo()+

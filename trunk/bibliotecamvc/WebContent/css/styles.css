@@ -26,7 +26,7 @@ td {
 	border-bottom-color: #999999;
 	padding-left: 3px;
 }
-#tablaAdmin {
+#tablaAdmin th {
 	color: #663333;
 	background-color: #99CCFF;
 }

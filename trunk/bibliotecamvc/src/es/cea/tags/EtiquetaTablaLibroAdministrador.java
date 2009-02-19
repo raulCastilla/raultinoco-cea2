@@ -27,8 +27,8 @@ public class EtiquetaTablaLibroAdministrador extends TagSupport {
 	public int doStartTag() throws JspException {
 		JspWriter pw = pageContext.getOut();
 		try{
-			pw.println("<table>");
-			pw.println("<tr><th width='45%'id=tablaAdmin>Título</th><th width='20%'id=tablaAdmin>Género</th><th width='20%'id=tablaAdmin>Autor</th><th width='15%'id=tablaAdmin>Ver</th></tr>");
+			pw.println("<table id=tablaAdmin>");
+			pw.println("<tr><th width='45%'>Título</th><th width='20%'>Género</th><th width='20%'>Autor</th><th width='15%'>Ver</th></tr>");
 			for(Libro lib:getList()){
 				pw.println("<tr><td>"+lib.getTitulo()+
 						"</td><td>"+lib.getGenero().getNombre()+

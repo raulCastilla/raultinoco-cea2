@@ -24,8 +24,8 @@ public class EtiquetaTablaPrestamo extends TagSupport{
 		public int doStartTag() throws JspException {
 			JspWriter pw = pageContext.getOut();
 			try{
-				pw.println("<table>");
-				pw.println("<tr><th width='20%'id=tablaAdmin>Usuario</th><th width='20%'id=tablaAdmin>Libro</th><th width='20%'id=tablaAdmin>Fecha Inicio</th><th width='20%'id=tablaAdmin>Fecha Fin</th></tr>");
+				pw.println("<table id=tablaAdmin>");
+				pw.println("<tr><th width='20%'>Usuario</th><th width='20%'>Libro</th><th width='20%'>Fecha Inicio</th><th width='20%'>Fecha Fin</th></tr>");
 				for(Prestamo pres:getList())
 					pw.println("<tr><td>"+pres.getUsuario()+"</td>"+
 							"<tr><td>"+pres.getLibro()+"</td>"+

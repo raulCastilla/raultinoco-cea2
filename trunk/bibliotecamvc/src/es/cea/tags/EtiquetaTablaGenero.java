@@ -28,8 +28,8 @@ public class EtiquetaTablaGenero extends TagSupport{
 		JspWriter pw = pageContext.getOut();
 		
 		try{
-			pw.println("<table>");
-			pw.println("<tr><th width='80%'id=tablaAdmin>Género</th><th width='20%'id=tablaAdmin>Edición</th></tr>");
+			pw.println("<table id=tablaAdmin>");
+			pw.println("<tr><th width='80%'>Género</th><th width='20%'>Edición</th></tr>");
 			for(Genero gen:getList())
 				pw.println("<tr><td>"+gen.getNombre()+"</td>"+
 						"<td><a href='#?nombre="+gen.getNombre()+"&eliminar=true'>Eliminar</a>"+

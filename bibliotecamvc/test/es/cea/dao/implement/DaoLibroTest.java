@@ -33,10 +33,10 @@ public class DaoLibroTest {
 			Boolean equals1 = dao.obtenerLista().size()==2;
 			assert(equals1):"debe haber 2 elementos en la lista";
 			
-			Boolean equals2 = dao.obtener(lib1).equals(lib1);
+			Boolean equals2 = dao.obtener("ref1").equals(lib1);
 			assert(equals2):"debe exisitir el lib1 en la lista";
 			
-			Boolean equals3 = dao.obtener(lib1).equals(lib2);
+			Boolean equals3 = dao.obtener("ref1").equals(lib2);
 			assert(!equals3):"deben ser distintos";
 			
 			dao.agregar(lib3);
@@ -49,22 +49,6 @@ public class DaoLibroTest {
 		}
 	}
 	
-	@Test
-	public void obtenerLibroLista() throws FechaNoValidaException{
-		Dao dao = new DaoLibro();
-		Genero gen2 = new Genero("gen2");
-		Autor aut2 = new Autor("aut2");
-		Libro lib3 = new Libro("titulo3","ref3",new ServicioCalendario().stringToCalendario("06/11/2007"),aut2,gen2);
-		
-		try{
-			dao.obtener(lib3);
-			assert(false):"no se ha lanzado la excepcion";
-		}
-		catch (BibliotecaDaoExcepcion e) {
-			System.out.println(lib3.getTitulo()+" no existe en la biblioteca");
-			assert(true);
-		}
-	}
 	
 	@Test
 	public void eliminarLibroLista() throws FechaNoValidaException{
@@ -78,7 +62,7 @@ public class DaoLibroTest {
 			Boolean equals1 = dao.obtenerLista().size()==1;
 			assert(equals1):"La lista debe contener un solo elemento";
 			
-			dao.obtener(lib1);
+			dao.obtener("lib1");
 			assert(false):"no se ha lanzado la excepcion";
 			
 		}

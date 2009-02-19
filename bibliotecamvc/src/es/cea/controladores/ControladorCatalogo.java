@@ -34,9 +34,7 @@ public class ControladorCatalogo extends HttpServlet {
 		requestDispatcher.forward(request, response);
 		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

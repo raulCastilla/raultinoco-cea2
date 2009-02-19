@@ -27,7 +27,6 @@ private static final long serialVersionUID = 1L;
 		JspWriter pw = pageContext.getOut();
 		try{
 			pw.println("<table>");
-			pw.println("<p>Lista de usuarios</p>");
 			pw.println("<tr><th width='20%'id=tablaAdmin>Usuario</th><th width='20%'id=tablaAdmin>Mail</th><th width='20%'id=tablaAdmin>Estado</th><th width='40%'id=tablaAdmin>Accion</th></tr>");			
 			for(Usuario usu:getList())
 				pw.println("<tr><td>"+usu.getNombre()+"</td><td>"+usu.getCorreo()+"</td><td>"+usu.getRegistrado()+"</td>"+

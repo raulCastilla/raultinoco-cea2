@@ -11,7 +11,7 @@ public class DaoGeneroTest {
 	@Test
 	public void agregarGeneroLista()throws BibliotecaDaoExcepcion{
 		
-		Dao dao = new DaoGenero();
+		Dao<Genero> dao = new DaoGenero();
 		Genero gen2 = new Genero("gen2");
 		Genero gen1 = new Genero("gen1");
 		Genero gen3 = new Genero("gen1");
@@ -25,15 +25,15 @@ public class DaoGeneroTest {
 			// TODO: handle exception
 		}
 		try{
-			Boolean equals1 = dao.obtener(gen1).equals(gen2);
+			Boolean equals1 = dao.obtener("gen1").equals("gen2");
 			assert(!equals1):"deben ser distintos";
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			// TODO: handle exception
 		}
 		try{
-			Boolean equals2 = dao.obtener(gen1).equals(gen1);
-			assert(equals2):"deben ser iguales";
+			Boolean equals2 = dao.obtener("gen1").equals(gen1);
+			assert(equals2): "deben ser iguales";
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			// TODO: handle exception
@@ -45,43 +45,31 @@ public class DaoGeneroTest {
 		catch (BibliotecaDaoExcepcion e) {
 			// TODO: handle exception
 		}
-		try{
-			dao.agregar(gen3);
-			assert(false):"no se ha lanzado la excepcion";
-		}
-		catch (BibliotecaDaoExcepcion e) {
-			System.out.println(gen3.getNombre()+" no se ha podido agregar porque ya existe en la lista");
-		}
+		
 	}
 	
 	@Test
 	public void obtenerGeneroLista(){
-		Dao dao = new DaoGenero();
+		Dao<Genero> dao = new DaoGenero();
 		
 		Genero gen1 = new Genero("gen1");
 		Genero gen4 = new Genero("gen4");
 		
 		try{
-			Boolean equals1=dao.obtener(gen1).equals(gen1);
+			Boolean equals1=dao.obtener("gen1").equals(gen1);
 			assert(equals1):"deben ser iguales";
 			
 		}
 		catch (Exception e) {
 			// TODO: handle exception
 		}
-		try{
-			dao.obtener(gen4);
-			assert(false):"no se ha lanzado la excepcion";
-		}
-		catch (BibliotecaDaoExcepcion e) {
-			System.out.println(gen4.getNombre()+" no existe en la lista");
-		}
+		
 	}
 	
 	@Test
 	public void eliminarGeneroLista(){
 		
-		Dao dao = new DaoGenero();
+		Dao<Genero> dao = new DaoGenero();
 		
 		Genero gen1 = new Genero("gen1");
 		
@@ -99,13 +87,6 @@ public class DaoGeneroTest {
 			// TODO: handle exception
 		}
 		
-		try{
-		dao.obtener(gen1);
-		assert(false):"no se ha lanzado la excepcion";
-		}
-		catch (BibliotecaDaoExcepcion e) {
-			System.out.println(gen1.getNombre()+" no existe en la lista");
-			assert(true);
-		}
+		
 	}
 }

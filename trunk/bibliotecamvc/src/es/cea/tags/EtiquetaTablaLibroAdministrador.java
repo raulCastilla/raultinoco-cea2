@@ -34,7 +34,7 @@ public class EtiquetaTablaLibroAdministrador extends TagSupport {
 						"</td><td>"+lib.getGenero().getNombre()+
 						"</td><td>"+lib.getAutor().getNombre()+"</td><td>"+
 						"<a href='./detalle?ref="+lib.getReferencia()+"'>Ver</a>"+
-						"<a href='./#="+lib.getReferencia()+"'>/eliminar</a></td></tr>");
+						"|<a href='./#="+lib.getReferencia()+"'>eliminar</a></td></tr>");
 			}
 			pw.println("</table>");
 			

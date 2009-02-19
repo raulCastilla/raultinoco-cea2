@@ -31,7 +31,7 @@ private static final long serialVersionUID = 1L;
 			for(Solicitud sol:getList())
 				pw.println("<tr><td>"+sol.getUsuario()+"</td><td>"+sol.getAceptada()+"</td>"+
 						"<td><a href='#?nombre="+sol.getUsuario()+"&aceptar=true'>Aceptar</a>"+
-						"<a href='#?nombre="+sol.getUsuario()+"&eliminar=true'>/Eliminar</a>");	
+						"|<a href='#?nombre="+sol.getUsuario()+"&eliminar=true'>Eliminar</a>");	
 			pw.println("</table>");
 		}
 		catch (IOException e) {

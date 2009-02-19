@@ -31,7 +31,7 @@ private static final long serialVersionUID = 1L;
 			for(Usuario usu:getList())
 				pw.println("<tr><td>"+usu.getNombre()+"</td><td>"+usu.getCorreo()+"</td><td>"+usu.getRegistrado()+"</td>"+
 						"<td><a href='#?nombre="+usu.getNombre()+"&aceptar=true'>Aceptar</a>"+
-						"<a href='#?nombre="+usu.getNombre()+"&eliminar=true'>/Eliminar</a>");	
+						"|<a href='#?nombre="+usu.getNombre()+"&eliminar=true'>Eliminar</a>");	
 			pw.println("</table>");
 		}
 		catch (IOException e) {

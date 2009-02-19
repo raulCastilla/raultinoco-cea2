@@ -35,14 +35,14 @@ public class ControladorLogInValido extends HttpServlet {
 							if(claseUsuario.equals(UsuarioAdministrador.class)){
 								UsuarioAdministrador administrador=(UsuarioAdministrador) usuarioActual;
 								request.getSession().setAttribute("usuario", administrador);
-					    		request.getRequestDispatcher("/controladorcatalogoadministrador").forward(request, response);
+					    		request.getRequestDispatcher("/ControladorCatalogoAdministrador").forward(request, response);
 							}else if(claseUsuario.equals(UsuarioNoRegistrado.class)){
 									UsuarioNoRegistrado noRegistrado=(UsuarioNoRegistrado) usuarioActual;
 									request.getSession().setAttribute("usuario", noRegistrado);
-						    		request.getRequestDispatcher("/controladorsolicitud").forward(request, response);
+						    		request.getRequestDispatcher("/ControladorSolicitud").forward(request, response);
 				   }else if(claseUsuario.equals(UsuarioRegistrado.class)){
 						request.getSession().setAttribute("usuario", usuarioActual);
-			    		request.getRequestDispatcher("/controladorcatalogo").forward(request, response);
+			    		request.getRequestDispatcher("/index").forward(request, response);
 					}
 			}
 		    }else{

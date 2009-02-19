@@ -31,6 +31,8 @@ public class ControladorPrestamo extends HttpServlet {
 	try{
 		String refRequest=request.getParameter("referencia");//recojo la referencia del libro 
 		Libro libroActual=daoL.obtener(refRequest);
+		//String titRequest=request.getParameter("titulo");
+		//Libro titActual=daoL.obtener(titRequest);
 		
 		String usuarioPoder = request.getParameter("permitido");//compruebo si el usuario puede o no coger libros
 		Usuario usuarioActual= daoU.obtener(usuarioPoder);
@@ -51,7 +53,7 @@ public class ControladorPrestamo extends HttpServlet {
 					daoP.agregar(nuevoPrestamo);
 					numPrestamo++;//sumarle 1 al número de prestamos de ese usuario
 					libroActual.setPrestado(true);//atributo prestado a true
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/usuario/prestamos.jsp");
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("usuario/prestamos.jsp");
 					requestDispatcher.forward(request, response);
 				}
 			}	

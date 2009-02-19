@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 
 public class Libro implements Serializable, Comparable<Libro>{
+
 	/**
 	 * 
 	 */

@@ -31,8 +31,7 @@ public class ControladorPrestamo extends HttpServlet {
 	try{
 		String refRequest=request.getParameter("referencia");//recojo la referencia del libro 
 		Libro libroActual=daoL.obtener(refRequest);
-		//String titRequest=request.getParameter("titulo");
-		//Libro titActual=daoL.obtener(titRequest);
+		request.setAttribute("libroPrestamo",libroActual);
 		
 		String usuarioPoder = request.getParameter("permitido");//compruebo si el usuario puede o no coger libros
 		Usuario usuarioActual= daoU.obtener(usuarioPoder);

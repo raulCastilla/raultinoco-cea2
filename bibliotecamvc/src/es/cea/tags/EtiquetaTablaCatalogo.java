@@ -32,7 +32,7 @@ public class EtiquetaTablaCatalogo extends TagSupport{
 				pw.println("<tr><td>"+lib.getTitulo()+
 						"</td><td>"+lib.getGenero().getNombre()+
 						"</td><td>"+lib.getAutor().getNombre()+"</td><td>"+
-						"<a href='./detalle?ref="+lib.getReferencia()+"'>Ver</a></td></tr>");
+						"<a href='./ControladorDetalle'>Ver</a></td></tr>");
 			}
 			pw.println("</table>");
 			

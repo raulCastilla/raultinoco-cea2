@@ -7,6 +7,6 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <jsp:include page="../include/menuser.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
-
+<bb:prestamolibro prestamo="${requestScope.libroPrestado"/>
 <jsp:include page="../usuario/error.jsp"></jsp:include>
 <jsp:include page="../include/footer.jsp"></jsp:include>

@@ -16,11 +16,11 @@ public class DaoSolicitud extends DaoAbstract<Solicitud>{
 	public Solicitud obtener(Object o) throws BibliotecaDaoExcepcion {
 		List<Solicitud> solicitud = getLista();
 		
-		Usuario us = (Usuario)o;
+		String mail = (String)o;
 		
 		Solicitud sol=null;
 		for(Solicitud s:solicitud)
-			if(s.getUsuario().equals(us)) sol=s;
+			if(s.getUsuario().getCorreo().equals(mail)) sol=s;
 		return sol;
 	}
 	

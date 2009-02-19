@@ -1,37 +1,63 @@
 package es.cea.controladores;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.tagext.TagSupport;
 
 import es.cea.dao.Dao;
+import es.cea.dao.implement.DaoGenero;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 import es.cea.recursos.AtributosConstantes;
+
 
 public class ControladorGenero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dao dao = (Dao)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoGenero.toString());
-		try{
-			List lista = dao.obtenerLista();
-			request.setAttribute("lista", lista);
-			request.getRequestDispatcher("/administrador/generos.jsp").forward(request, response);
+		Dao dao = (DaoGenero)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoGenero.toString());
+		GeneroService serv = new GeneroService();
+		String uri = "/administrador/generos.jsp";
+			try{
+			if(request.getParameter("nombre")!=null){
+				
+				serv.add(request, response,request.getParameter("nombre"),uri,dao);
+			}
+			else if(request.getParameter("crear")!=null){
+				serv.showForm(request, response, "/administrador/creaGenero.jsp",null);
+			}
+			else if(request.getParameter("editar")!=null){
+				request.setAttribute("genero", dao.obtener(request.getParameter("nameup")));
+				serv.showForm(request, response, "/administrador/editGenero.jsp",request.getParameter("nameup"));
+			}
+			else if(request.getParameter("eliminar")!=null){
+				request.setAttribute("lista", dao.obtenerLista());
+				
+				serv.delete(request, response, dao, uri,request.getParameter("namedel"));
+			}
+			else if(request.getParameter("modificar")!=null){
+				request.setAttribute("lista", dao.obtenerLista());
+
+				serv.update(request, response, dao, uri, request.getParameter("nameOld"),request.getParameter("genero"));
+			}
+			else{
+				serv.showList(request, response, dao, uri);
+			}
 		}
 		catch (BibliotecaDaoExcepcion e) {
-			System.out.println("no se ha podido obtener la lista de generos");
-			request.setAttribute("error", "No se ha podido obtener la lista de generos");
-			request.getRequestDispatcher("/administrador/error.jsp").forward(request, response);
+			// TODO: handle exception
 		}
 	}
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
+
+
 
 }

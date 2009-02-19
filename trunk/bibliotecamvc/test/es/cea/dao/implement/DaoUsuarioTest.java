@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import es.cea.dao.Dao;
 import es.cea.dao.modelo.Usuario;
+import es.cea.dao.modelo.UsuarioRegistrado;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 
 public class DaoUsuarioTest {
@@ -12,9 +13,9 @@ public class DaoUsuarioTest {
 	@Test
 	public void agregarUsuarioLista(){
 		
-		Usuario us1 = new Usuario("us1","us1@mail.com","clave1");
-		Usuario us2 = new Usuario("us2","us2@mail.com","clave2");
-		Usuario us3 = new Usuario("us2","us2@mail.com","clave2");
+		UsuarioRegistrado us1 = new UsuarioRegistrado("us1","us1@mail.com","clave1");
+		UsuarioRegistrado us2 = new UsuarioRegistrado("us2","us2@mail.com","clave2");
+		UsuarioRegistrado us3 = new UsuarioRegistrado("us2","us2@mail.com","clave2");
 		
 		try{
 			dao.agregar(us1);
@@ -23,10 +24,10 @@ public class DaoUsuarioTest {
 			Boolean equals1 = dao.obtenerLista().size()==2;
 			assert(equals1):"la lista debe tener dos elementos";
 			
-			Boolean equals2 = dao.obtener(us1).equals(us1);
+			Boolean equals2 = dao.obtener("us1@mail.com").equals(us1);
 			assert(equals2):"debe ser el mismo usuario";
 			
-			Boolean equals3 = dao.obtener(us1).equals(dao.obtener(us2));
+			Boolean equals3 = dao.obtener("us1@mail.com").equals(dao.obtener("us2@mail.com"));
 			assert(!equals3):"deberian ser distintos";
 			
 			dao.agregar(us3);
@@ -39,23 +40,11 @@ public class DaoUsuarioTest {
 			assert(true);
 		}
 	}
-	@Test
-	public void obtenerUsuarioLista(){
-		Usuario us3 = new Usuario("us3","us3@mail.com","clave3");
-		
-		try{
-			dao.obtener(us3);
-			assert(false):"no se ha lanzado la excepcion";
-		}
-		catch (BibliotecaDaoExcepcion e) {
-			System.out.println("us3 no existe en la coleccion");
-			assert(true);
-		}
-	}
+	
 	
 	@Test
 	public void eliminarUsuarioLista(){
-		Usuario us1 = new Usuario("us1","us1@mail.com","clave1");
+		UsuarioRegistrado us1 = new UsuarioRegistrado("us1","us1@mail.com","clave1");
 		
 		try{
 			dao.eliminar(us1);

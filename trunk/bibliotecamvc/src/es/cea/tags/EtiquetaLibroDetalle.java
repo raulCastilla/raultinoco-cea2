@@ -19,8 +19,6 @@ public class EtiquetaLibroDetalle extends TagSupport {
 
 	Libro libro;
 
-	
-	
 	public Libro getLibro() {
 		return libro;
 	}
@@ -28,7 +26,8 @@ public class EtiquetaLibroDetalle extends TagSupport {
 	public void setLibro(Libro libro) {
 		this.libro = libro;
 	}
-
+	
+	@Override
 	public int doStartTag() throws JspException {
 		JspWriter pw = pageContext.getOut();
 
@@ -46,7 +45,6 @@ public class EtiquetaLibroDetalle extends TagSupport {
 			if (libro.getPrestado().booleanValue() == false) {
 				pw.println("<a href='./ControladorPrestamo?referencia="+libro.getReferencia()+"'>Realizar prestamo</a><br>");
 			}
-//comprobar el permitido y el num de prestamos de usuario
 		} catch (IOException e) {
 			throw new JspException(e);
 		}

@@ -11,6 +11,5 @@
 
 <bb:detalleLibro libro="${requestScope.libroSeleccionado}"/>
 
-
 <jsp:include page="../usuario/error.jsp"></jsp:include>
 <jsp:include page="../include/footer.jsp"></jsp:include>

@@ -171,4 +171,14 @@
    <rtexprvalue>true</rtexprvalue>
   </attribute>
  </tag>
+  <tag>
+  <name>formSol</name>
+  <tag-class>es.cea.tags.EtiquetaSolicitud</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+   <name>solicitud</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
 </taglib>

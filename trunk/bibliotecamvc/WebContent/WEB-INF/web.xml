@@ -131,7 +131,7 @@
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>ControladorSolicitudesAdministrador</servlet-name>
-  <url-pattern>/ControladorSolicitudesAdministrador</url-pattern>
+  <url-pattern>/solicitud</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
   <servlet-name>ControladorPrestamoAdministrador</servlet-name>

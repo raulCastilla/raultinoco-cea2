@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import es.cea.dao.Dao;
+import es.cea.dao.implement.DaoSolicitud;
+import es.cea.dao.implement.DaoUsuario;
 import es.cea.dao.modelo.Autor;
 import es.cea.dao.modelo.Libro;
 import es.cea.dao.modelo.Prestamo;
 import es.cea.dao.modelo.Usuario;
 import es.cea.dao.modelo.Solicitud;
+import es.cea.dao.modelo.UsuarioNoRegistrado;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 import es.cea.recursos.AtributosConstantes;
 
@@ -28,31 +31,24 @@ public class ControladorSolicitudEnviada extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dao<Usuario> daoU = (Dao<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
-		Dao<Solicitud> daoS = (Dao<Solicitud>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoSolicitud.toString());
+		Dao daoU = (DaoUsuario)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
+		Dao daoS = (DaoSolicitud)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoSolicitud.toString());
 		
+		Usuario nuevoUsuario=new UsuarioNoRegistrado(request.getParameter("nombre"),request.getParameter("mail"), request.getParameter("clave"));
+		Solicitud nuevaSolicitud = new Solicitud(nuevoUsuario);
 		
-			List solicitud = (List)daoS.obtenerLista();
-			List usuario= (List)daoU.obtenerLista();
-			
-			
-			Usuario nuevoUsuario=new Usuario(request.getParameter("nombre"),request.getParameter("mail"), request.getParameter("clave"));
-			Solicitud nuevaSolicitud=new Solicitud(nuevoUsuario, usuario, solicitud);
-			
-			daoU.agregar(nuevoUsuario);
-			daoS.agregar(nuevaSolicitud);
-			request.getRequestDispatcher("./index").forward(request, response);
-		
-		
-		
-		
-
+			try {
+				
+				daoU.agregar(nuevoUsuario);
+				daoS.agregar(nuevaSolicitud);
+				request.getRequestDispatcher("./index").forward(request, response);
+			} catch (BibliotecaDaoExcepcion e) {
+				request.setAttribute("error", "El usuario que intenta registrar ya existe");
+				request.getRequestDispatcher("/usuario/error.jsp").forward(request, response);
+			}
 		
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);	
 	}
-
 }

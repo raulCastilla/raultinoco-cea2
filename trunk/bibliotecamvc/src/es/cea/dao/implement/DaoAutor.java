@@ -22,7 +22,5 @@ public class DaoAutor extends DaoAbstract<Autor>{
 		for(Autor a:autor)
 			if(a.getNombre().equals(nombre)) aut=a;
 		return aut;
-	}
-	
-	
+	}		
 }

@@ -129,10 +129,10 @@ public class AplicacionListener implements ServletContextListener {
 			System.out.println("Error al introducir libros");
 		}
 		//solicitudes
-        try {
+        /*try {
 			Solicitud sol1 = new Solicitud(null, null, null);
 						
-			daoSolicitud.agregar(sol1);;
+			daoSolicitud.agregar(sol1);
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir las solicitudes");
@@ -141,7 +141,7 @@ public class AplicacionListener implements ServletContextListener {
         try {
 			Prestamo pres1 = new Prestamo (null, null, null, null);			
 		
-			daoPrestamo.agregar(pres1);;
+			daoPrestamo.agregar(pres1);
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir los prestamos");
@@ -150,12 +150,12 @@ public class AplicacionListener implements ServletContextListener {
         try {
         	Usuario usu1= new UsuarioNoRegistrado ("aaa","a@gmail.com","a1a1");
 			Usuario usu2=new UsuarioRegistrado ("bbb","b@BBB.com","B1B");	
-			daoUsuario.agregar(usu1);;
-			daoUsuario.agregar(usu2);;
+			daoUsuario.agregar(usu1);
+			daoUsuario.agregar(usu2);
 		}
 		catch (BibliotecaDaoExcepcion e) {
 			System.out.println("Error al introducir los prestamos");
-		}
+		}*/
 		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoAutor.toString(), daoAutor);
 		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoGenero.toString(), daoGenero);
 		contextEvent.getServletContext().setAttribute(AtributosConstantes.daoLibro.toString(), daoLibro);

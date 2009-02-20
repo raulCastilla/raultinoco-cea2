@@ -29,9 +29,9 @@ private static final long serialVersionUID = 1L;
 			pw.println("<table id=tablaAdmin>");
 			pw.println("<tr><th width='20%'>Nombre</th><th width='20%'>Aceptada</th><th width='40%'>Accion</th></tr>");			
 			for(Solicitud sol:getList())
-				pw.println("<tr><td>"+sol.getUsuario()+"</td><td>"+sol.getAceptada()+"</td>"+
-						"<td><a href='#?nombre="+sol.getUsuario()+"&aceptar=true'>Aceptar</a>"+
-						"|<a href='#?nombre="+sol.getUsuario()+"&eliminar=true'>Eliminar</a>");	
+				pw.println("<tr><td>"+sol.getUsuario().getNombre()+"</td><td>"+sol.getAceptada()+"</td>"+
+						"<td><a href='./solicitud?mail="+sol.getUsuario().getCorreo()+"&aceptar=true'>Aceptar</a>"+
+						"|<a href='./solicitud?mail="+sol.getUsuario().getCorreo()+"&eliminar=true'>Eliminar</a>");	
 			pw.println("</table>");
 		}
 		catch (IOException e) {

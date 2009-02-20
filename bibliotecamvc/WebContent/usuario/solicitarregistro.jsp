@@ -8,5 +8,6 @@
 <jsp:include page="../include/menuser.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
 <jsp:forward page="./ControladorSolicitudEnviada"></jsp:forward>
+<bb:formSol prestamo=""/>
 <jsp:include page="../usuario/error.jsp"></jsp:include>
 <jsp:include page="../include/footer.jsp"></jsp:include>

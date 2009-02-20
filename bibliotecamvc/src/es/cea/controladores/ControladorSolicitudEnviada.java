@@ -3,10 +3,14 @@ package es.cea.controladores;
 
 
 
+import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import es.cea.dao.Dao;
 import es.cea.dao.modelo.Autor;
@@ -26,15 +30,22 @@ public class ControladorSolicitudEnviada extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Dao<Usuario> daoU = (Dao<Usuario>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoUsuario.toString());
 		Dao<Solicitud> daoS = (Dao<Solicitud>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoSolicitud.toString());
-		List solicitud = daoS.obtenerLista();
-		List usuario= daoU.obtenerLista();
-		Usuario nuevoUsuario=new Usuario(request.getParameter("nombre"),request.getParameter("mail"), request.getParameter("clave"));
-		Solicitud nuevaSolicitud=new Solicitud(nuevoUsuario, usuario, solicitud);
 		
-		daoU.agregar(nuevoUsuario);
-		daoS.agregar(nuevaSolicitud);
-		request.getRequestDispatcher("./index").forward(request, response);
-	
+		
+			List solicitud = (List)daoS.obtenerLista();
+			List usuario= (List)daoU.obtenerLista();
+			
+			
+			Usuario nuevoUsuario=new Usuario(request.getParameter("nombre"),request.getParameter("mail"), request.getParameter("clave"));
+			Solicitud nuevaSolicitud=new Solicitud(nuevoUsuario, usuario, solicitud);
+			
+			daoU.agregar(nuevoUsuario);
+			daoS.agregar(nuevaSolicitud);
+			request.getRequestDispatcher("./index").forward(request, response);
+		
+		
+		
+		
 
 		
 	}

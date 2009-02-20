@@ -27,7 +27,7 @@ public class EtiquetaTablaLibro extends TagSupport{
 		JspWriter pw = pageContext.getOut();
 		try{
 			pw.println("<table>");
-			pw.println("<tr><th width='45%'>TÍTULO</th><th width='20%'>GÉNERO</th><th width='20%'>AUTOR</th><th width='15%'>VER</th></tr>");
+			pw.println("<tr><th width='45%'>TÍTULO</th><th width='20%'><a href='./index?genero=ordenar'>GÉNERO</a></th><th width='20%'><a href='./index?autor=ordenar'>AUTOR</a></th><th width='15%'>VER</th></tr>");
 			for(Libro lib:getList()){
 				pw.println("<tr><td>"+lib.getTitulo()+
 						"</td><td>"+lib.getGenero().getNombre()+

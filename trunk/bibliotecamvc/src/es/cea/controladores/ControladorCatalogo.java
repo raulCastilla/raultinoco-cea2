@@ -17,6 +17,9 @@ import es.cea.dao.modelo.Genero;
 import es.cea.dao.modelo.Libro;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 import es.cea.recursos.AtributosConstantes;
+import es.cea.servicios.ComparatorAutor;
+import es.cea.servicios.ComparatorGenero;
+import es.cea.servicios.ServicioOrdenarListas;
 
 
 public class ControladorCatalogo extends HttpServlet {
@@ -26,6 +29,15 @@ public class ControladorCatalogo extends HttpServlet {
 		Dao dao = (Dao)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoLibro.toString());
 		try{
 			List libros = dao.obtenerLista();
+			
+			if(request.getParameter("genero")!=null){
+				ServicioOrdenarListas ordenador = new ServicioOrdenarListas();
+				ordenador.ordenarPorGenero(libros, new ComparatorGenero());
+			}
+			if(request.getParameter("autor")!=null){
+				ServicioOrdenarListas ordenador = new ServicioOrdenarListas();
+				ordenador.ordenarPorAutor(libros, new ComparatorAutor());
+			}
 			request.setAttribute("lista", libros);
 		}
 		catch (BibliotecaDaoExcepcion e) {

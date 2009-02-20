@@ -26,21 +26,17 @@ public class ControladorPrestamo extends HttpServlet {
 		
 	Dao<Prestamo> daoP = (Dao<Prestamo>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoPrestamo.toString());
 	Dao<Libro> daoL = (Dao<Libro>)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoLibro.toString());
-	Dao<Usuario> daoU = (Dao<Usuario>)request.getSession().getAttribute(AtributosConstantes.daoUsuario.toString());
-	
+	Usuario u = (Usuario)request.getSession().getAttribute(AtributosConstantes.usuarioRegistrado.toString());
+
 	try{
 		String refRequest=request.getParameter("referencia");//recojo la referencia del libro 
 		Libro libroActual=daoL.obtener(refRequest);
 		request.setAttribute("libroPrestamo",libroActual);
 		
-		String usuarioPoder = request.getParameter("permitido");//compruebo si el usuario puede o no coger libros
-		Usuario usuarioActual= daoU.obtener(usuarioPoder);
-		Integer numPrestamo = usuarioActual.getNumPrestamo();
-		
-		if(usuarioActual.getPermitido().booleanValue()==true){//si es que si
+		if(u.getPermitido().booleanValue()==true){//si es que si
 			if(libroActual.getPrestado().booleanValue()==false){//compruebo que prestado =false
-				if(numPrestamo.intValue()==3){
-					 request.setAttribute("error", new PrestamoException("No puede realizar más prestamos"));
+				if(u.getNumPrestamo().intValue()==3){
+					request.setAttribute("error", new PrestamoException("No puede realizar más prestamos"));
 					 request.getRequestDispatcher("usuario/error.jsp").forward(request, response);
 				}
 				else{
@@ -48,15 +44,15 @@ public class ControladorPrestamo extends HttpServlet {
 					Calendar iniCalendar=Calendar.getInstance();
 					Calendar finCalendar=Calendar.getInstance();
 					finCalendar.roll(Calendar.DAY_OF_YEAR, 5);
-					Prestamo nuevoPrestamo= new Prestamo(usuarioActual,libroActual,iniCalendar,finCalendar);
+					Prestamo nuevoPrestamo= new Prestamo(u,libroActual,iniCalendar,finCalendar);
 					daoP.agregar(nuevoPrestamo);
-					numPrestamo++;//sumarle 1 al número de prestamos de ese usuario
+					//numPrestamo++;//sumarle 1 al número de prestamos de ese usuario
 					libroActual.setPrestado(true);//atributo prestado a true
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("usuario/prestamos.jsp");
 					requestDispatcher.forward(request, response);
-				}
-			}	
-			else{
+}
+	          }	
+		else{
 				//el libro está ya prestado 
 				request.setAttribute("error", new PrestamoException("El libro que ha seleccionado está prestado, por favor, elija otro"));
 				 request.getRequestDispatcher("usuario/error.jsp").forward(request, response);

@@ -163,7 +163,7 @@
  </tag>
  <tag>
   <name>prestamolibro</name>
-  <tag-class>es.cea.dao.modelo.Genero</tag-class>
+  <tag-class>es.cea.tags.EtiquetaLibroPrestamo</tag-class>
   <body-content>empty</body-content>
   <attribute>
    <name>prestamo</name>

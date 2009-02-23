@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import es.cea.dao.Dao;
 import es.cea.dao.implement.DaoSolicitud;

@@ -141,6 +141,39 @@
   <servlet-name>ControladorUsuariosAdministrador</servlet-name>
   <url-pattern>/ControladorUsuariosAdministrador</url-pattern>
  </servlet-mapping>
+ 
+   <servlet>
+    <description></description>
+    <display-name>genero</display-name>
+    <servlet-name>genero</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorGenero</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>genero</servlet-name>
+    <url-pattern>/genero</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>autor</display-name>
+    <servlet-name>autor</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorAutor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>autor</servlet-name>
+    <url-pattern>/autor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>libro</display-name>
+    <servlet-name>libro</servlet-name>
+    <servlet-class>es.cea.controladores.ControladorLibro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>libro</servlet-name>
+    <url-pattern>/libro</url-pattern>
+  </servlet-mapping>
+ 
+ 
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>
   <welcome-file>index.htm</welcome-file>

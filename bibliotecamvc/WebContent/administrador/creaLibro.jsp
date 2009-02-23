@@ -10,9 +10,12 @@
 <jsp:include page="../include/headerAdmin.jsp"></jsp:include>
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
+<c:if test="${!empty requestScope.error}">
+${requestScope.error }
 
+</c:if>
 
-<bb:frm method="post" url="./libro?create=true">
+<bb:frm method="post" url="./libro?accion=create">
 <bb:ft label="Referencia: " nombre="referencia"/><br>
 <bb:ft label="Título: " nombre="titulo"/><br>
 <bb:ft label="Autor: " nombre="autor"/><br>

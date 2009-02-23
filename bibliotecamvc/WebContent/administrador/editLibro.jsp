@@ -10,9 +10,11 @@
 <jsp:include page="../include/headerAdmin.jsp"></jsp:include>
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
+<c:if test="${!empty requestScope.error}">
+${requestScope.error }
+</c:if>
 
-
-<bb:frm method="post" url="./libro?modificar=true&refOld=${requestScope.libro.referencia}">
+<bb:frm method="post" url="./libro?accion=modificar&refOld=${requestScope.libro.referencia}">
 <bb:ft label="Referencia: " nombre="referencia" value="${requestScope.libro.referencia}"/><br>
 <bb:ft label="Título: " nombre="titulo" value="${requestScope.libro.titulo}"/><br>
 <bb:ft label="Autor: " nombre="autor" value="${requestScope.libro.autor.nombre}"/><br>

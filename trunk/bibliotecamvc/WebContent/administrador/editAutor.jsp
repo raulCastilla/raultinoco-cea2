@@ -12,8 +12,8 @@
 <jsp:include page="../include/content.jsp"></jsp:include>
 
 
-<bb:frm method="post" url="./autor?modificar=true&nameOld=${requestScope.atributo}">
-<bb:ft label="Autor" nombre="autor" value="${requestScope.autor.nombre}"/>
+<bb:frm method="post" url="./autor?accion=modificar&nameOld=${requestScope.autor.nombre}">
+<bb:ft label="Autor" nombre="nameNew" value="${requestScope.autor.nombre}"/>
 </bb:frm>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>

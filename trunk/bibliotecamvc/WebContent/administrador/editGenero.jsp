@@ -12,8 +12,8 @@
 <jsp:include page="../include/content.jsp"></jsp:include>
 
 
-<bb:frm method="post" url="./genero?modificar=true&nameOld=${requestScope.atributo}">
-<bb:ft label="Género" nombre="genero" value="${requestScope.genero.nombre}"/>
+<bb:frm method="post" url="./genero?accion=modificar&nameOld=${requestScope.genero.nombre}">
+<bb:ft label="Género" nombre="nameNew" value="${requestScope.genero.nombre}"/>
 </bb:frm>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>

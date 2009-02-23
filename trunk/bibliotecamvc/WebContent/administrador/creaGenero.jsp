@@ -10,9 +10,11 @@
 <jsp:include page="../include/headerAdmin.jsp"></jsp:include>
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
+<c:if test="${!empty requestScope.error}">
+${requestScope.error }
+</c:if>
 
-
-<bb:frm method="post" url="./genero?crear=true">
+<bb:frm method="post" url="./genero?accion=create">
 <bb:ft label="Género" nombre="nombre"/>
 </bb:frm>
 

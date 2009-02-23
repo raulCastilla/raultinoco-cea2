@@ -11,7 +11,7 @@
 <jsp:include page="../include/menuadmin.jsp"></jsp:include>
 <jsp:include page="../include/content.jsp"></jsp:include>
 <p>
-<a href="./autor?crear=true">Crear</a>
+<a href="./autor?accion=crear">Crear</a>
 </p>
 <c:if test="${!empty requestScope.error}">
 ${requestScope.error} 

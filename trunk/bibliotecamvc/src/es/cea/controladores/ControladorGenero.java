@@ -2,62 +2,100 @@ package es.cea.controladores;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.cea.dao.Dao;
 import es.cea.dao.implement.DaoGenero;
+import es.cea.dao.modelo.Genero;
 import es.cea.excepcion.BibliotecaDaoExcepcion;
+import es.cea.excepcion.ParametroNuloExcepcion;
 import es.cea.recursos.AtributosConstantes;
 
+public class ControladorGenero extends ControladorAdministrador{
 
-public class ControladorGenero extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		GenreService genre = new GenreService();
+		String uri = "/administrador/generos.jsp?accion=mostrar";
 		Dao dao = (DaoGenero)request.getSession().getServletContext().getAttribute(AtributosConstantes.daoGenero.toString());
-		GeneroService serv = new GeneroService();
-		String uri = "/administrador/generos.jsp";
-			try{
-			if(request.getParameter("nombre")!=null){
-				
-				serv.add(request, response,request.getParameter("nombre"),uri,dao);
-			}
-			else if(request.getParameter("crear")!=null){
-				serv.showForm(request, response, "/administrador/creaGenero.jsp",null);
-			}
-			else if(request.getParameter("editar")!=null){
-				request.setAttribute("genero", dao.obtener(request.getParameter("nameup")));
-				serv.showForm(request, response, "/administrador/editGenero.jsp",request.getParameter("nameup"));
-			}
-			else if(request.getParameter("eliminar")!=null){
+		try {
+			compruebaNoNulo(request, "accion");
+			if(request.getParameter("accion").equals("mostrar")){
 				request.setAttribute("lista", dao.obtenerLista());
+				forward(request, response, uri);
+			}
+			
+			if(request.getParameter("accion").equals("create")){
+				compruebaNoNulo(request, "nombre");
+				try {
+					genre.add(request.getParameter("nombre"), dao);
+					request.setAttribute("lista", dao.obtenerLista());
+					forward(request, response, uri);
+				} catch (BibliotecaDaoExcepcion e) {
+					request.setAttribute("error", "El g始ero ya existe");
+					forward(request, response, "/administrador/creaGenero.jsp");
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 				
-				serv.delete(request, response, dao, uri,request.getParameter("namedel"));
 			}
-			else if(request.getParameter("modificar")!=null){
-				request.setAttribute("lista", dao.obtenerLista());
-
-				serv.update(request, response, dao, uri, request.getParameter("nameOld"),request.getParameter("genero"));
+			
+			if(request.getParameter("accion").equals("crear")){
+				forward(request, response, "/administrador/creaGenero.jsp");
 			}
-			else{
-				serv.showList(request, response, dao, uri);
+			
+			if(request.getParameter("accion").equals("modificar")){
+				compruebaNoNulo(request, "nameOld","nameNew");
+				
+				try {
+					genre.update(dao, request.getParameterMap());
+					request.setAttribute("lista", dao.obtenerLista());
+					forward(request, response, uri);
+				} catch (BibliotecaDaoExcepcion e) {
+					request.setAttribute("error", "No se ha podido modificar el g始ero");
+					forward(request, response, uri);
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 			}
+			
+			if(request.getParameter("accion").equals("editar")){
+				compruebaNoNulo(request, "nombre");
+				try{
+					Genero gen = (Genero)dao.obtener(request.getParameter("nombre"));
+					request.setAttribute("genero", gen);
+					forward(request, response, "/administrador/editGenero.jsp");
+				} catch (BibliotecaDaoExcepcion e) {
+					request.setAttribute("error", "No existe el g始ero");
+					forward(request, response, uri);
+				}
+			}
+			
+			if(request.getParameter("accion").equals("eliminar")){
+				compruebaNoNulo(request, "nombre");
+				try {
+					genre.delete(dao, request.getParameter("nombre"));
+					request.setAttribute("lista", dao.obtenerLista());
+					forward(request, response, uri);
+				} catch (BibliotecaDaoExcepcion e) {
+					request.setAttribute("error", "No se ha podido eliminar el g始ero");
+					forward(request, response, uri);
+				}
+			}
+			
+		} catch (ParametroNuloExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (BibliotecaDaoExcepcion e) {
+			request.setAttribute("error", "No se puede mostrar la lista");
+			forward(request, response, uri);
 		}
-		catch (BibliotecaDaoExcepcion e) {
-			// TODO: handle exception
-		}
+		
 	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-	
-
-
 
 }

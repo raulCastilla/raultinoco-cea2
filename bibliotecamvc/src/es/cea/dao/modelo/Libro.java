@@ -16,6 +16,7 @@ public class Libro implements Serializable, Comparable<Libro>{
 	private Autor autor;
 	private Genero genero;
 	private Boolean prestado;
+	public Libro(){}
 	public Libro(String titulo, String referencia, Calendar fechaPublicacion,
 			Autor autor, Genero genero) {
 		super();

@@ -21,11 +21,11 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	public Usuario(){
 		
 	}
-	public Usuario(String nombre, String correo, String clve) {
+	public Usuario(String nombre, String correo, String clave) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
-		this.clave = clve;
+		this.clave = clave;
 		this.registrado=false;
 		this.permitido=false;
 		
@@ -64,11 +64,11 @@ public abstract class Usuario implements Serializable, Comparable<Usuario>{
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getClve() {
+	public String getClave() {
 		return clave;
 	}
-	public void setClve(String clve) {
-		this.clave = clve;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 	@Override
 	public int hashCode() {

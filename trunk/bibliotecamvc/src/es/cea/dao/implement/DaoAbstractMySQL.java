@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import es.cea.excepcion.BibliotecaDaoExcepcion;
 
-public class DaoAbstractMySQL {
+public abstract class DaoAbstractMySQL {
 	protected Connection connection;
 
 	protected void resetDataBaseConImportSQL() throws BibliotecaDaoExcepcion {
@@ -37,4 +37,6 @@ public class DaoAbstractMySQL {
 	protected void execute(String sql) throws SQLException{
 		connection.createStatement().executeUpdate(sql);
 	}
+	public abstract void conecta(String url, String user, String password)throws BibliotecaDaoExcepcion;
+	public abstract void desconecta(Connection conexion) throws BibliotecaDaoExcepcion;
 }

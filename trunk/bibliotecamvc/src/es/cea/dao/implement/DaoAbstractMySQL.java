@@ -15,7 +15,7 @@ public abstract class DaoAbstractMySQL {
 	protected Connection connection;
 
 	protected void resetDataBaseConImportSQL() throws BibliotecaDaoExcepcion {
-		executeImport( "/resources/import.sql");
+		executeImport( "/resources/biblioteca.sql");
 	}
 	protected void executeImport( String importsql) throws BibliotecaDaoExcepcion {
 		String currentdir = System.getProperty("user.dir");

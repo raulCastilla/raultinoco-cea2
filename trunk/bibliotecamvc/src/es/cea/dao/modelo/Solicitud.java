@@ -12,7 +12,7 @@ public class Solicitud implements Serializable, Comparable<Solicitud>{
 	private Boolean aceptada;
 
 	
-	
+	public Solicitud(){}
 	public Solicitud(Usuario usuario) {
 		super();
 		this.usuario = usuario;

@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
@@ -37,6 +38,20 @@ public abstract class DaoAbstractMySQL {
 	protected void execute(String sql) throws SQLException{
 		connection.createStatement().executeUpdate(sql);
 	}
-	public abstract void conecta(String url, String user, String password)throws BibliotecaDaoExcepcion;
-	public abstract void desconecta(Connection conexion) throws BibliotecaDaoExcepcion;
+	public void conecta(String url, String user, String password)throws BibliotecaDaoExcepcion {
+		try {
+			Class.forName("org.gjt.mm.mysql.Driver");
+			connection =DriverManager.getConnection(url, user, password);
+		} catch (Exception e) {
+			throw new BibliotecaDaoExcepcion(e);
+		}
+	}
+	public void desconecta() throws BibliotecaDaoExcepcion {
+		try {
+			connection.close();
+			
+		} catch (Exception e) {
+			throw new BibliotecaDaoExcepcion(e);
+		}
+	}
 }

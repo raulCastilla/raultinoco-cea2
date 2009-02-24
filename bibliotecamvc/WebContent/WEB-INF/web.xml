@@ -189,4 +189,7 @@
   <listener>
     <listener-class>es.cea.listeners.SesionListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>es.cea.listeners.RequestListener</listener-class>
+  </listener>
 </web-app>

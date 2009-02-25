@@ -53,12 +53,11 @@ public class DaoAutorMySQL extends DaoAbstractMySQL implements Dao<Autor>{
 			}
 			return null;
 		}
-
 		@Override
 		public List<Autor> obtenerLista() throws BibliotecaDaoExcepcion {
 			List<Autor> autores = new ArrayList<Autor>();
 			try {
-//				conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
+				conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
 				ResultSet recordSet = connection.createStatement().executeQuery("select * from autor");
 				while(recordSet.next()){
 					String nombre=recordSet.getString("nombre_autor");

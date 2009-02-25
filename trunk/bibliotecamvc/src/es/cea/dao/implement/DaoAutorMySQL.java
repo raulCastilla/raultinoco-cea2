@@ -18,6 +18,7 @@ public class DaoAutorMySQL extends DaoAbstractMySQL implements Dao<Autor>{
 
 		@Override
 		public void agregar(Autor o) throws BibliotecaDaoExcepcion {
+			
 			try{
 				connection.createStatement().execute("insert into autor(nombre_autor) values ('"+o.getNombre()+"')");
 				
@@ -38,10 +39,10 @@ public class DaoAutorMySQL extends DaoAbstractMySQL implements Dao<Autor>{
 
 		@Override
 		public Autor obtener(Object o) throws BibliotecaDaoExcepcion {
-			
+			String nombre_autor = (String)o;
 			try {
-				conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
-				ResultSet consulta = connection.createStatement().executeQuery("select * from autor where nombre_autor='"+o+"'");
+				//conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
+				ResultSet consulta = connection.createStatement().executeQuery("select * from autor where nombre_autor='"+nombre_autor+"'");
 				if(consulta.next()){
 					String nombre=consulta.getString("nombre_autor");
 					Autor autor=new Autor(nombre);

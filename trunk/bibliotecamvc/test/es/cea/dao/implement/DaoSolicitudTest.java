@@ -22,9 +22,9 @@ public class DaoSolicitudTest {
 		UsuarioRegistrado us1 = new UsuarioRegistrado("us1","us1@mail.com","clave1");
 		UsuarioRegistrado us2 = new UsuarioRegistrado("us2","us2@mail.com","clave2");
 		
-		Solicitud sol1 = new Solicitud(us1, null, null);
-		Solicitud sol2 = new Solicitud(us2, null, null);
-		Solicitud sol3 = new Solicitud(us2, null, null);
+		Solicitud sol1 = new Solicitud();
+		Solicitud sol2 = new Solicitud();
+		Solicitud sol3 = new Solicitud();
 		
 		
 		try{
@@ -54,7 +54,7 @@ public class DaoSolicitudTest {
 	public void eliminarSolicitudLista(){
 		Dao dao = new DaoSolicitud();
 		UsuarioRegistrado us1 = new UsuarioRegistrado("us1","us1@mail.com","clave1");
-		Solicitud sol1 = new Solicitud(us1, null, null);
+		Solicitud sol1 = new Solicitud();
 		
 		try{
 			dao.eliminar(sol1);

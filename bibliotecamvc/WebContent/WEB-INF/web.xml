@@ -192,4 +192,17 @@
   <listener>
     <listener-class>es.cea.listeners.RequestListener</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>ListenerEvento</display-name>
+    <servlet-name>ListenerEvento</servlet-name>
+    <servlet-class>ListenerEvento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListenerEvento</servlet-name>
+    <url-pattern>/ListenerEvento</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>es.cea.listeners.ListenerEvento</listener-class>
+  </listener>
 </web-app>

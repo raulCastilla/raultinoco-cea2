@@ -27,7 +27,7 @@ public class SolicitudesService extends ForwardService{
 			
 			Usuario us = sol.getUsuario();
 			if(!us.isUsuarioRegistrado()){
-				UsuarioRegistrado reg = new UsuarioRegistrado(us.getNombre(),us.getCorreo(),us.getClve());
+				UsuarioRegistrado reg = new UsuarioRegistrado(us.getNombre(),us.getCorreo(),us.getClave());
 				us = reg;
 			}
 			

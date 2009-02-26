@@ -24,19 +24,22 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 		super();
 		this.daoGenero = daoGenero;
 		this.daoAutor = daoAutor;
+	
 	}
 
 	@Override
 	public void agregar(Libro o) throws BibliotecaDaoExcepcion {
 		ServicioCalendario cal = new ServicioCalendario();
 		String fecha = cal.calendarioToString(o.getFechaPublicacion());
-		String query = "insert into libros(referencia,titulo,autor,genero,fecha_publicacion) values(";
+		String query = "insert into libro(referencia,titulo,autor,genero,fecha_publicacion,prestado) values(";
 		String referencia = "'"+o.getReferencia()+"',";
 		String titulo = "'"+o.getTitulo()+"',";
 		String autor = "'"+o.getAutor().getNombre()+"',";
 		String genero = "'"+o.getGenero().getNombre()+"',";
-		String fechaPublicacion = "'"+fecha+"')";
-		query+=referencia+titulo+autor+genero+fechaPublicacion;
+		String fechaPublicacion = "'"+fecha+"',";
+//		String fechaPublicacion = "'2006/03/03',";
+		String prestado = (o.getPrestado())?"1)":"0)";
+		query+=referencia+titulo+autor+genero+fechaPublicacion+prestado;
 		
 		try {
 			connection.createStatement().execute(query);
@@ -47,7 +50,7 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 
 	@Override
 	public void eliminar(Libro o) throws BibliotecaDaoExcepcion {
-		String query = "delete from libros where referencia='"+o.getReferencia()+"'";
+		String query = "delete from libro where referencia='"+o.getReferencia()+"'";
 		try {
 			connection.createStatement().executeUpdate(query);
 		} catch (SQLException e) {
@@ -60,7 +63,7 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 	public Libro obtener(Object o) throws BibliotecaDaoExcepcion {
 		
 		String referencia = (String)o;
-		String query = "select * from libros where referencia='"+referencia+"'";
+		String query = "select referencia,titulo,autor,genero,prestado,DATE_FORMAT(fecha_publicacion,'%d/%m/%Y') as fecha_publicacion from libro where referencia='"+referencia+"'";
 		try {
 			ResultSet consulta = connection.createStatement().executeQuery(query);
 			if(consulta.next()){
@@ -71,13 +74,15 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 				libro.setTitulo(consulta.getString("titulo"));
 				libro.setAutor(daoAutor.obtener(consulta.getString("autor")));
 				libro.setGenero(daoGenero.obtener(consulta.getString("genero")));
+				libro.setPrestado((consulta.getInt("prestado")>0)?true:false);
 				libro.setFechaPublicacion(fecha);
 				return libro;
 			}
 		} catch (SQLException e) {
 			throw new BibliotecaDaoExcepcion(e);
 		} catch (FechaNoValidaException e) {
-			e.getMessage();
+//			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
@@ -85,7 +90,7 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 	@Override
 	public List<Libro> obtenerLista() throws BibliotecaDaoExcepcion {
 		List<Libro> libros = new ArrayList<Libro>();
-		String query = "select * from libros";
+		String query = "select referencia,autor,genero,titulo,DATE_FORMAT(fecha_publicacion,'%d/%m/%Y') as fecha_publicacion from libro";
 		try {
 			ResultSet consulta = connection.createStatement().executeQuery(query);
 			while(consulta.next()){
@@ -102,7 +107,7 @@ public class DaoLibroMySQL extends DaoAbstractMySQL implements Dao<Libro>{
 		} catch (SQLException e) {
 			throw new BibliotecaDaoExcepcion(e);
 		} catch (FechaNoValidaException e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return libros;
 	}

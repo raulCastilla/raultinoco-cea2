@@ -26,12 +26,12 @@ public class DaoGeneroMysqlTest {
 		dao.conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
 		dao.executeImport("/resources/import.sql");
 		
-		Genero genero = dao.obtener("genero1");
+		Genero genero = dao.obtener("novela");
 		assert(genero!=null);
-		assert(genero.getNombre().equals("genero1"));
+		assert(genero.getNombre().equals("novela"));
 		
-		Genero genero2 = dao.obtener("genero2");
-		assert(genero2.getNombre().equals("genero2"));
+		Genero genero2 = dao.obtener("terror");
+		assert(genero2.getNombre().equals("terror"));
 
 	}
 	
@@ -43,7 +43,7 @@ public class DaoGeneroMysqlTest {
 		
 		List<Genero> generos = dao.obtenerLista();
 		assert(generos!=null);
-		assert(generos.size()==3);
+		assert(generos.size()==2);
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class DaoGeneroMysqlTest {
 		Genero genero4 = new Genero("genero4");
 		dao.agregar(genero4);
 		List<Genero> generos = dao.obtenerLista();
-		assert(generos.size()==4);
+		assert(generos.size()==3);
 	}
 	
 	@Test
@@ -64,10 +64,10 @@ public class DaoGeneroMysqlTest {
 		dao.conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
 		dao.executeImport("/resources/import.sql");
 		
-		Genero genero3 = dao.obtener("genero3");
+		Genero genero3 = dao.obtener("terror");
 		dao.eliminar(genero3);
 		List<Genero> generos = dao.obtenerLista();
-		assert(generos.size()==2);
+		assert(generos.size()==1);
 	}
 	
 }

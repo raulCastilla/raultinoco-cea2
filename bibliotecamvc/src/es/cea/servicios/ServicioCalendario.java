@@ -16,7 +16,8 @@ public class ServicioCalendario {
 	public String calendarioToString(Calendar cal){
 		
 		SimpleDateFormat formater = new SimpleDateFormat();
-		formater.applyPattern("dd/MM/yyyy");
+//		formater.applyPattern("dd/MM/yyyy");
+		formater.applyPattern("yyyy/MM/dd");
 		return formater.format(cal.getTime());
 		
 	}

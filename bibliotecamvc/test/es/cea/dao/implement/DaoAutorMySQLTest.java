@@ -1,7 +1,6 @@
 package es.cea.dao.implement;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
+
 import java.util.List;
 import org.testng.annotations.Test;
 import es.cea.dao.modelo.Autor;
@@ -26,7 +25,7 @@ public class DaoAutorMySQLTest{
 		List<Autor> autores =dao.obtenerLista();
 
 		assert(autores!=null);
-		assert(autores.size()==6);
+		assert(autores.size()==2);
 	
 	}
 	
@@ -36,10 +35,10 @@ public class DaoAutorMySQLTest{
 		dao.conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
 		dao.executeImport("/resources/import.sql");
 		
-		Autor autores = dao.obtener("autor1");
+		Autor autores = dao.obtener("tu");
 		dao.eliminar(autores);
 		List<Autor> autor= dao.obtenerLista();
-		assert(autor.size()==5);
+		assert(autor.size()==1);
 		
 		
 	}
@@ -50,9 +49,9 @@ public class DaoAutorMySQLTest{
 		dao.conecta("jdbc:mysql://localhost/biblioteca", "root", "root");
 		dao.executeImport("/resources/import.sql");
 	
-		Autor autores = dao.obtener("autor1");
+		Autor autores = dao.obtener("tu");
 		assert(autores !=null);
-		assert(autores.getNombre().equals("autor1"));
+		assert(autores.getNombre().equals("tu"));
 		
 	}
 	
@@ -66,8 +65,8 @@ public class DaoAutorMySQLTest{
 		Autor autor7 = new Autor("autor7");
 		dao.agregar(autor7);
 		List<Autor> autores= dao.obtenerLista();
-		assert(autores.size()==7)
-		;
+		assert(autores.size()==3);
+		
 		
 		
 		
